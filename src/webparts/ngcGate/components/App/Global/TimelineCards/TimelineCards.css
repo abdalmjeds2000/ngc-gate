@@ -1,0 +1,92 @@
+
+/* start custom antd timeline */
+.custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-label {
+  width: calc(15% - 12px) !important;
+}
+.custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-head,
+.custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline.ant-timeline-label,
+.custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-tail {
+  left: 15% !important;
+}
+.custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-left .ant-timeline-item-content {
+  left: calc(15% - 4px) !important;
+  width: calc(85% - 12px) !important;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-label {
+    width: calc(100% - 12px) !important;
+    text-align: left !important;
+    /* left: calc(0% + 4px) !important; */
+    margin-left: 24px !important;
+  }
+  .custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-head,
+  .custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline.ant-timeline-label,
+  .custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-tail {
+    left: 10px !important;
+  }
+  .custom-antd-timeline-cards.ant-timeline.ant-timeline-label .ant-timeline-item-left .ant-timeline-item-content {
+    left: calc(0% - 4px) !important;
+    width: calc(100% - 12px) !important;
+    padding-top: 44px !important;
+  }
+}
+
+/* finish custom antd timeline */
+.custom-antd-timeline-cards .card-container {
+  padding: 20px;
+  border-radius: 5px 15px 15px 15px;
+  background-color: #fafafa;
+  border: 1px solid #e2e2e2;
+  transition: border-width 0.3s ease-in-out;
+}
+.custom-antd-timeline-cards .card-container.pending {
+  border-left-width: 10px;
+  border-left-color: #ffdbaa;
+}
+.custom-antd-timeline-cards .card-container.closed {
+  border-left-width: 10px;
+  border-left-color: #b9e0f9;
+}
+.custom-antd-timeline-cards .card-container:hover {
+  border-left-width: 15px;
+}
+.custom-antd-timeline-cards .card-container .card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+.custom-antd-timeline-cards .label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-antd-timeline-cards .label-title {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  line-height: 1.2;
+}
+.custom-antd-timeline-cards .label-desc {
+  display: block;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 767px) {
+  .custom-antd-timeline-cards .card-container {
+    padding: 10px;
+  }
+  .custom-antd-timeline-cards .card-container .card-title {
+    font-size: 0.9rem;
+  }
+  .custom-antd-timeline-cards .label-title {
+    font-size: 0.9rem;
+    margin-right: 10px;
+  }
+  .custom-antd-timeline-cards .label-desc {
+    font-size: 0.8rem;
+  }
+}

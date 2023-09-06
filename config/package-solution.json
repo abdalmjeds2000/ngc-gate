@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "ngc-gate-client-side-solution",
+    "id": "b603b849-eec5-4f36-a359-5505b7cdea9d",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.16.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "ngc-gate description"
+      },
+      "longDescription": {
+        "default": "ngc-gate description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "ngc-gate Feature",
+        "description": "The feature that activates elements of the ngc-gate solution.",
+        "id": "621e5b0c-a1bc-4089-aaf3-e1d773fc864f",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/ngc-gate.sppkg"
+  }
+}

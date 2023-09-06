@@ -1,0 +1,77 @@
+#stats-card {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom-width: 6px;
+  border-bottom-style: solid;
+  box-shadow: 0 0.3rem 1rem 0 rgba(0, 102, 255, 0.09);
+}
+#stats-card:hover {
+  top: -2px;
+  box-shadow: 0 0.3rem 1rem 0 rgba(0, 102, 255, 0.13);
+}
+#stats-card .stats-label {
+  font-size: 1.2rem;
+  margin: 0.7rem 0;
+  color: #2a2a2a;
+}
+#stats-card .stats-number {
+  display: block;
+  width: 100%;
+  padding: 18px 0;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #2a2a2a !important;
+  background-color: #00000007;
+}
+
+
+#stats-card .stats-numbers {
+  display: flex;
+  gap: 7px;
+  background-color: rgba(0,0,0,.027450980392156862);
+  padding: 9px 0;
+}
+#stats-card .stats-numbers .stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+#stats-card .stats-numbers .stats-item:not(:last-child) {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #00000007;
+}
+
+#stats-card .stats-numbers .stats-item .item-label {
+  font-size: 0.7rem;
+}
+#stats-card .stats-numbers .stats-item .item-value {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+
+
+
+#stats-card .stats-perc {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c6c6c;
+}
+#stats-card .stats-perc.up {
+  color: #00c853;
+}
+#stats-card .stats-perc.down {
+  color: #ff1744;
+}

@@ -1,0 +1,52 @@
+.user-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 999px;
+  border: 2px solid #e7f0fe;
+  color: #3a9bcc;
+  border-spacing: 3px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  padding: 2px;
+  transition: all 0.3s ease-in-out;
+  min-width: 30px;
+}
+.user-label:hover {
+  background-color: #f3f7ff;
+}
+.user-label.active {
+  border-color: #3a9bcc;
+  background-color: #f3f7ff;
+}
+.user-label .user-label__image {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.user-label .user-label__name {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  /* ellipsis */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 5rem;
+  user-select: none;
+}
+
+@media screen and (max-width: 1600px) {
+  .user-label {
+    font-size: 1rem;
+  }
+  .user-label .user-label__name {
+    display: none;
+  }
+  
+}

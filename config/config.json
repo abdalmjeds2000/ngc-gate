@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "ngc-gate-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/ngcGate/NgcGateWebPart.js",
+          "manifest": "./src/webparts/ngcGate/NgcGateWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "NgcGateWebPartStrings": "lib/webparts/ngcGate/loc/{locale}.js"
+  }
+}

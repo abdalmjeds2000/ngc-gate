@@ -1,0 +1,145 @@
+
+/* Hide Sharepoint elements */
+#sp-appBar, #SuiteNavWrapper {
+  display: none !important;
+}
+.ControlZone {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.CanvasComponent.LCS .CanvasSection--read:not(.CanvasSection--fullWidth) .ControlZone:last-of-type {
+  margin: 0 !important;
+}
+.CanvasComponent.LCS .CanvasSection-col {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.CanvasComponent.LCS .CanvasZone {
+  padding: 0 0 !important;
+}
+.CanvasComponent.LCS .CanvasZone {
+  max-width: 100% !important;
+  padding: 0 0 !important;
+}
+.CanvasComponent.LCS .grid {
+  padding: 0 0 !important;
+}
+.b_b_8474018e {
+  padding: 0 0 !important;
+}
+.j_b_8474018e {
+  overflow-y: unset !important;
+}
+#workbenchPageContent {
+  border: none !important;
+  margin: 0 0 !important;
+  max-width: 100% !important;
+}
+[dir=ltr] .ak_j_8474018e {
+  left: 0 !important;
+}
+[dir=ltr] .ak_j_8474018e {
+  left: 0 !important;
+}
+.root-42 {
+  display: none !important;
+  padding: 0 !important;
+  height: 0 !important;
+  /* position: absolute !important;
+  z-index: 99 !important;
+  bottom: -100vh !important; */
+}
+.ah_j_8474018e {
+  overflow-x: unset !important;
+}
+.e_a_8474018e {
+  padding: 0 !important;
+}
+[dir=ltr] .t_e_8474018e, [dir=rtl] .t_e_8474018e {
+  right: 0;
+}
+[dir=ltr] .t_e_8474018e {
+  left: 0;
+}
+
+
+
+.rf_bu_ada2ac09 {
+  display: none !important;
+}
+.a_a_50a7110f:not(.b_a_50a7110f) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.a_e_50a7110f:not(.b_e_50a7110f) {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.a_c_50a7110f:not(.b_c_50a7110f):not(.i_c_50a7110f) {
+  padding: 0 !important;
+}
+.w_c_beed2cf1 {
+  padding: 0 !important;
+}
+#RecommendedItems {
+  display: none !important;
+}
+#CommentsWrapper {
+  display: none;
+}
+
+.a_c_50a7110f:not(.b_c_50a7110f) .k_c_50a7110f {
+  max-width: 100% !important;
+}
+
+#spCommandBar {
+  position: fixed !important;
+  z-index: 99 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.b_b_beed2cf1 {
+  overflow-y: unset !important;
+  overflow-x: unset !important;
+}
+.w_c_beed2cf1 {
+  overflow: unset !important;
+}
+
+
+.primarySet-95 {
+  display: none !important;
+}
+.primarySet-104 {
+  display: none !important;
+}
+
+.rk_br_ada2ac09 {
+  display: none !important;
+}
+/* hide header */
+.lj_at_ada2ac09, div[data-automation-id='pageHeader'], lm_at_ada2ac09  {
+    display: none !important;
+}
+#spSiteHeader {
+  display: none !important;
+}
+
+#s4-workspace, #s4-bodyContainer {
+  width: auto !important;
+  padding-bottom: 0 !important;
+  overflow: unset !important;
+}
+#contentBox {
+  min-width: 0 !important;
+}
+.ms-backgroundImage {
+  overflow: auto !important;
+}
+h1, h2, h3, h4, h5, h6, .ms-h1, .ms-h2, .ms-h3, .ms-h4, .ms-h5, .ms-h6, #MSOZoneCell_WebPartWPQ5 {
+  margin: 0 !important;
+}
+h1, .ms-h1 {
+  font-family: unset !important;
+}
