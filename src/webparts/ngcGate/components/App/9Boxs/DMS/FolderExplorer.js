@@ -15,7 +15,7 @@ const FolderExplorerPage = () => {
   const [currentItem, setCurrentItem] = useState(1);
 
   useEffect(() => {
-    document.title = '.:: SALIC Gate | e-Document System ::.';
+    document.title = '.:: NGC Gate | e-Document System ::.';
   }, []);
   return (
     <>

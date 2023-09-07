@@ -15,14 +15,13 @@ const editStyle = () => {
 function Organization() {
 
   useEffect(() => {
-    document.title = '.:: SALIC Gate | Organization ::.';
+    document.title = '.:: NGC Gate | Organization ::.';
   }, []);
 
 
   return (
     <div>
       <iframe 
-        // src='https://salic.sharepoint.com/sites/newsalic/KSA/Forms/AllItems.aspx?RootFolder=%2Fsites%2Fnewsalic%2FKSA%2FKSA&FolderCTID=0x0120007CD8E886399EDB4DAEC9E86769C478E4' 
         src='https://salic.sharepoint.com/sites/newsalic/KSA/Forms/Tiles.aspx?id=%2Fsites%2Fnewsalic%2FKSA%2FKSA&viewid=942be927%2Da77a%2D4394%2Dbf20%2D638b393dd868' 
         width='100%'
         id='spIframe'

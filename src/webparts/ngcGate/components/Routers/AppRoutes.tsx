@@ -73,10 +73,10 @@ import {
   PreviewIncidentReport,
   ManageNews,
   MyTeam,
-  SalicProfile,
+  NGCProfile,
   AlmiraVersions,
   AnnualReports,
-  SALICPresentation,
+  NGCPresentation,
   AdminDashboard,
   Feedback,
   PreviewReport,
@@ -96,14 +96,14 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
       <Route path={`${defualtRoute}/dms`} element={<FolderExplorerPage />} />
       
 
-      <Route path={`${defualtRoute}/salic-profile`}>
-        <Route index element={<SalicProfile />} />
-        <Route path={`${defualtRoute}/salic-profile/annual-reports`} element={<AnnualReports />} />
-        <Route path={`${defualtRoute}/salic-profile/salic-presentation`} element={<SALICPresentation />} />
+      <Route path={`${defualtRoute}/ngc-profile`}>
+        <Route index element={<NGCProfile />} />
+        <Route path={`${defualtRoute}/ngc-profile/annual-reports`} element={<AnnualReports />} />
+        <Route path={`${defualtRoute}/ngc-profile/ngc-presentation`} element={<NGCPresentation />} />
       
-        <Route path={`${defualtRoute}/salic-profile/almira-versions`}>
+        <Route path={`${defualtRoute}/ngc-profile/almira-versions`}>
           <Route index element={<AlmiraVersions />} />
-          <Route path={`${defualtRoute}/salic-profile/almira-versions/almira-magazine`} element={<AlMiraMagazine />} />
+          <Route path={`${defualtRoute}/ngc-profile/almira-versions/almira-magazine`} element={<AlMiraMagazine />} />
         </Route>
       </Route>
 

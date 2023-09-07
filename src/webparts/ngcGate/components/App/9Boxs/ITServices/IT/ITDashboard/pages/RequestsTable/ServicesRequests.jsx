@@ -140,7 +140,7 @@ function ServicesRequests(props) {
                   <br />
                   <Typography.Text type='secondary' style={{fontSize: 12}}>
                     {record?.Tags?.map((mention, index) => (
-                      <Typography.Link key={index} href={`https://salic.sharepoint.com/_layouts/15/me.aspx/?p=${mention?.email}&v=work`} target='_blank' style={{color: '#c61316', marginRight: 5}}>{`@${mention.name}`}</Typography.Link>
+                      <Typography.Link key={index} href={`https://nationalgrain.sharepoint.com/_layouts/15/me.aspx/?p=${mention?.email}&v=work`} target='_blank' style={{color: '#c61316', marginRight: 5}}>{`@${mention.name}`}</Typography.Link>
                     ))}
                   </Typography.Text>
                 </>

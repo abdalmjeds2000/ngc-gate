@@ -1,7 +1,7 @@
 import newsSearch from './searchQueries/newsSearch';
 import news from './searchQueries/news';
-import salicAsstesSearch from './searchQueries/salicAsstesSearch';
-import salicAsstes from './searchQueries/salicAsstes';
+import ngcAsstesSearch from './searchQueries/ngcAsstesSearch';
+import ngcAsstes from './searchQueries/ngcAsstes';
 import deliveryLettersSearch from './searchQueries/deliveryLettersSearch';
 import deliveryLetters from './searchQueries/deliveryLetters';
 import manageNewsSearch from './searchQueries/manageNewsSearch';
@@ -60,8 +60,8 @@ export var searchLocations = [
   {
     route: "/asset/all#2",
     path: [],
-    fetchData: (query) => salicAsstesSearch(query),
-    fetchOriginalData: () => salicAsstes()
+    fetchData: (query) => ngcAsstesSearch(query),
+    fetchOriginalData: () => ngcAsstes()
   },{
     route: "/asset/all#3",
     path: [],

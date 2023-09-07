@@ -14,7 +14,7 @@ import AntdLoader from '../../../../../../Global/AntdLoader/AntdLoader';
 const initialFilter = { email: '', Number: '', Department: 'All', Status: 'All', AssetName: '' };
 
 const DeliveryLetters = () => {
-  const { user_data, salic_departments, deliveryLettersData, setDeliveryLettersData } = useContext(AppCtx);
+  const { user_data, ngc_departments, deliveryLettersData, setDeliveryLettersData } = useContext(AppCtx);
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,10 +40,10 @@ const DeliveryLetters = () => {
   }
 
   useEffect(() => {
-    if(Object.keys(user_data).length > 0 && salic_departments.length > 0) {
+    if(Object.keys(user_data).length > 0 && ngc_departments.length > 0) {
       FetchData(defualtFilterData, 1, _pageSize);
     }
-  }, [user_data, salic_departments]);
+  }, [user_data, ngc_departments]);
 
   const ApplyFilter = (formData, page, pageSize) => {
     Object.keys(formData).forEach(key => {if(formData[key] === undefined || formData[key] === null) formData[key] = ''});
@@ -88,8 +88,8 @@ const DeliveryLetters = () => {
   ];
 
   let departments = [];
-  if(salic_departments.length > 0) {
-    departments = salic_departments?.map(row => {
+  if(ngc_departments.length > 0) {
+    departments = ngc_departments?.map(row => {
       return { value: row, label: row }
     })
   }

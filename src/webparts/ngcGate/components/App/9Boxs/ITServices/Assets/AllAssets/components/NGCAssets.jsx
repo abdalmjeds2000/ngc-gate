@@ -12,8 +12,8 @@ import AddSelectItem from '../../components/AddSelectItem';
 
 const initialFilter = { Name: '', CategoryType: '', Brand: '', Model: '', DeliveredTo: '', Available: 'All', Type: '', Tag: '', SN: '' };
 
-const SalicAssets = () => {
-  const { defualt_route, user_data, salicAssetsData, setSalicAssetsData } = useContext(AppCtx);
+const NGCAssets = () => {
+  const { defualt_route, user_data, ngcAssetsData, setNgcAssetsData } = useContext(AppCtx);
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const SalicAssets = () => {
       method: 'GET',
       url: `${apiUrl}/Asset/Get?draw=13&order=CreatedAt+desc&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&email=${user_data.Data?.Mail}&Name=${filterData.Name || ''}&Status=${filterData.Status || ''}&Location=${filterData.Location || ''}&CategoryType=${filterData.CategoryType || ''}&Brand=${filterData.Brand || ''}&Model=${filterData.Model || ''}&DeliveredTo=${filterData.DeliveredTo || ''}&Available=${filterData.Available || ''}&Type=${filterData.Type || ''}&Tag=${filterData.Tag || ''}&SN=${filterData.SN || ''}&_=1669266638774`,
     }).then((response) => {
-      setSalicAssetsData(response.data);
+      setNgcAssetsData(response.data);
     }).catch(() => {
       message.error('Failed, check your network and try again.', 3)
     })
@@ -41,7 +41,7 @@ const SalicAssets = () => {
   }
 
   useEffect(() => {
-    if(Object.keys(user_data).length > 0 && Object.keys(salicAssetsData).length === 0) {
+    if(Object.keys(user_data).length > 0 && Object.keys(ngcAssetsData).length === 0) {
       FetchData(defualtFilterData, 1, _pageSize)
     }
   }, [user_data]);
@@ -218,12 +218,12 @@ const SalicAssets = () => {
         ? (
           <>
             <Col span={24} style={{overflow: 'auto'}}>
-              <Table columns={columns} size="large" dataSource={salicAssetsData?.data} pagination={false} />
+              <Table columns={columns} size="large" dataSource={ngcAssetsData?.data} pagination={false} />
             </Col>
             <Row justify="center" align="middle" style={{width: '100%', marginTop: 25}}>
               <Pagination
                 current={currentPage}
-                total={salicAssetsData?.recordsTotal}
+                total={ngcAssetsData?.recordsTotal}
                 onChange={(page) => ApplyFilter(defualtFilterData, page, _pageSize)}
                 pageSize={_pageSize}
                 showTitle
@@ -238,4 +238,4 @@ const SalicAssets = () => {
   )
 }
 
-export default SalicAssets
+export default NGCAssets

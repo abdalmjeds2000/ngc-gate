@@ -29,7 +29,7 @@ const PreviewIncidentReport = ({ isRiskAdmin }) => {
     try {
       const response = await axios.get(`${apiUrl}/Incidents/GetById?Id=${id}`)
       setReportData(response?.data?.Data);
-      document.title = `.:: SALIC Gate | Incident Report #${response.data.Data.Number} ::.`;
+      document.title = `.:: NGC Gate | Incident Report #${response.data.Data.Number} ::.`;
       return response?.data?.Data;
     } catch (error) {
       setError(true);

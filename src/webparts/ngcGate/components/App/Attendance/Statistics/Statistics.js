@@ -346,14 +346,14 @@ function Statistics() {
         <div style={{ display: 'flex', gap: 25, justifyContent: 'space-between', flexWrap: 'wrap', marginBottom: 25 }}>
           <div className="head">
             <h3>Employees Availability Attendance</h3>
-            <p>SALIC Employees Ava.</p>
+            <p>NGC Employees Ava.</p>
           </div>
           <div className="body">
             <div className="buttons">
               <CustomSelect 
                 name='byOrganization' 
                 options={[
-                  {value: 'SALIC', name: 'SALIC'},
+                  {value: 'NGC', name: 'NGC'},
                 ]}
               />
               <CustomSelect 

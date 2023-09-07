@@ -11,7 +11,7 @@ function AnnualReports() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/salic-profile`)}>SALIC Profile</a>
+        <a onClick={() => navigate(`${defualt_route}/ngc-profile`)}>NGC Profile</a>
         <p>Annual Reports</p>
       </HistoryNavigation>
       <div className='folder-explorer-container'>  

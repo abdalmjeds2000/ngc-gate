@@ -127,13 +127,13 @@ function ManageNewsContent() {
   return (
     <ProtectRouteCommunication>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/community-news`)}>SALIC Community News</a>
-        <p>Manage SALIC News</p>
+        <a onClick={() => navigate(`${defualt_route}/community-news`)}>NGC Community News</a>
+        <p>Manage NGC News</p>
       </HistoryNavigation>
 
       <div>
         <RequestsTable
-          Title="SALIC Community News"
+          Title="NGC Community News"
           HeaderControlPanel={<h1 onClick={(() => {setIsEditMode(false); setOpenModal(true)})} style={{cursor: 'pointer'}}><PlusCircleOutlined /> <span>Add New</span></h1>}
           Columns={columns}
           DataTable={news_list}

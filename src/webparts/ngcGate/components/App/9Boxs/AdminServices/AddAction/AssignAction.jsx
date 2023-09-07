@@ -64,7 +64,7 @@ function AssignAction({ RequestId, RequestType, onSuccess }) {
           <Typography.Text strong>Select Employee</Typography.Text>
           <Select value={selectedEmp} size="large" placeholder="Select Employee" onChange={value => setSelectedEmp(value)} style={{width: '100%'}}>
             {
-              admins?.filter(user => !["stsadmin@salic.onmicrosoft.com", "akmal.eldahdouh@salic.com"].includes(user.Email?.toLowerCase()))?.map((emp, i) => {
+              admins?.map((emp, i) => {
                 return <Select.Option key={i} value={emp.Email}>{emp.Title}</Select.Option>
               })
             }

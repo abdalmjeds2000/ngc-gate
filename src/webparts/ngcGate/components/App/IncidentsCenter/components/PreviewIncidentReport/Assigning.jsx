@@ -25,7 +25,7 @@ function hasDepartmentDuplicates(arr) {
 
 
 const Assigning = ({ reportData, onFinish }) => {
-  const { user_data, salic_departments, sp_site } = useContext(AppCtx);
+  const { user_data, ngc_departments, sp_site } = useContext(AppCtx);
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [conversationConfig, setConversationConfig] = useState({ show: false, data: {} });
@@ -107,7 +107,7 @@ const Assigning = ({ reportData, onFinish }) => {
                               filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase()) }
                               options={[
                                 { value: 'IT', label: 'Department Of IT', },
-                                ...salic_departments.filter(item => item !== "").map(item => ({ label: item, value: item }))
+                                ...ngc_departments.filter(item => item !== "").map(item => ({ label: item, value: item }))
                               ]}
                             />
                           </Form.Item>
@@ -344,7 +344,7 @@ const IncidentConversation = ({ isAdmin, reportData, conversationConfig, setConv
                                 key={index} 
                                 FileType={attachment.split(".").pop()}
                                 FileName={attachment}
-                                FilePath={`https://salicapi.com/File/${attachment}`}
+                                FilePath={`https://dev.salic.com/File/${attachment}`}
                                 IconWidth='25px'
                               />
                             )

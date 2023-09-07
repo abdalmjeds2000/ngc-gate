@@ -6,7 +6,7 @@ import '../DailyAttendance/DailyAttendance.css';
 import AntdLoader from '../../Global/AntdLoader/AntdLoader';
 
 function DailyAttendanceHR() {
-  const { user_data, departments_info, salic_departments } = useContext(AppCtx)
+  const { user_data, departments_info, ngc_departments } = useContext(AppCtx)
 
   const gateEmployees = departments_info.filter(emp => emp.Department && emp?.Department !== "")
 
@@ -117,7 +117,7 @@ function DailyAttendanceHR() {
             <CustomSelect 
               name='department' 
               label='Department'
-              options={[{value: "", name: "Select Department"}, ...salic_departments.filter(dep => dep && dep !== '').map(item => ({value: item, name: item}))]}
+              options={[{value: "", name: "Select Department"}, ...ngc_departments.filter(dep => dep && dep !== '').map(item => ({value: item, name: item}))]}
               onChange={(e) => setDepartmentName(e.target.value)}
             />
             <CustomSelect 

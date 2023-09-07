@@ -36,7 +36,7 @@ const Dashboard = () => {
 
   const CardTitle = (
     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap'}}>
-      <Typography.Text strong style={{fontSize: '1.2rem'}}>SALIC's Assets By</Typography.Text>
+      <Typography.Text strong style={{fontSize: '1.2rem'}}>NGC's Assets By</Typography.Text>
       <Select
         defaultValue="Type"
         bordered={false}

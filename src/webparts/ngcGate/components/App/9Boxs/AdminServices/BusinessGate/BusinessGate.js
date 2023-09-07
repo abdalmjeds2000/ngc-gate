@@ -89,7 +89,7 @@ function BusinessGate() {
     setLoading(true);
     const response = await GetBusinessGateById(user_data.Data.Mail, id);
     if(response.data.Status === 200 && response.data.Data.length > 0) {
-      document.title = `.:: SALIC Gate | ${response.data.Data[0].ReferenceCode || "Business Gate Request"} ::.`
+      document.title = `.:: NGC Gate | ${response.data.Data[0].ReferenceCode || "Business Gate Request"} ::.`
       setRequestData(response.data.Data[0]);
       setDataSource(JSON.parse(response.data.Data[0].Guests));
     } else {

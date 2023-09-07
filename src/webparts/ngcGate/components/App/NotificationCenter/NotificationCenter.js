@@ -6,7 +6,7 @@ import HistoryNavigation from '../Global/HistoryNavigation/HistoryNavigation';
 import { AppCtx, apiUrl } from '../App';
 import axios from 'axios';
 import moment from 'moment';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const oracleFrom = ['saas', 'paas'];
@@ -23,13 +23,6 @@ function NotificationCenter() {
   const [selectedStatus, setSelectedStatus] = useState(['Pending']);
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
-
-  const location = useLocation();
-  let customEmail = null;
-  if(user_data?.Data?.Mail?.toLowerCase() === "Akmal.Eldahdouh@salic.com".toLowerCase()) {
-    customEmail = decodeURI(location.search).split('?email=')[1];
-  }
-
 
   const redirectAction = (from, id) => {
     switch(from) {
@@ -61,7 +54,7 @@ function NotificationCenter() {
 
   const fetchRowsCount = async (status) => {
     const _status = status.join(',');
-    const url = `${apiUrl}/NotificationCenter/Summary?Email=${customEmail || user_data?.Data?.Mail}&Status=${_status.replace(/[,]/g, '%2C')}`
+    const url = `${apiUrl}/NotificationCenter/Summary?Email=${user_data?.Data?.Mail}&Status=${_status.replace(/[,]/g, '%2C')}`
     const response = await axios.get(url);
     if(response.data?.Status == 200 && response.data?.Data) {
       setDataCount(response.data.Data);
@@ -71,7 +64,7 @@ function NotificationCenter() {
     !noLoader ? setLoading(true) : null;
     const _types = types.join(',');
     const _status = status.join(',');
-    let url = `${apiUrl}/notificationcenter/Get?Email=${customEmail || user_data?.Data?.Mail}&draw=1&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&%24orderby=Created+desc&%24top=1&Type=${_types.replace(/[,]/g, '%2C')}&Status=${_status.replace(/[,]/g, '%2C')}&_=1671286356550`;
+    let url = `${apiUrl}/notificationcenter/Get?Email=${user_data?.Data?.Mail}&draw=1&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&%24orderby=Created+desc&%24top=1&Type=${_types.replace(/[,]/g, '%2C')}&Status=${_status.replace(/[,]/g, '%2C')}&_=1671286356550`;
     const response = await axios.get(url, {signal: signal})
     if(response?.data?.Status == 200 && response?.data?.Data && response?.data?.Data?.length > 0) {
       setNotificationsData(response.data?.Data);
@@ -97,7 +90,6 @@ function NotificationCenter() {
     const interval = setInterval(() => {
       fetchData(selectedType, selectedStatus, null, true);
       fetchRowsCount(selectedStatus);
-      console.log(customEmail, user_data?.Data?.Mail);
     }, 30000)
     return () => clearInterval(interval);
   }, [user_data, selectedType, selectedStatus]);
@@ -176,7 +168,7 @@ function NotificationCenter() {
             oracleFrom.includes(record.From?.toLowerCase())
               ? <a href={`#${record.Id}`} onClick={() => {setOpenModal(true); setModalData(record);}}>{linkLabel}</a>
             : record.From === 'eSign'
-              ? <a href={`https://salicapi.com/eSign/Sign.html?key=${val}`} target='_blank'>{linkLabel}</a>
+              ? <a href={`https://dev.salic.com/eSign/Sign.html?key=${val}`} target='_blank'>{linkLabel}</a>
             : record.From === 'ServiceRequest'
               ? <a href={`#${record.Id}`} onClick={() => {setOpenModal(true); setModalData(record);}}>{linkLabel}</a>
             : record.From === 'DeliveryNote'

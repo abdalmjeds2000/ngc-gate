@@ -113,12 +113,12 @@ const IncidentInfo = ({ reportData }) => {
           <Section SectionTitle={<><LinkOutlined /> Attached Files</>}>
             <div className='attachments-container'>
               {reportData?.Files?.map((file,i) => (
-                <a target='_blank' href={`https://salicapi.com/File/${file?.Guid}`} style={{ display: 'flex', alignItems: 'center', gap: 2, padding: 5 }}>
+                <a target='_blank' href={`https://dev.salic.com/File/${file?.Guid}`} style={{ display: 'flex', alignItems: 'center', gap: 2, padding: 5 }}>
                   <FileIcon
                     key={i} 
                     FileType={file?.FileName?.split(".")[file?.FileName?.split(".")?.length-1]}
                     FileName={file?.FileName}
-                    FilePath={`https://salicapi.com/File/${file?.Guid}`}
+                    FilePath={`https://dev.salic.com/File/${file?.Guid}`}
                     IconWidth='22px'
                   />
                   <span style={{ color: '#555'}}>{file?.FileName}</span>
@@ -178,7 +178,7 @@ const AssigneesRender = ({ items }) => (
           title={
             <div style={{display: "flex", gap: 10}}>
               <div style={{ width: 28 }}>
-                <Avatar style={{marginRight: 8}} src={`/sites/newsalic/_layouts/15/userphoto.aspx?size=s&username=${item?.ByUser?.Mail}`} />
+                <Avatar style={{marginRight: 8}} src={`/sites/portal/_layouts/15/userphoto.aspx?size=s&username=${item?.ByUser?.Mail}`} />
               </div>
               <div style={{ width: "100%" }}>
                 {item?.Action} by <b>{item?.ByUser?.DisplayName}</b>

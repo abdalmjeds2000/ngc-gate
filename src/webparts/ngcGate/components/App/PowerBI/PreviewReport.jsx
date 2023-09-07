@@ -23,7 +23,7 @@ const PreviewReport = () => {
     }
   }
 
-  document.title = `.:: SALIC Gate - ${item?.Title} ::.`;
+  document.title = `.:: NGC Gate - ${item?.Title} ::.`;
 
   React.useEffect(() => { fetchItem(); }, []);
 

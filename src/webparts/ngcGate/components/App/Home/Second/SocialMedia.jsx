@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Col, Row, Tooltip } from 'antd';
 import { PictureOutlined, ReadOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { AppCtx } from '../../App';
@@ -12,7 +11,7 @@ const SocialMedia = () => {
     <div className='division-3'>
       <div className="organization-documents-container" style={{marginBottom: 25}}>
         <div className="header">
-          <h3>SALIC Content</h3>
+          <h3>NGC Content</h3>
         </div>
         <div className="boxs">
           <a onClick={_ => navigate(defualt_route + '/content-requests')} className="oranization-documents">
@@ -21,17 +20,11 @@ const SocialMedia = () => {
             </div>
             <p>New Content Request</p>
           </a>
-          {/* <a onClick={_ => navigate(defualt_route + '/almira-magazine')} className="oranization-documents">
+          <a onClick={_ => navigate(defualt_route + '/ngc-profile')} className="oranization-documents">
             <div>
               <ReadOutlined style={{fontSize: '1.5rem'}} />
             </div>
-            <p>Al Mira Magazine</p>
-          </a> */}
-          <a onClick={_ => navigate(defualt_route + '/salic-profile')} className="oranization-documents">
-            <div>
-              <ReadOutlined style={{fontSize: '1.5rem'}} />
-            </div>
-            <p>SALIC Profile</p>
+            <p>NGC Profile</p>
           </a>
         </div>
       </div>
@@ -39,26 +32,6 @@ const SocialMedia = () => {
       <div className="twitter-wid">
         <div className="header">
           <h3>Social Media</h3>
-          {/* <Row gutter={12}>
-            <Col>
-              <Row align="middle">
-                <Tooltip title="New Content">
-                  <a style={{fontSize: '1.3em'}} onClick={() => navigate(defualt_route + '/content-requests')}>
-                    <PictureOutlined />
-                  </a>
-                </Tooltip>
-              </Row>
-            </Col>
-            <Col>
-              <Row align="middle">
-                <Tooltip title="Al Mira Magazine">
-                  <a style={{fontSize: '1.3em'}} onClick={() => navigate(defualt_route + '/almira-magazine')}>
-                    <ReadOutlined />
-                  </a>
-                </Tooltip>
-              </Row>
-            </Col>
-          </Row> */}
         </div>
         <Timeline
           dataSource={{

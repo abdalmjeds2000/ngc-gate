@@ -11,7 +11,7 @@ const HistoryNavigation = (props) => {
   return (
     <div className='history-navigation'>
       <div className="links">
-        <a onClick={() => navigate(defualt_route)}>SALIC Gate</a>
+        <a onClick={() => navigate(defualt_route)}>NGC Gate</a>
         {props.children}
       </div>
       <ClockComponent EnableHijri={false} />

@@ -54,7 +54,7 @@ const SidebarNav = ({spWebUrl}) => {
     setActiveRoute(location.pathname);
     // change site title based on current location pathname
     const title = location.pathname.split("/");
-    document.title = `.:: SALIC Gate | ${capitalize(
+    document.title = `.:: NGC Gate | ${capitalize(
       title[title.length - 1]
     ).replace("-", " ")} ::.`;
   }, [location.pathname]);
@@ -77,23 +77,18 @@ const SidebarNav = ({spWebUrl}) => {
     {
       to: "/community-news",
       icon: svgIcons.news,
-      text: "SALIC News",
+      text: "NGC News",
       link: false,
     },{
-      icon: svgIcons.SALICWebsite,
-      text: "SALIC Website",
+      icon: svgIcons.NGCWebsite,
+      text: "NGC Website",
       link: true,
-      to: "https://www.salic.com",
+      to: "https://ngcenergy.com.sa/",
     },{
       icon: svgIcons.OracleERP,
       text: "Oracle ERP",
       link: true,
       to: "https://hen.fa.em2.oraclecloud.com/fscmUI/adfAuthentication?level=FORM&success_url=%2FfscmUI%2FadfAuthentication",
-    },{
-      icon: svgIcons.SALICGateDev,
-      text: "SALIC Gate Development",
-      link: true,
-      to: "https://devsalic.sharepoint.com/sites/portal/SitePages/Home.aspx",
     },{
       to: "/power-bi-dashboards",
       icon: svgIcons.PowerBi,
@@ -140,10 +135,6 @@ const SidebarNav = ({spWebUrl}) => {
   // if(!isPowerBIAdmin) {
   //   protectedListItems = protectedListItems.filter(item => !["/power-bi-dashboards"].includes(item.to))
   // }
-  if(!isItAdmin) {
-    protectedListItems = protectedListItems.filter(item => !["SALIC Gate Development"].includes(item.text))
-  }
-
 
 
 

@@ -26,7 +26,7 @@ const SpSearch = ({ query, setShowSearch }) => {
     showSearchResult, setShowSearchResult,
     setGateNewsData,
     setITRequests,
-    setSalicAssetsData,
+    setNgcAssetsData,
     setDeliveryLettersData,
     my_it_requests_data, 
     setMyItRequestsData,
@@ -83,7 +83,7 @@ const SpSearch = ({ query, setShowSearch }) => {
         } else if(matchRoute.route == "/content-requests/all-content-requests") {
           setContentRequestsData(response)
         } else if(matchRoute.route == "/asset/all#2") {
-          setSalicAssetsData(response);
+          setNgcAssetsData(response);
         } else if(matchRoute.route == "/asset/all#3") {
           setDeliveryLettersData(response);
         } else if(matchRoute.route == "/services-requests/my-requests") {
@@ -222,7 +222,7 @@ const SpSearch = ({ query, setShowSearch }) => {
         } else if(matchRoute.route == "/content-requests/all-content-requests") {
           setContentRequestsData(response)
         } else if(matchRoute.route == "/asset/all#2") {
-          setSalicAssetsData(response);
+          setNgcAssetsData(response);
         } else if(matchRoute.route == "/asset/all#3") {
           setDeliveryLettersData(response);
         } else if(matchRoute.route == "/services-requests/my-requests") {

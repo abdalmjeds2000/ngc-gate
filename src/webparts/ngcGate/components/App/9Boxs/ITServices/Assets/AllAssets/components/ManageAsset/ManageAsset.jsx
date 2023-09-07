@@ -63,7 +63,7 @@ function ManageAsset() {
     SubDevicesRender = JSON.parse(assetData.SubDevices);
   }
   
-  document.title = `.:: SALIC Gate | ${assetData.Name || 'Manage Asset'} ::.`;
+  document.title = `.:: NGC Gate | ${assetData.Name || 'Manage Asset'} ::.`;
 
 
 
@@ -124,7 +124,7 @@ function ManageAsset() {
                                             key={i} 
                                             FileType={file.FileName.split(".")[file.FileName.split(".").length-1]}
                                             FileName={file.FileName}
-                                            FilePath={`https://salicapi.com/File/${file.Guid}`}
+                                            FilePath={`https://dev.salic.com/File/${file.Guid}`}
                                             IconWidth='45px'
                                           />
                                         )
@@ -149,7 +149,7 @@ function ManageAsset() {
                           const _returnAttachments = [];
                           if(files != null && Object.keys(files).length != 0){
                             files.forEach(element => {
-                              let path = 'https://salicapi.com/File/'+element;
+                              let path = 'https://dev.salic.com/File/'+element;
                               _returnAttachments.push({
                                 fileType: element?.split(".")[element?.split(".")?.length-1],
                                 fileName: element,

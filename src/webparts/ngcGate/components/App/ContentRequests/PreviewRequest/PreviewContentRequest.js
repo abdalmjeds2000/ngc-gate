@@ -59,7 +59,7 @@ function PreviewContentRequest() {
         setBtnLoader(true);
         const response = await GetContentRequest(id);        
         if(response) {
-            document.title = `.:: SALIC Gate | ${response.Title} ::.`;
+            document.title = `.:: NGC Gate | ${response.Title} ::.`;
             response.AttachmentsRows = JSON.parse(response.AttachmentsRows);
             setRequestData(prev => {return {...response}});
         } else {

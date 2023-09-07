@@ -62,7 +62,7 @@ function SharedWithMe() {
   }
 
   useEffect(() => {
-    document.title = '.:: SALIC Gate | Shared With Me ::.';
+    document.title = '.:: NGC Gate | Shared With Me ::.';
     fetchRoot();
   }, []);
 

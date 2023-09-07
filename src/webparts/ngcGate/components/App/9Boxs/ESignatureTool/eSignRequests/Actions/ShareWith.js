@@ -19,21 +19,6 @@ const ShareWith = (props) => {
   const [data, setData] = useState([])
   const [dataLoader, setDataLoader] = useState(true)
 
-
-  useEffect(() =>{
-    axios({
-      method: 'POST',
-      url: "https://salic.sharepoint.com/sites/newsalic/_api/SP.UI.ApplicationPages.ClientPeoplePickerWebServiceInterface.ClientPeoplePickerSearchUser",
-      data: { "queryParams": { "QueryString": "akmal", "MaximumEntitySuggestions": 30, "AllowEmailAddresses": true, "PrincipalType": 13, "PrincipalSource": 15, "QuerySettings": { "ExcludeAllUsersOnTenantClaim": false, "IsSharing": true } } },
-      headers: {
-        'accept': 'application/json;odata=verbose',
-        'content-type': 'application/json',
-      }
-    }).then((res) => {
-      console.log(res)
-    }).catch(err => console.log(err))
-  }, [])
-  
   const [employees, setEmployees] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
   useEffect(() => {

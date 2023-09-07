@@ -18,7 +18,7 @@ const UserColumnInTable = (props) => {
                 style={{minWidth: 32}}
             />}
             {props.DisplayName && props.DisplayName.length > 0 && <a 
-                href={`https://salic.sharepoint.com/_layouts/15/me.aspx/?p=${props.Mail}&v=work`} 
+                href={`https://nationalgrain.sharepoint.com/_layouts/15/me.aspx/?p=${props.Mail}&v=work`} 
                 target='_blank'
                 style={{ lineHeight: "1.2" }}
             >

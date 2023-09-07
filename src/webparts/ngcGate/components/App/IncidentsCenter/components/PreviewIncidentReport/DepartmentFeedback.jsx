@@ -8,7 +8,7 @@ import { Section } from 'salic-react-components';
 import { BarsOutlined } from '@ant-design/icons';
 
 const DepartmentFeedback = ({ reportData, formData, onFinish, customLayout }) => {
-  const { user_data, defualt_route, salic_departments } = useContext(AppCtx);
+  const { user_data, defualt_route, ngc_departments } = useContext(AppCtx);
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [showOperationalLossForm, setShowOperationalLossForm] = React.useState(false);
@@ -100,7 +100,7 @@ const DepartmentFeedback = ({ reportData, formData, onFinish, customLayout }) =>
                   filterOption={(input, option) => (option?.label ?? '').toLowerCase().includes(input.toLowerCase()) }
                   options={[
                     { value: 'IT', label: 'Department Of IT', },
-                    ...salic_departments.filter(item => item !== "").map(item => ({ label: item, value: item }))
+                    ...ngc_departments.filter(item => item !== "").map(item => ({ label: item, value: item }))
                   ]}
                 />
               </Form.Item>

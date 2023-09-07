@@ -5,7 +5,7 @@ import HistoryNavigation from '../../../../Global/HistoryNavigation/HistoryNavig
 import { useNavigate } from 'react-router-dom';
 import { AppCtx } from '../../../../App';
 import Dashboard from './components/Dashboard';
-import SalicAssets from './components/SalicAssets';
+import NGCAssets from './components/NGCAssets';
 import DeliveryLetters from './components/DeliveryLetters/DeliveryLetters';
 import ProtectRouteIT from '../../../../../Routers/ProtectRoutes/ProtectRouteIT';
 
@@ -15,21 +15,21 @@ const AllAssets = () => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    document.title = '.:: SALIC Gate | SALIC\'s Assets ::.';
+    document.title = '.:: NGC Gate | NGC\'s Assets ::.';
   }, []);
   
   return (
     <ProtectRouteIT>
       <HistoryNavigation>
         <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Service Center</a>
-        <p>SALIC's Assets</p>
+        <p>NGC's Assets</p>
       </HistoryNavigation>
       <div className='standard-page asset-managment-center-container'>
         <Tabs 
           loading={false}
           items={[
             {key: 1, icon: <HomeOutlined />, title: 'Dashboard', content: <Dashboard />},
-            {key: 2, icon: <TableOutlined />, title: 'SALIC Assets', content: <SalicAssets />},
+            {key: 2, icon: <TableOutlined />, title: 'NGC Assets', content: <NGCAssets />},
             {key: 3, icon: <DatabaseOutlined />, title: 'Delivery Letters', content: <DeliveryLetters />},
           ]}
         />

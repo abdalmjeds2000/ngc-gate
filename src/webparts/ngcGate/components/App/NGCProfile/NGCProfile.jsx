@@ -7,20 +7,20 @@ const icons = {
   presentation: <svg id="Group_204" data-name="Group 204" xmlns="http://www.w3.org/2000/svg" width="38.074" height="32.997" viewBox="0 0 38.074 32.997"><g id="Group_201" data-name="Group 201" transform="translate(0 6.346)"><g id="Group_200" data-name="Group 200"><path id="Path_4888" data-name="Path 4888" d="M15.462,86.39a.633.633,0,0,0-.232-.044H12.691a.635.635,0,0,0-.6.418l-.673,1.85-.022-.06a3.363,3.363,0,0,0-3.151-2.207H8.233a3.14,3.14,0,0,0,.651-1.9V83.173a3.173,3.173,0,0,0-6.346,0v1.269a3.14,3.14,0,0,0,.651,1.9H3.173A3.177,3.177,0,0,0,0,89.518v7.615a.635.635,0,0,0,.635.635h1.9v6.155l-1.163,1.742a.635.635,0,0,0,.528.987H9.518a.635.635,0,0,0,.528-.987l-1.163-1.742V92.206l.16.317a2.595,2.595,0,0,0,4.729-.2L14.8,89.751l1.015-2.538A.635.635,0,0,0,15.462,86.39ZM3.807,83.173a1.9,1.9,0,0,1,3.807,0v1.269a1.9,1.9,0,1,1-3.807,0ZM2.538,96.5H1.269V95.23H2.538Zm3.807,8.884V97.768H5.077v7.615H3.09l.611-.917a.639.639,0,0,0,.107-.352V96.5H7.615v7.615a.639.639,0,0,0,.107.352l.611.917Zm6.249-13.524a1.326,1.326,0,0,1-2.416.1L8.82,89.235a.635.635,0,0,0-1.206.284V95.23H3.807V89.518a.635.635,0,1,0-1.269,0V93.96H1.269V89.518a1.9,1.9,0,0,1,1.9-1.9h1.9V93.96H6.346V87.615h1.9a2.089,2.089,0,0,1,1.958,1.371l.619,1.7a.635.635,0,0,0,1.193,0l.194-.534h1.064Zm1.19-2.975h-1.11l.461-1.269h1.157Z" transform="translate(0 -80)" fill="#fff"/></g></g><g id="Group_203" data-name="Group 203" transform="translate(10.153)"><g id="Group_202" data-name="Group 202"><path id="Path_4889" data-name="Path 4889" d="M155.286,3.807a.635.635,0,0,0,.635-.635V.635A.635.635,0,0,0,155.286,0H128.635A.635.635,0,0,0,128,.635V3.173a.635.635,0,0,0,.635.635h.635v7.615h1.269V3.807h22.844v13.96H133.077v1.269h8.249v2.8L137.2,24.2l.629,1.1,3.5-2v2.079H142.6V23.3l3.49,2,.629-1.1-4.12-2.356v-2.8h13.326V17.768h-1.269V3.807ZM129.269,2.538V1.269h25.383V2.538Z" transform="translate(-128)" fill="#fff"/></g></g></svg>,
   almira: <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512" fill="#fff"><g><g xmlns="http://www.w3.org/2000/svg"><g><rect x="86.588" y="472.785" width="331.294" height="37.647" fill="#FFFFFF"   ></rect></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M311.843,169.726H195.765c-10.397,0-18.824,8.427-18.824,18.824s8.427,18.824,18.824,18.824h116.078    c10.397,0,18.824-8.427,18.824-18.824S322.24,169.726,311.843,169.726z" fill="#FFFFFF"   ></path></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M399.686,257.569H195.765c-10.397,0-18.824,8.427-18.824,18.824s8.427,18.824,18.824,18.824h203.922    c10.397,0,18.823-8.427,18.823-18.824S410.083,257.569,399.686,257.569z" fill="#FFFFFF"   ></path></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M500.907,3.86c-6.758-3.037-14.657-1.838-20.204,3.062l-52.712,46.632L375.216,6.363c-7.147-6.394-17.951-6.394-25.098,0    l-52.706,47.134L244.7,6.363c-7.147-6.394-17.945-6.394-25.092,0l-52.775,47.191L114.121,6.922    c-5.54-4.894-13.446-6.093-20.204-3.062c-6.751,3.043-11.093,9.757-11.093,17.161v335.059h-64C8.427,356.079,0,364.506,0,374.903    v45.804c0,49.474,40.251,89.725,89.725,89.725v-37.647c-28.718,0-52.078-23.366-52.078-52.078v-26.98h294.902v26.98    c0,49.474,40.251,89.726,89.725,89.726c49.474,0,89.725-40.251,89.725-89.725V21.02C512,13.616,507.658,6.903,500.907,3.86z     M474.353,420.707c0,28.712-23.366,52.078-52.078,52.078s-52.078-23.366-52.078-52.078v-45.804    c0-10.397-8.427-18.824-18.824-18.824H120.471V62.802l33.964,30.049c7.153,6.325,17.907,6.293,25.016-0.069l52.706-47.134    l52.706,47.128c7.147,6.394,17.951,6.394,25.098,0l52.712-47.134l52.706,47.134c7.115,6.362,17.87,6.387,25.016,0.069    l33.958-30.042V420.707z" fill="#FFFFFF"   ></path></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>,
 }
-const SalicProfile = () => {
+const NGCProfile = () => {
   return (
     <div>
       <HistoryNavigation>
-        <p>SALIC Profile</p>
+        <p>NGC Profile</p>
       </HistoryNavigation>
       
       <div className='standard-page it-center-container'>
         <ServicesSection
-          title="SALIC Profile"
+          title="NGC Profile"
           items={[
-            {icon: icons.reports, isLink: false, to: '/salic-profile/annual-reports', bgColor: '#43A2CC', text: 'Annual Reports'},
-            {icon: icons.presentation, isLink: false, to: '/salic-profile/salic-presentation', bgColor: '#FBBE82', text: 'SALIC Presentation'},
-            {icon: icons.almira, isLink: false, to: '/salic-profile/almira-versions', bgColor: '#FD96A6', text: 'Almira Versions'},
+            {icon: icons.reports, isLink: false, to: '/ngc-profile/annual-reports', bgColor: '#43A2CC', text: 'Annual Reports'},
+            {icon: icons.presentation, isLink: false, to: '/ngc-profile/ngc-presentation', bgColor: '#FBBE82', text: 'NGC Presentation'},
+            {icon: icons.almira, isLink: false, to: '/ngc-profile/almira-versions', bgColor: '#FD96A6', text: 'Almira Versions'},
           ]}
         />
       </div>
@@ -28,4 +28,4 @@ const SalicProfile = () => {
   )
 }
 
-export default SalicProfile
+export default NGCProfile

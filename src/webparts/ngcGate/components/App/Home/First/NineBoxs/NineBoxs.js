@@ -70,14 +70,12 @@ const icons = {
 }
 const services = [
   {header: 'Admin Services', link: false, to: '/admin-services', icon: icons.AdminServices},
-  {header: 'IT Services', link: false, to: '/services-requests', /* to: 'https://salic.sharepoint.com/sites/newsalic/SitePages/ITServices.aspx', */ icon: icons.ITServices},
+  {header: 'IT Services', link: false, to: '/services-requests', icon: icons.ITServices},
   {header: 'e-Invoicing', link: false, to: '/e-invoicing', icon: icons.EInvoicing},
   {header: 'HC Services', link: false, to: '/hc-services', icon: icons.HRSelfServices},
-  // {header: 'Incidents Center', link: true, to: 'https://salic.sharepoint.com/sites/newsalic/SitePages/Risk/Center.aspx', icon: icons.IncidentsCenter},
   {header: 'Majles Tech', link: true, to: 'https://boardroom.salic.com/', icon: icons.Majles},
   {header: 'Corresponding System', link: true, to: 'https://masar.salic.com',  icon: icons.CorrespondingSystem},
   {header: 'Research Library', link: false, to: '/research-library', icon: icons.ResearchCenter},
-  // {header: 'Performance Managment', link: false, to: '/performance-managment', icon: icons.Performance},
   {header: 'e-Signature Document', link: false, to: '/eSignature-document', icon: icons.ESignatureTool},
   {header: 'e-Document System', link: false, to: '/dms', icon: icons.DMS},
 ];

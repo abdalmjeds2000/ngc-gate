@@ -6,7 +6,7 @@ import { SearchOutlined } from '@ant-design/icons';
 const Header = ({ handleSearch }) => {
   return (
     <div className='search-page-header'>
-      <Typography.Title level={1}>Search Inside SALIC Gate</Typography.Title>
+      <Typography.Title level={1}>Search Inside NGC Gate</Typography.Title>
 
       <div>
         <Row gutter={25} justify="center">

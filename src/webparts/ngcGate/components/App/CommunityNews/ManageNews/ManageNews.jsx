@@ -16,7 +16,7 @@ function ManageNews() {
       </HistoryNavigation>
       <div className='folder-explorer-container'>  
         <iframe
-          name='salic-gate-media-center'
+          name='ngc-gate-media-center'
           src='https://salic.sharepoint.com/sites/portal/MediaCenter/Forms/AllItems.aspx'
           width='100%'
           height='100%'

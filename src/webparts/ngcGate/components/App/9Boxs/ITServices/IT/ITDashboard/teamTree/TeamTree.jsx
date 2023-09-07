@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar, Tree } from 'antd';
 import "./teamtree.styles.css";
+import { AppCtx } from '../../../../../App';
 
 const TeamTree = ({ showNames=true, allKeys, treeData, setSelectedUsers }) => {
-
+  const { sp_site } = useContext(AppCtx);
+  
   const onSelect = (keys, info) => {
     setSelectedUsers(info.selectedNodes);
   };
@@ -23,7 +25,7 @@ const TeamTree = ({ showNames=true, allKeys, treeData, setSelectedUsers }) => {
           <div style={{display:"flex", alignItems:"center"}}>
             <Avatar
               size="small"
-              src={`https://salic.sharepoint.com/sites/portal/_layouts/15/userphoto.aspx?size=s&username=${nodeData.Mail}`}
+              src={`${sp_site}/_layouts/15/userphoto.aspx?size=s&username=${nodeData.Mail}`}
             />
             {showNames ? <span className='teamtree_username'>{nodeData.DisplayName}</span> : null}
           </div>

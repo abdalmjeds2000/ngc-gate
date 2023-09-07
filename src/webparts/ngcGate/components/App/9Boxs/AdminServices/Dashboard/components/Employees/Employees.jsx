@@ -18,7 +18,7 @@ const faltternEmployees = (children, result = []) => {
 };
 
 const Employees = ({ onChangeUser }) => {
-  const { user_data, sp_site } = useContext(AppCtx);
+  const { sp_site } = useContext(AppCtx);
   const userAvatarURL = `${sp_site}/_layouts/15/userphoto.aspx?size=M&username=`;
   const [dataFor, setDataFor] = useState(d__for);
   const [activeUser, setActiveUser] = useState(d__for);

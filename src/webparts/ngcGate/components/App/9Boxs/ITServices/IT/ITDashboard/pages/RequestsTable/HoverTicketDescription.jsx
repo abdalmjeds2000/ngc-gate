@@ -23,7 +23,7 @@ const correctImgs = (data) => {
     if(element.src.startsWith("cid")) {
       let name = element.src.split('@')[0].replace('cid:','');
       var deleteImg = data?.Files?.filter(f => f.FileName === name)[0];
-      var src = `https://salicapi.com/file/${deleteImg?.Guid}`;
+      var src = `https://dev.salic.com/file/${deleteImg?.Guid}`;
       element.setAttribute('src', src);
     }
   }

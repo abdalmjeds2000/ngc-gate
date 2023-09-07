@@ -24,7 +24,7 @@ function NewsDetails() {
       .select('Author/Title,Author/EMail,Author/JobTitle,Subject,Photos,Id,ID,IsDraft,Description,CreatedOn,Created,IsPerson,AttachmentFiles')
       .expand('Author,AttachmentFiles').get()
     setNewsData(response);
-    document.title = `.:: SALIC Gate | ${response?.Subject} ::.`;
+    document.title = `.:: NGC Gate | ${response?.Subject} ::.`;
     setLoading(false);
   }
   useEffect(() => {

@@ -14,8 +14,8 @@ const AlMiraMagazine = () => {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/salic-profile`)}>SALIC Profile</a>
-        <a onClick={() => navigate(`${defualt_route}/salic-profile/almira-versions`)}>Almira Versions</a>
+        <a onClick={() => navigate(`${defualt_route}/ngc-profile`)}>NGC Profile</a>
+        <a onClick={() => navigate(`${defualt_route}/ngc-profile/almira-versions`)}>Almira Versions</a>
         <p>Al Mira Magazine</p>
       </HistoryNavigation>
       <div className='almira-magazine-container'>

@@ -53,7 +53,7 @@ function PrivateFolder() {
   }
 
   useEffect(() => {
-    document.title = '.:: SALIC Gate | My Files ::.';
+    document.title = '.:: NGC Gate | My Files ::.';
     fetchRoot();
   }, []);
 

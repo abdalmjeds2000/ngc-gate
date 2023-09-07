@@ -89,7 +89,7 @@ function Transportation() {
     setLoading(true);
     const response = await GetTransportationRequest(user_data.Data.Mail, id);
     if(response.data.Status === 200 && response.data.Data.length > 0) {
-      document.title = `.:: SALIC Gate | ${response.data.Data[0].ReferenceCode || "Transportation Request"} ::.`
+      document.title = `.:: NGC Gate | ${response.data.Data[0].ReferenceCode || "Transportation Request"} ::.`
       setRequestData(response.data.Data[0]);
       setPassenger(JSON.parse(response.data.Data[0].Passengers));
     } else {

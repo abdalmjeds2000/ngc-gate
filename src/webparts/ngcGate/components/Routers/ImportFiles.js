@@ -73,8 +73,8 @@ export { default as AssignedReports } from '../App/IncidentsCenter/components/As
 export { default as RequestsForReview } from '../App/IncidentsCenter/components/RequestsForReview';
 export { default as PreviewIncidentReport } from '../App/IncidentsCenter/components/PreviewIncidentReport';
 export { default as MyTeam } from '../App/MyTeam/MyTeam';
-export { default as SalicProfile } from '../App/SalicProfile/SalicProfile';
-export { default as AlmiraVersions} from '../App/SalicProfile/AlmiraVersions/AlmiraVersions';
-export { default as AnnualReports} from '../App/SalicProfile/AnnualReports';
-export { default as SALICPresentation} from '../App/SalicProfile/SALICPresentation';
+export { default as NGCProfile } from '../App/NGCProfile/NGCProfile';
+export { default as AlmiraVersions} from '../App/NGCProfile/AlmiraVersions/AlmiraVersions';
+export { default as AnnualReports} from '../App/NGCProfile/AnnualReports';
+export { default as NGCPresentation} from '../App/NGCProfile/NGCPresentation';
 export { default as Feedback} from '../App/Feedback/Feedback';

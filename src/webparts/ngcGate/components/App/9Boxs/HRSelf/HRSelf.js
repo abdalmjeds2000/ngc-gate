@@ -42,7 +42,7 @@ function HRSelf() {
   ];
 
 
-  document.title = '.:: SALIC Gate | Human Capital Services ::.'
+  document.title = '.:: NGC Gate | Human Capital Services ::.'
 
   if(Object.keys(user_data)?.length === 0) {
     return null;

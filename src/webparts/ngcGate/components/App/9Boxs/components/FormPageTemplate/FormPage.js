@@ -9,7 +9,7 @@ import { CgMoreO } from 'react-icons/cg';
 
 
 function FormPageTemplate(props) {
-  const { user_data } = useContext(AppCtx);
+  const { user_data, sp_site } = useContext(AppCtx);
 
   const propertiesSectionRef = useRef();
   const handleShowDetails = (v) => {
@@ -61,7 +61,7 @@ function FormPageTemplate(props) {
               </div>
               <div className="tips_user-info_img">
                 <img 
-                  src={`https://salic.sharepoint.com/sites/newsalic/_layouts/15/userphoto.aspx?size=M&username=${props.Email || user_data.Data?.Mail}`} 
+                  src={`${sp_site}/_layouts/15/userphoto.aspx?size=M&username=${props.Email || user_data.Data?.Mail}`} 
                   alt="" 
                 />
               </div>

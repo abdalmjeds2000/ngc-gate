@@ -16,7 +16,8 @@ interface AppContext {
   [key: string]: any;
 }
 export const AppCtx = createContext<AppContext>(null);
-export const apiUrl = 'https://salicapi.com/api';
+// export const apiUrl = 'https://salicapi.com/api';
+export const apiUrl = 'https://dev.salic.com/api';
 
 const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -38,7 +39,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [contentRequestsData, setContentRequestsData] = React.useState([]);
   const [adminAssignedRequests, setAdminAssignedRequests] = React.useState([]);
   const [adminMyRequests, setAdminMyRequests] = React.useState([]);
-  const [salicDepartments, setSalicDepartments] = React.useState([]);
+  const [ngcDepartments, setNgcDepartments] = React.useState([]);
   const [myItRequestsData, setMyItRequestsData] = React.useState([]);
   const [itRequestsAssignedForMeData, setItRequestsAssignedForMeData] = React.useState([]);
   // IT SERVICE REQUEST PAGE DATA
@@ -48,24 +49,12 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [showSearchResult, setShowSearchResult] = React.useState(false);
   const [researchArticlesData, setResearchArticlesData] = React.useState([]);
   const [gateNewsData, setGateNewsData] = React.useState([]);
-  const [salicAssetsData, setSalicAssetsData] = React.useState({});
+  const [ngcAssetsData, setNgcAssetsData] = React.useState({});
   const [deliveryLettersData, setDeliveryLettersData] = React.useState({});
   const [myIncidentReports, setMyIncidentReports] = React.useState([]);
   const [assignedIncidentReports, setAssignedIncidentReports] = React.useState([]);
   const [incidentReportsForReview, setIncidentReportsForReview] = React.useState([]);
   const [powerBiAccessToken, setPowerBiAccessToken] = React.useState(null);
-
-
-  React.useEffect(() => {
-    if(userData.Data?.Mail !== null) {
-      if(userData.Data?.Mail !== "stsadmin@salic.onmicrosoft.com") {
-        let element = document.getElementById("spCommandBar");
-        if(element) {
-          element.style.display = "none";
-        }
-      }
-    }
-  }, [userData])
 
 
   // fetch notifications count func
@@ -105,8 +94,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
         axios({
           method: 'GET',
           // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=${user.Email}`,
-          // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=abdulmohsen.alaiban@salic.com`,
-          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=Akmal.Eldahdouh@salic.com`,
+          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=a.eldahdouh@devsalic.onmicrosoft.com`,
         })
           .then((response) => {
             setUserData(response.data)
@@ -165,7 +153,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     .then((res: any) => setNotesList(res)).catch((err: any) => { console.log(err) });
     // Get Gate Departments
     axios({method: "GET", url: `${apiUrl}/user/departments`})
-    .then(response => setSalicDepartments(response.data.Data))
+    .then(response => setNgcDepartments(response.data.Data))
     .catch(null)
     
   }, []);
@@ -179,7 +167,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
       idleTime = idleTime + 1;
       // console.log("idleTime", idleTime);
       if (idleTime > 30) { // 15 min
-        document.location = `https://salic.sharepoint.com/sites/portal/_layouts/closeConnection.aspx?loginasanotheruser=true&Source=${window.location.href}`;
+        document.location = `https://nationalgrain.sharepoint.com/sites/portal/_layouts/closeConnection.aspx?loginasanotheruser=true&Source=${window.location.href}`;
       }
     }
     const onMouseMove = () => {
@@ -237,7 +225,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     content_requests_data: contentRequestsData, setContentRequestsData,
     admin_assigned_requests: adminAssignedRequests,  setAdminAssignedRequests,
     admin_my_requests: adminMyRequests, setAdminMyRequests,
-    salic_departments: salicDepartments,
+    ngc_departments: ngcDepartments,
     my_it_requests_data: myItRequestsData,  setMyItRequestsData,
     it_requests_assigned_for_me_data: itRequestsAssignedForMeData, setItRequestsAssignedForMeData,
     ITRequests: ITRequests, setITRequests,
@@ -246,7 +234,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     showSearchResult, setShowSearchResult,
     researchArticlesData, setResearchArticlesData,
     gateNewsData, setGateNewsData,
-    salicAssetsData, setSalicAssetsData,
+    ngcAssetsData, setNgcAssetsData,
     deliveryLettersData, setDeliveryLettersData,
     myIncidentReports, setMyIncidentReports,
     assignedIncidentReports, setAssignedIncidentReports,
@@ -264,7 +252,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     link.rel = 'icon';
     document.getElementsByTagName('head')[0].appendChild(link);
   }
-  link.href = 'https://salicapi.com/File/9244ecd5-d273-4ee9-bffe-2a8fcb140860.png';
+  link.href = require('../../assets/images/logo_fav.png');
 
   return (
     <AppCtx.Provider value={AppContextProviderSample}>
@@ -280,7 +268,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
         </Router>
       </div>
       <div className="loader" style={{height: !isLoading ? 0 : null}}>
-        <img src={require('../../assets/images/logo.png')} alt="salic logo" style={{ maxWidth: '250px', textAlign: 'center' }} />
+        <img src={require('../../assets/images/logo.png')} alt="ngc logo" style={{ maxWidth: '250px', textAlign: 'center' }} />
         <div></div>
       </div>
     </AppCtx.Provider>

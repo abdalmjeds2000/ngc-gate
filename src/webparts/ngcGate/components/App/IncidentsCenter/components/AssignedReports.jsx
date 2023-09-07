@@ -64,7 +64,6 @@ const AssignedReports = () => {
       title: 'Operational #',
       dataIndex: 'Number',
       width: '7%',
-      // render: (val, record) => <a href={'https://devsalic.sharepoint.com/sites/newsalic/SitePages/Risk/IncidentReport.aspx?id=' + record.Id} target="_blank">
       render: (val, record) => <a href={defualt_route + "/incidents-center/report/" + record.Id} target="_blank">
         {val}
       </a>

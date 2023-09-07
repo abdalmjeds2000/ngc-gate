@@ -44,8 +44,8 @@ const Navbar = (props) => {
       {/* Search Result */}
       <SpSearch query={value} setShowSearch={(v) => setShowSearch(v)} />
       
-      {/* SALIC Logo */}
-      <img src={logo} alt="logo" className="company-logo" onClick={() => navigate(defualt_route+'/home')} />
+      {/* NGC Logo */}
+      <img src={logo} alt="NGC Logo" className="company-logo" onClick={() => navigate(defualt_route+'/home')} />
 
       {/* 2030 Logo */}
       <img src={VisionLogo} alt='2030 Vision Logo' className="logo_2030" />
