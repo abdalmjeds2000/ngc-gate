@@ -5,7 +5,7 @@
   --third-color: #FEF2E3;
   --text-color: var(--main-color);
   --link-text-color: var(--second-color);
-  --brand-green-color: #2AD175;
+  --brand-green-color: #23cdb2;
   --brand-orange-color: var(--second-color);
   --brand-red-color: #D32A2A;
   --main-animation-duration: 0.3s;
@@ -168,7 +168,7 @@ img.img-bg {
 
 
 * {
-	scrollbar-color: #9EBEE6 #D1E5FD;
+	scrollbar-color: var(--second-color) var(--third-color);
 	scrollbar-width: thin;
 }
 
@@ -180,15 +180,11 @@ img.img-bg {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #D1E5FD;
+  background: var(--third-color);
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #9EBEE6;
-}
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #809dc0;
+  background: var(--second-color);
 }
 
 

@@ -8,8 +8,8 @@ import Result from './components/Result';
 import { searchLocations } from './searchLocations'
 import FileCardRow from '../../Global/FileCard/FileCardRow';
 import FileIcon from '../../Global/RequestsComponents/FileIcon';
-// import GetMyItServiceRequests from '../../9Boxs/ITServices/API/GetMyItServiceRequests';
-// import GetITRequestsAssignedForMe from '../../9Boxs/ITServices/API/GetITRequestsAssignedForMe';
+import GetMyItServiceRequests from '../../9Boxs/ITServices/API/GetMyItServiceRequests';
+import GetITRequestsAssignedForMe from '../../9Boxs/ITServices/API/GetITRequestsAssignedForMe';
 
 
 const boxsPagesRoutes = ['/hc-services', '/admin-services', '/services-requests', '/e-invoicing', '/content-requests', '/research-requests', '/book-meeting-room', '/oracle-reports', '/power-bi-dashboards', '/power-bi-dashboards/human-capital', '/power-bi-dashboards/research', '/incidents-center'];
@@ -269,12 +269,12 @@ const SpSearch = ({ query, setShowSearch }) => {
         } else if(matchRoute.route == "/asset/all#3") {
           setDeliveryLettersData(response);
         } else if(matchRoute.route == "/services-requests/my-requests") {
-          // const defualtData = await GetMyItServiceRequests(user_data.Data?.Mail);
-          // setMyItRequestsData(defualtData.data.Data);
-          // console.log(defualtData);
+          const defualtData = await GetMyItServiceRequests(user_data.Data?.Mail);
+          setMyItRequestsData(defualtData.data.Data);
+          console.log(defualtData);
         } else if(matchRoute.route == "/services-requests/requests-assigned-for-me") {
-          // const defualtData = await GetITRequestsAssignedForMe(user_data.Data?.Mail);
-          // setItRequestsAssignedForMeData(defualtData.data.Data);
+          const defualtData = await GetITRequestsAssignedForMe(user_data.Data?.Mail);
+          setItRequestsAssignedForMeData(defualtData.data.Data);
         } else if(boxsPagesRoutes.includes(matchRoute.route) /* Highlight in boxs paged */) {
           let titlesElements = document.getElementsByTagName("h3");
           var divsList = Array.prototype.slice.call(titlesElements);

@@ -1,0 +1,155 @@
+.info-section-container .ant-descriptions table {
+  table-layout: fixed !important;
+}
+
+
+.department-part {
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 3px;
+  border: 1px solid #efefef;
+  margin-top: 40px;
+}
+
+
+
+
+
+
+.preview-incident-container {
+  min-height: calc(100vh - 135px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-incident-container .header {
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: auto;
+  height: auto;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+[data-theme='compact'] .preview-incident-container .header .site-navigation-steps,
+.preview-incident-container .header .site-navigation-steps {
+  max-width: 900px;
+  /* margin: 0 auto; */
+}
+.preview-incident-container .header .ant-steps-item-active {
+  font-weight: 500 !important;
+  cursor: pointer !important;
+}
+.preview-incident-container .header .ant-steps-item-custom>.ant-steps-item-container>.ant-steps-item-icon>.ant-steps-icon {
+  font-size: 32px !important;
+}
+.preview-incident-container .header .ant-timeline-item {
+  font-size: 1rem !important;
+}
+
+
+.preview-incident-container .content {
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  flex: 1;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 8%);
+}
+
+.preview-incident-container .content .info-section-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+}
+.preview-incident-container .content .info-section-container .infos {
+  flex: 5;
+}
+.preview-incident-container .content .info-section-container .details {
+  flex: 3;
+  display: block;
+}
+.preview-incident-container .content .info-section-container .infos .close-btn {
+  display: none;
+}
+
+.preview-incident-container .content .info-section-container .infos input, 
+.preview-incident-container .content .info-section-container .infos textarea {
+  cursor: auto!important;
+  background-color: #F9F9F9!important;
+  border-radius: 4px!important;
+  color: #282828 !important;
+}
+@media screen and (max-width: 992px) {
+  .preview-incident-container .header,
+  .preview-incident-container .content {
+    padding: 14px;
+    border-radius: 5px;
+  }
+  .preview-incident-container .content .info-section-container {
+    flex-direction: column-reverse;
+  }
+  .preview-incident-container .content .info-section-container .infos {
+    flex: 1;
+  }
+  .preview-incident-container .content .info-section-container .details {
+    flex: 1;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 10px 10px rgba(0,0,0,.14901960784313725);
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    border-top: 4px solid #eee;
+    padding-top: 0;
+  }
+  .preview-incident-container .content .info-section-container .infos .close-btn {
+    display: inline-block;
+  }
+}
+
+
+input#responsible-department-part_RecoveryAmount,
+input#responsible-department-part_LossAmount,
+input#incident-report_Amount {
+  border: 0 !important;
+}
+
+.incident_department-feedback-container .ant-divider-horizontal.ant-divider-with-text {
+  margin-top: 0 !important;
+}
+
+.incident_department-feedback-container {
+  display: flex;
+  gap: 25px;
+}
+.incident_department-feedback-container .form {
+  flex-basis: 75%;
+}
+.incident_department-feedback-container .tips {
+  flex-basis: 25%;
+}
+@media screen and (max-width: 1200px) {
+  .incident_department-feedback-container .form {
+    flex-basis: 100%;
+  }
+  .incident_department-feedback-container .tips {
+    display: none;
+  }
+}
+
+
+
+form#incident-report .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-has-feedback.ant-input-number-affix-wrapper-lg {
+  padding: 0 0 0 10px !important;
+}

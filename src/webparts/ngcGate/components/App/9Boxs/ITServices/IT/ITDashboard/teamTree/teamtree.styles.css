@@ -1,0 +1,31 @@
+.it-teamtree .ant-tree-node-content-wrapper {
+  background-color: #f1f8fa;
+  border: 2px solid #e3f0f9;
+  color: var(--main-color);
+  padding: 2px 6px;
+  border-radius: 6px;
+  border-bottom-width: 3px;
+}
+.it-teamtree.minimize .ant-tree-node-content-wrapper {
+  background-color: #e3f0f9;
+  padding: 2px;
+  border-radius: 99px;
+  border: none;
+}
+.it-teamtree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background-color: var(--main-color);
+  color: #fff;
+  border-color: #00000025;
+}
+.it-teamtree.minimize .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  border: none;
+  border-radius: 99px;
+}
+
+.it-teamtree .teamtree_username {
+  margin-left: 4px;
+  line-height: 1;
+}
+@media screen and (max-width: 1200px) {
+  
+}

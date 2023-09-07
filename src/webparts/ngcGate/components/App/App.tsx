@@ -8,8 +8,8 @@ import Header from '../App/Header/Header'
 import pnp from 'sp-pnp-js';
 import axios from 'axios';
 import GetPerformance from './Home/First/NumbersAttendance/API/GetPerformance';
-// import { initialStat } from "./9Boxs/ITServices/IT/ITDashboard/pages/RequestsTable/ServicesRequests";
-// import { adminTableInitialStat } from "./9Boxs/AdminServices/Dashboard/components/LatestRequests";
+import { initialStat } from "./9Boxs/ITServices/IT/ITDashboard/pages/RequestsTable/ServicesRequests";
+import { adminTableInitialStat } from "./9Boxs/AdminServices/Dashboard/components/LatestRequests";
 import './index.css';
 
 interface AppContext {
@@ -47,10 +47,8 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [myItRequestsData, setMyItRequestsData] = React.useState([]);
   const [itRequestsAssignedForMeData, setItRequestsAssignedForMeData] = React.useState([]);
   // IT SERVICE REQUEST PAGE DATA
-  // const [ITRequests, setITRequests] = React.useState(initialStat);
-  // const [adminDashboardRequests, setAdminDashboardRequests] = React.useState(adminTableInitialStat);
-  const [ITRequests, setITRequests] = React.useState({});
-  const [adminDashboardRequests, setAdminDashboardRequests] = React.useState({});
+  const [ITRequests, setITRequests] = React.useState(initialStat);
+  const [adminDashboardRequests, setAdminDashboardRequests] = React.useState(adminTableInitialStat);
 
   const [showSearchResult, setShowSearchResult] = React.useState(false);
   const [researchArticlesData, setResearchArticlesData] = React.useState([]);

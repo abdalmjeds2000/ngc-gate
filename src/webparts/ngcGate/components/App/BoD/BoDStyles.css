@@ -1,0 +1,13 @@
+.freeze-page .ant-descriptions-item-label {
+  width: 15% !important;
+  font-size: 1rem;
+}
+.freeze-page .ant-descriptions-item-content {
+  width: 35% !important;
+  font-size: 1rem;
+}
+
+.bod-preview-iframe iframe {
+  min-height: calc(100vh - 145px);
+  border: none;
+}
