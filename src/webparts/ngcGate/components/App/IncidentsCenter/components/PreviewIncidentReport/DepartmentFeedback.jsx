@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import { Button, Col, DatePicker, Form, Input, InputNumber, List, Radio, Row, Select, message, notification } from 'antd';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
@@ -34,7 +34,7 @@ const DepartmentFeedback = ({ reportData, formData, onFinish, customLayout }) =>
     if(data.RecoveryAmount) data.RecoveryAmount = `${data.RecoveryAmount}`;
     if(data.RecoveryAmount) data.RecoveryAmount = `${data.RecoveryAmount}`;
 
-    const response = await axios.post('https://salicapi.com/api/Incidents/DepartmentRespond', data);
+    const response = await axios.post(`${apiUrl}/Incidents/DepartmentRespond`, data);
     if(response?.status == 200 || response?.status == 201) {
       if(onFinish) onFinish();
       notification.success({message: response?.data?.Message || "DONE !"});

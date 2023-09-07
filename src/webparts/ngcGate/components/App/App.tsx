@@ -16,7 +16,7 @@ interface AppContext {
   [key: string]: any;
 }
 export const AppCtx = createContext<AppContext>(null);
-
+export const apiUrl = 'https://salicapi.com/api';
 
 const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -27,10 +27,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [latestAttendance, setLatestAttendance] = React.useState([]);
   const [communicationList, setCommunicationList] = React.useState([]);
   const [newsList, setNewsList] = React.useState([]);
-  const [globeData, setGlobeData] = React.useState([]);
-  const [isGlobeReady, setIsGlobeReady] = React.useState(false);
   const [mediaCenter, setMediaCenter] = React.useState({})
-  const [oracleReports, setOracleReports] = React.useState({})
   const [notesList, setNotesList] = React.useState([])
   const [eSignRequests, setESignRequests] = React.useState([])
   const [eSignRequestsYouSignedIt, setESignRequestsYouSignedIt] = React.useState([])
@@ -39,10 +36,8 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [performance, setPerformance] = React.useState({});
   const [allEvents, setAllEvents] = React.useState([]);
   const [contentRequestsData, setContentRequestsData] = React.useState([]);
-  const [researchRequestsData, setResearchRequestsData] = React.useState([]);
   const [adminAssignedRequests, setAdminAssignedRequests] = React.useState([]);
   const [adminMyRequests, setAdminMyRequests] = React.useState([]);
-  const [oracleFormData, setOracleFormData] = React.useState([]);
   const [salicDepartments, setSalicDepartments] = React.useState([]);
   const [myItRequestsData, setMyItRequestsData] = React.useState([]);
   const [itRequestsAssignedForMeData, setItRequestsAssignedForMeData] = React.useState([]);
@@ -52,24 +47,14 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
 
   const [showSearchResult, setShowSearchResult] = React.useState(false);
   const [researchArticlesData, setResearchArticlesData] = React.useState([]);
-  const [researchNewsData, setResearchNewsData] = React.useState([]);
-  const [researchPulseData, setResearchPulseData] = React.useState([]);
-  const [researchCountriesData, setResearchCountriesData] = React.useState([]);
-  const [knowledgeData, setKnowledgeData] = React.useState([]);
   const [gateNewsData, setGateNewsData] = React.useState([]);
-  const [allResearchArticlesData, setAllResearchArticlesData] = React.useState([]);
-  const [allPulseData, setAllPulseData] = React.useState({});
-  const [allKnowledgeData, setAllKnowledgeData] = React.useState([]);
-  const [allCountryData, setAllCountryData] = React.useState([]);
   const [salicAssetsData, setSalicAssetsData] = React.useState({});
   const [deliveryLettersData, setDeliveryLettersData] = React.useState({});
   const [myIncidentReports, setMyIncidentReports] = React.useState([]);
   const [assignedIncidentReports, setAssignedIncidentReports] = React.useState([]);
   const [incidentReportsForReview, setIncidentReportsForReview] = React.useState([]);
-  const [showWelcomeMessage, setShowWelcomeMessage] = React.useState(true);
   const [powerBiAccessToken, setPowerBiAccessToken] = React.useState(null);
 
-  
 
   React.useEffect(() => {
     if(userData.Data?.Mail !== null) {
@@ -85,7 +70,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
 
   // fetch notifications count func
   const fetchNotificationCount = (mail: string) => {
-    axios({ method: 'GET', url: `https://salicapi.com/api/NotificationCenter/Summary?Email=${mail}` })
+    axios({ method: 'GET', url: `${apiUrl}/NotificationCenter/Summary?Email=${mail}` })
       .then((res) => { 
         const sumNotiTypes: any = Object.values(res?.data?.Data).reduce((partialSum: any, a: any) => partialSum + a, 0);
         setNotificationsCount(sumNotiTypes); 
@@ -94,7 +79,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   }
   // fetch mail count func
   const fetchMailCount = (graphId: any) => {
-    axios({ method: 'GET', url: `https://salicapi.com/api/User/GetUnReadMessags?UserId=${graphId}` })
+    axios({ method: 'GET', url: `${apiUrl}/User/GetUnReadMessags?UserId=${graphId}` })
       .then((res) => { setMailCount(res.data.Data) })
       .catch((error) => { console.log(error) })
   }
@@ -119,9 +104,9 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
       .then((user) => {
         axios({
           method: 'GET',
-          // url: `https://salicapi.com/api/User/GetUserByEmail?Expand=manager&Email=${user.Email}`,
-          // url: `https://salicapi.com/api/User/GetUserByEmail?Expand=manager&Email=abdulmohsen.alaiban@salic.com`,
-          url: `https://salicapi.com/api/User/GetUserByEmail?Expand=manager&Email=Akmal.Eldahdouh@salic.com`,
+          // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=${user.Email}`,
+          // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=abdulmohsen.alaiban@salic.com`,
+          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=Akmal.Eldahdouh@salic.com`,
         })
           .then((response) => {
             setUserData(response.data)
@@ -139,7 +124,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
           // Get Latest Attendance
           .then((response) => {
             axios({
-              method: 'POST', url: `https://salicapi.com/api/attendance/Get`,
+              method: 'POST', url: `${apiUrl}/attendance/Get`,
               data: {
                 Email: response.data?.Data.Mail,
                 Month: new Date().getMonth() + 1,
@@ -165,7 +150,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
           .then((response) => {
             axios({
               method: 'GET',
-              url: `https://salicapi.com/api/leave/GetEmployeeByPINALL?UserId=${response.data?.Data?.GraphId}&PIN=${response.data?.Data?.PIN}`,
+              url: `${apiUrl}/leave/GetEmployeeByPINALL?UserId=${response.data?.Data?.GraphId}&PIN=${response.data?.Data?.PIN}`,
             })
             .then((res) => setDepartmentsInfo(res.data.Data || []))
             .catch((error) => { console.log(error) })
@@ -174,19 +159,12 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
           .catch(err => console.log(err))
       })
       .catch(err => console.log(err))
-    // Get Globe Data 
-      axios({
-        method: 'GET',
-        url: 'https://vasturiano.github.io/react-globe.gl/example/datasets/ne_110m_admin_0_countries.geojson'
-      })
-      .then(res => setGlobeData(res.data?.features))
-      .catch((error) => { console.log(error) })
 
     // Get All Notes
     pnp.sp.web.lists.getByTitle('Sticky Notes').items.orderBy("CreateAt", false).top(10).get()
     .then((res: any) => setNotesList(res)).catch((err: any) => { console.log(err) });
     // Get Gate Departments
-    axios({method: "GET", url: "https://salicapi.com/api/user/departments"})
+    axios({method: "GET", url: `${apiUrl}/user/departments`})
     .then(response => setSalicDepartments(response.data.Data))
     .catch(null)
     
@@ -248,8 +226,6 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     latest_attendance: latestAttendance,
     communicationList: communicationList, setCommunicationList,
     news_list: newsList, setNewsList,
-    globe_data: globeData,
-    isGlobeReady, setIsGlobeReady,
     media_center: mediaCenter, setMediaCenter,
     notes_list: notesList, setNotesList,
     eSign_requests: eSignRequests, setESignRequests,
@@ -259,10 +235,8 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     performance: performance, setPerformance,
     all_events: allEvents, setAllEvents,
     content_requests_data: contentRequestsData, setContentRequestsData,
-    research_requests_data: researchRequestsData, setResearchRequestsData,
     admin_assigned_requests: adminAssignedRequests,  setAdminAssignedRequests,
     admin_my_requests: adminMyRequests, setAdminMyRequests,
-    oracle_form_data: oracleFormData, setOracleFormData,
     salic_departments: salicDepartments,
     my_it_requests_data: myItRequestsData,  setMyItRequestsData,
     it_requests_assigned_for_me_data: itRequestsAssignedForMeData, setItRequestsAssignedForMeData,
@@ -270,23 +244,13 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     sp_context: props.context,
     sp_site: props.context._pageContext._site.absoluteUrl,
     showSearchResult, setShowSearchResult,
-    oracleReports, setOracleReports,
     researchArticlesData, setResearchArticlesData,
-    researchNewsData, setResearchNewsData,
-    researchPulseData, setResearchPulseData,
-    researchCountriesData, setResearchCountriesData,
-    knowledgeData, setKnowledgeData,
     gateNewsData, setGateNewsData,
-    allResearchArticlesData, setAllResearchArticlesData,
-    allPulseData, setAllPulseData,
-    allKnowledgeData, setAllKnowledgeData,
-    allCountryData, setAllCountryData,
     salicAssetsData, setSalicAssetsData,
     deliveryLettersData, setDeliveryLettersData,
     myIncidentReports, setMyIncidentReports,
     assignedIncidentReports, setAssignedIncidentReports,
     incidentReportsForReview, setIncidentReportsForReview,
-    showWelcomeMessage, setShowWelcomeMessage,
     powerBiToken: powerBiAccessToken,
     adminDashboardRequests, setAdminDashboardRequests
   };

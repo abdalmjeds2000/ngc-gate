@@ -5,7 +5,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'
 import pnp from 'sp-pnp-js';
-import { AppCtx } from '../App';
+import { AppCtx, apiUrl } from '../App';
 
 
 
@@ -100,7 +100,7 @@ const NewsForm = ({ openModal, isEditMode, item, setOpenModal }) => {
                     return true
                   }
                 }}
-                action="https://salicapi.com/api/uploader/up"
+                action={`${apiUrl}/uploader/up`}
                 fileList={filesList}
                 onChange={(file) => {setFilesList(file.fileList); console.log(file.fileList)}}
                 listType="picture"

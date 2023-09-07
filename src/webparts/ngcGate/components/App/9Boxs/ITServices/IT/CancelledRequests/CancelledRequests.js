@@ -4,7 +4,7 @@ import { InfoCircleOutlined, PlusOutlined, RedoOutlined } from '@ant-design/icon
 import { useNavigate } from 'react-router-dom';
 import HistoryNavigation from '../../../../Global/HistoryNavigation/HistoryNavigation';
 import UserColumnInTable from '../../../../Global/UserColumnInTable/UserColumnInTable';
-import { AppCtx } from '../../../../App';
+import { AppCtx, apiUrl } from '../../../../App';
 import moment from 'moment';
 import ProtectRouteIT from '../../../../../Routers/ProtectRoutes/ProtectRouteIT';
 import AntdLoader from '../../../../Global/AntdLoader/AntdLoader';
@@ -36,7 +36,7 @@ function CancelledRequests() {
     try {
       setState({ ...state, loading: true });
       const orderBy = (state.tableParams?.field && state.tableParams.order) ? `${state.tableParams.field} ${state.tableParams.order === 'ascend' ? 'asc' : 'desc'}` : 'Status desc';
-      const response = await axios.get(`https://salicapi.com/api/tracking/cancelled?draw=${state.draw}&order=${orderBy}&start=0&length=-1&query=${state.search}`, { signal })
+      const response = await axios.get(`${apiUrl}/tracking/cancelled?draw=${state.draw}&order=${orderBy}&start=0&length=-1&query=${state.search}`, { signal })
       setState(prev => ({
         ...prev,
         draw: prev.draw + 1,

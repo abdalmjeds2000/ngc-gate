@@ -2,7 +2,7 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, DatePicker, Divider, Form, Input, InputNumber, message, Modal, notification, Radio, Select, Space, Upload } from 'antd';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { AppCtx } from '../../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../../App';
 import moment from 'moment';
 import AddSelectItem from '../../../components/AddSelectItem';
 
@@ -49,7 +49,7 @@ const UpdateAssetForm = ({data, onSuccessUpdate}) => {
   var models = lookupsData?.filter(x=>x.Property === 'Model');
   var supplier = lookupsData?.filter(x=>x.Property === 'Supplier');
   const getLookups = async () => {
-    const lookupsResponse = await axios.get('https://salicapi.com/api/Asset/GetLookups');
+    const lookupsResponse = await axios.get(`${apiUrl}/Asset/GetLookups`);
     if(lookupsResponse.data?.Status === 200) {
       setLookupsData(lookupsResponse.data?.Data);
     }
@@ -79,7 +79,7 @@ const UpdateAssetForm = ({data, onSuccessUpdate}) => {
       formData.Files = files.join();
       formData.SubDevices = JSON.stringify(formData.SubDevices) || '[]';
       formData.ReceivedDate = moment(formData.ReceivedDate).format('MM/DD/YYYY')
-      const requestResponse = await axios.post('https://salicapi.com/api/Asset/Update', formData);
+      const requestResponse = await axios.post(`${apiUrl}/Asset/Update`, formData);
       if(requestResponse.status == 200) {
         notification.success({message: requestResponse?.data?.Message})
         setFileList([]);
@@ -269,7 +269,7 @@ const UpdateAssetForm = ({data, onSuccessUpdate}) => {
         </Form.Item>
         <Form.Item label="Attached Files">
           <Upload
-            action="https://salicapi.com/api/uploader/up"
+            action={`${apiUrl}/uploader/up`}
             listType="picture-card"
             fileList={fileList}
             onPreview={handlePreview}

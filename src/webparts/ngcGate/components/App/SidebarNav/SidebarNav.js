@@ -62,7 +62,8 @@ const SidebarNav = ({spWebUrl}) => {
   
   const antdIconStyle = {
     minWidth: "35px",
-    fontSize: isNavBarLarge ? "2.2rem" : "1.7rem"
+    fontSize: isNavBarLarge ? "2.2rem" : "1.7rem",
+    justifyContent: "center"
   };
 
 
@@ -93,11 +94,6 @@ const SidebarNav = ({spWebUrl}) => {
       text: "SALIC Gate Development",
       link: true,
       to: "https://devsalic.sharepoint.com/sites/portal/SitePages/Home.aspx",
-    },{
-      to: "/oracle-reports",
-      icon: svgIcons.OracleReports,
-      text: "Oracle Reports",
-      link: false,
     },{
       to: "/power-bi-dashboards",
       icon: svgIcons.PowerBi,

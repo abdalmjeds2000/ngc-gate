@@ -4,7 +4,7 @@ import TextArea from 'antd/lib/input/TextArea';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { FaRegNewspaper } from 'react-icons/fa';
-import { AppCtx } from '../../../../../../App';
+import { apiUrl, AppCtx } from '../../../../../../App';
 
 
 
@@ -12,7 +12,7 @@ const FileUploder = ({ fileList, setFileList }) => {
   
   return (
     <Upload
-      action="https://salicapi.com/api/uploader/up"
+      action={`${apiUrl}/uploader/up`}
       fileList={fileList}
       onChange={({ fileList: newFileList }) => {
         setFileList(newFileList);
@@ -53,7 +53,7 @@ const ReturnAsset = ({ assetData, onSuccessReturn }) => {
       form_values.DeliveryNoteDetailId = `${lastDeliveryNoteId.Id}`;
       form_values.Files = JSON.stringify(files);
 
-      const response = await axios.post('https://salicapi.com/api/Asset/ReturenDeliveryNoteId', form_values);
+      const response = await axios.post(`${apiUrl}/Asset/ReturenDeliveryNoteId`, form_values);
       if(response) {
         message.success("Asset has been return successfully");
         form.resetFields();

@@ -5,7 +5,7 @@ import HistoryNavigation from '../../../../Global/HistoryNavigation/HistoryNavig
 import FormPage from '../../../components/FormPageTemplate/FormPage';
 import SubmitCancel from '../../../components/SubmitCancel/SubmitCancel';
 import moment from 'moment';
-import { AppCtx } from '../../../../App';
+import { AppCtx, apiUrl } from '../../../../App';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NewSelectItem from './NewSelectItem';
@@ -56,7 +56,7 @@ function RegisterNewAssets() {
   var models = lookupsData?.filter(x=>x.Property === 'Model');
   var supplier = lookupsData?.filter(x=>x.Property === 'Supplier');
   const getLookups = async () => {
-    const lookupsResponse = await axios.get('https://salicapi.com/api/Asset/GetLookups');
+    const lookupsResponse = await axios.get(`${apiUrl}/Asset/GetLookups`);
     if(lookupsResponse.data?.Status === 200) {
       const d = lookupsResponse.data?.Data?.filter(item => item.Value && item.Value !== "" && item.Value != "undefined");
       setLookupsData(d);
@@ -82,7 +82,7 @@ function RegisterNewAssets() {
       formData.Id = user_data.Data?.Id;
       formData.SubDevices = JSON.stringify(formData.SubDevices);
       
-      const requestResponse = await axios.post('https://salicapi.com/api/Asset/Add', formData);
+      const requestResponse = await axios.post(`${apiUrl}/Asset/Add`, formData);
       if(requestResponse) {
         if(requestResponse.data?.Code == 2) {
           notification.error({message: requestResponse.data?.Message || "Error"})
@@ -297,7 +297,7 @@ function RegisterNewAssets() {
           </Form.Item>
           <Form.Item label="Photos">
             <Upload
-              action="https://salicapi.com/api/uploader/up"
+              action={`${apiUrl}/uploader/up`}
               listType="picture-card"
               fileList={fileList}
               onPreview={handlePreview}

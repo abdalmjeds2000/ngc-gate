@@ -2,6 +2,7 @@ import { ScheduleOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Input, message, Modal, Popover, Table } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react'
+import { apiUrl } from '../../../../App';
 
 function VerifySignatureModal() {
 
@@ -54,7 +55,7 @@ function VerifySignatureModal() {
     setLoading(true);
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/signaturev2/Verify?key=${signatureKey}`
+      url: `${apiUrl}/signaturev2/Verify?key=${signatureKey}`
     }).then((res) => {
       if(res.data?.Data?.length > 0){
         setKaySignatureData(res.data.Data)

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import axios from 'axios';
 import { Button, Input, message, notification } from 'antd';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 
 
 const ApproveAction = ({ taskConvId, onFinish }) => {
@@ -11,7 +11,7 @@ const ApproveAction = ({ taskConvId, onFinish }) => {
 
 
   const handleSubmit = async (action) => {
-    const url = action==="approve" ? "https://salicapi.com/api/Incidents/ApproveIncidentTask" : "https://salicapi.com/api/Incidents/RejectIncidentTask";
+    const url = action==="approve" ? `${apiUrl}/Incidents/ApproveIncidentTask` : `${apiUrl}/Incidents/RejectIncidentTask`;
     if(action==="reject" && (!body || body?.trim() == "")) return message.error("Please, enter a message.");
     try {
       setLoading(true);

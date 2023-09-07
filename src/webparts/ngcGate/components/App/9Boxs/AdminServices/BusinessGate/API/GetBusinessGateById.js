@@ -5,7 +5,7 @@ export default async function GetBusinessGateById(email, id) {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/BusniessGate/Get?Email=${email}&Id=${id}`,
+        url: `${apiUrl}/BusniessGate/Get?Email=${email}&Id=${id}`,
       }
     )
     let response = request;

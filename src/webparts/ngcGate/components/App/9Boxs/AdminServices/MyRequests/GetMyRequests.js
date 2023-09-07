@@ -5,7 +5,7 @@ export default async function GetMyRequests(email) {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Processes/My?Email=${email}&draw=1&start=0&length=-1`,
+        url: `${apiUrl}/Processes/My?Email=${email}&draw=1&start=0&length=-1`,
       }
     )
     let response = request;

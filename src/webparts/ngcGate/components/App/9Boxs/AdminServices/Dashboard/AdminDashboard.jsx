@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import "./AdminDashboard.css";
 import { Col, Row, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation';
 import Employees from './components/Employees/Employees';
 import Overview from './components/Overview';
@@ -36,14 +36,14 @@ const AdminDashboard = () => {
   const [overviewRangeDates, setOverviewRangeDates] = useState({});
   
   const fetchRequestsDetails = async (signal) => {
-    const response = await axios.get("https://salicapi.com/api/AdminServices/Summary", { signal: signal });
+    const response = await axios.get(`${apiUrl}/AdminServices/Summary`, { signal: signal });
     if(response?.status == 200) {
       setRequestsDetailsData(response.data)
     }
   }
   
   const fetchOverviewData = async (user, signal) => {
-    const response = await axios.get(`https://salicapi.com/api/AdminServices/SummaryBy?Email=${user.Mail}&FromDate=${moment(overviewRangeDates.from || today).format("MM/DD/YYYY")}&ToDate=${moment(overviewRangeDates.to || last30Days).format("MM/DD/YYYY")}`, { signal: signal });
+    const response = await axios.get(`${apiUrl}/AdminServices/SummaryBy?Email=${user.Mail}&FromDate=${moment(overviewRangeDates.from || today).format("MM/DD/YYYY")}&ToDate=${moment(overviewRangeDates.to || last30Days).format("MM/DD/YYYY")}`, { signal: signal });
     if(response.status == 200) {
       setOverviewData(response.data)
     }

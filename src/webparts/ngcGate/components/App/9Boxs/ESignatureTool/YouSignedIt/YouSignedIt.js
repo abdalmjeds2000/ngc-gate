@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Col, Form, Input, Row, Select, Space, Table } from 'antd'
 import axios from 'axios';
-import { AppCtx } from '../../../App'
+import { AppCtx, apiUrl } from '../../../App'
 import AntdLoader from '../../../Global/AntdLoader/AntdLoader';
 import DropdownSelectUser from '../../../Global/DropdownSelectUser/DropdownSelectUser';
 
@@ -21,7 +21,7 @@ function YouSignedIt() {
 
   const fetchData = async () => {
     setLoading(true);
-    const response = await axios.get(`https://salicapi.com/api/signaturev2/AllRequests?Email=${user_data?.Data?.Mail}`)
+    const response = await axios.get(`${apiUrl}/signaturev2/AllRequests?Email=${user_data?.Data?.Mail}`)
     setESignRequestsYouSignedIt(response.data?.Data);
     setLoading(false);
   }
@@ -67,7 +67,7 @@ function YouSignedIt() {
       return `${key}=${encodeValue}`;
     }).join('&');
 
-    const url = `https://salicapi.com/api/signaturev2/AllRequests?Email=${user_data?.Data?.Mail}&${queryStr}`
+    const url = `${apiUrl}/signaturev2/AllRequests?Email=${user_data?.Data?.Mail}&${queryStr}`
     const response = await axios.get(url);
     setESignRequestsYouSignedIt(response.data?.Data);
 

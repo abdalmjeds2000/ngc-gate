@@ -5,7 +5,7 @@ import moment from "moment-hijri";
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import logo from "../../../../../../../../assets/images/logo.png";
-import { AppCtx } from "../../../../../../App";
+import { AppCtx, apiUrl } from "../../../../../../App";
 
 const Preview = ({ id, btnLabel }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -15,7 +15,7 @@ const Preview = ({ id, btnLabel }) => {
   const FetchData = async (id) => {
     axios({
       method: "GET",
-      url: `https://salicapi.com/api/Asset/GetDeliveryNoteById/${id}`,
+      url: `${apiUrl}/Asset/GetDeliveryNoteById/${id}`,
     }).then((response) => {
       if (response.data.Message == "success" || response.data.Status == 200) {
         setData(response.data.Data);

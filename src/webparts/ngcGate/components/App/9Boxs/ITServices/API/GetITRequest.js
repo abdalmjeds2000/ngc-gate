@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function GetITRequest(email, id) {
   try {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Tracking/GetById?Email=${email}&Id=${id}`,
+        url: `${apiUrl}/Tracking/GetById?Email=${email}&Id=${id}`,
       }
     )
     let response = request;

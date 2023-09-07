@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function DeleteSeriveRequest(id, message) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: `https://salicapi.com/api/tracking/DeleteServiceRequest/${id}`,
+        url: `${apiUrl}/tracking/DeleteServiceRequest/${id}`,
         data: { message: message }
       }
     )

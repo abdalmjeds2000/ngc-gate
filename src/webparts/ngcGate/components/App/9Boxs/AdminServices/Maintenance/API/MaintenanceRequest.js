@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../../App";
 
 export default async function MaintenanceRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: 'https://salicapi.com/api/Maintenance/Add',
+        url: `${apiUrl}/Maintenance/Add`,
         data: data
       }
     )

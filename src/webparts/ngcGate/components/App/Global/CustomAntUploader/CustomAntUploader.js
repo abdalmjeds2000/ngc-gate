@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Modal, Upload } from 'antd';
+import { apiUrl } from '../../App';
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -35,7 +36,7 @@ function CustomAntUploader(props) {
   return (
     <div>
       <Upload
-        action="https://salicapi.com/api/uploader/up"
+        action={`${apiUrl}/uploader/up`}
         listType="picture-card"
         fileList={props.fileList}
         onPreview={handlePreview}

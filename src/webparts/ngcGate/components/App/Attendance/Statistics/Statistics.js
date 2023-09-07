@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Statistics.css';
 import { RadialBar, Column } from '@ant-design/plots';
 import axios from 'axios';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 import CustomSelect from '../components/CustomSelect';
 import AntdLoader from '../../Global/AntdLoader/AntdLoader';
 
@@ -66,7 +66,7 @@ function Statistics() {
     if(Object.keys(user_data)?.length > 0) {
       axios({
         method: 'GET',
-        url: `https://salicapi.com/api/attendance/GetStatistics?email=${user_data.Data?.PIN}&Year=${new Date().getFullYear()}&Month=${(new Date().getMonth())+1}`
+        url: `${apiUrl}/attendance/GetStatistics?email=${user_data.Data?.PIN}&Year=${new Date().getFullYear()}&Month=${(new Date().getMonth())+1}`
       }).then((res) => {
           setDataRadialBar([
             {name: 'Annual Leave', star: res.data?.Data[0]?.AnnualLeave},
@@ -130,7 +130,7 @@ function Statistics() {
     if(Object.keys(user_data)?.length > 0) {
       axios({
         method: 'GET',
-        url: `https://salicapi.com/api/attendance/GetStatistics1?email=${user_data.Data?.PIN}&Year=${annualYear}&Month=1`
+        url: `${apiUrl}/attendance/GetStatistics1?email=${user_data.Data?.PIN}&Year=${annualYear}&Month=1`
       }).then(res => {
         let NormalChartData = res.data?.Data?.map(e =>  {return{"Month": e.Month, "type": "Normal", "value": e.Status1}})
         let AbsentChartData = res.data?.Data?.map(e =>  {return{"Month": e.Month, "type": "Absent", "value": e.Status2}})
@@ -210,7 +210,7 @@ function Statistics() {
         { type: 'Availabilities', number: 0 },
       ])
       const allIds = employees.map(u => u.value).join(',');
-      axios({method: 'GET', url: `https://salicapi.com/api/attendance/GetStatistics?email=${allIds}&Year=${currentYear}&Month=${(new Date().getMonth())+1}`})
+      axios({method: 'GET', url: `${apiUrl}/attendance/GetStatistics?email=${allIds}&Year=${currentYear}&Month=${(new Date().getMonth())+1}`})
       .then(res => {
         if(res?.data?.Data?.length > 0){
           const response = res?.data?.Data;
@@ -236,7 +236,7 @@ function Statistics() {
     } else {
       axios({
         method: 'GET',
-        url: `https://salicapi.com/api/attendance/GetStatistics?email=${selectedEmployee}&Year=${currentYear}&Month=${(new Date().getMonth())+1}`
+        url: `${apiUrl}/attendance/GetStatistics?email=${selectedEmployee}&Year=${currentYear}&Month=${(new Date().getMonth())+1}`
       })
       .then(res => {
         const response = res?.data?.Data[0];

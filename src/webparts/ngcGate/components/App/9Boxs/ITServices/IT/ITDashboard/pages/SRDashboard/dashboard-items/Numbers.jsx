@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatsCard } from '../../../../../../../Global/StatsCard/StatsCard';
 import axios from 'axios';
+import { apiUrl } from '../../../../../../../App';
 
 const Numbers = ({ paramsFilter }) => {
   const [state, setState] = React.useState({ data: [], loading: true });
@@ -9,7 +10,7 @@ const Numbers = ({ paramsFilter }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/dashboards/serviceRequestsByStatus?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsByStatus?${joinedParams}`, { signal });
       setState({ data: response.data, loading: false });
     } catch (error) {
       // message.error("Failed to load Numbers Stats");

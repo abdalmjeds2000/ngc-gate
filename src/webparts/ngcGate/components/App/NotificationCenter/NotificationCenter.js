@@ -3,7 +3,7 @@ import './NotificationCenter.css';
 import { Button, Checkbox, Modal, Select, Spin, Table, Tag, Tooltip } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined, DownOutlined, FileDoneOutlined, LoadingOutlined, RedoOutlined, SyncOutlined } from '@ant-design/icons';
 import HistoryNavigation from '../Global/HistoryNavigation/HistoryNavigation';
-import { AppCtx } from '../App';
+import { AppCtx, apiUrl } from '../App';
 import axios from 'axios';
 import moment from 'moment';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -61,7 +61,7 @@ function NotificationCenter() {
 
   const fetchRowsCount = async (status) => {
     const _status = status.join(',');
-    const url = `https://salicapi.com/api/NotificationCenter/Summary?Email=${customEmail || user_data?.Data?.Mail}&Status=${_status.replace(/[,]/g, '%2C')}`
+    const url = `${apiUrl}/NotificationCenter/Summary?Email=${customEmail || user_data?.Data?.Mail}&Status=${_status.replace(/[,]/g, '%2C')}`
     const response = await axios.get(url);
     if(response.data?.Status == 200 && response.data?.Data) {
       setDataCount(response.data.Data);
@@ -71,7 +71,7 @@ function NotificationCenter() {
     !noLoader ? setLoading(true) : null;
     const _types = types.join(',');
     const _status = status.join(',');
-    let url = `https://salicapi.com/api/notificationcenter/Get?Email=${customEmail || user_data?.Data?.Mail}&draw=1&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&%24orderby=Created+desc&%24top=1&Type=${_types.replace(/[,]/g, '%2C')}&Status=${_status.replace(/[,]/g, '%2C')}&_=1671286356550`;
+    let url = `${apiUrl}/notificationcenter/Get?Email=${customEmail || user_data?.Data?.Mail}&draw=1&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&%24orderby=Created+desc&%24top=1&Type=${_types.replace(/[,]/g, '%2C')}&Status=${_status.replace(/[,]/g, '%2C')}&_=1671286356550`;
     const response = await axios.get(url, {signal: signal})
     if(response?.data?.Status == 200 && response?.data?.Data && response?.data?.Data?.length > 0) {
       setNotificationsData(response.data?.Data);

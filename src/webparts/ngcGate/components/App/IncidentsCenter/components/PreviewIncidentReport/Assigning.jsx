@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 // import DropdownSelectUser from '../../../Global/DropdownSelectUser/DropdownSelectUser';
 import { AutoCompleteOrgUsers } from "salic-react-components";
 import { CheckCircleOutlined, ClockCircleOutlined, CommentOutlined, LeftOutlined, MinusCircleOutlined, PlusOutlined, SendOutlined, TableOutlined, UploadOutlined } from '@ant-design/icons';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import axios from 'axios';
 import moment from 'moment';
 import DepartmentFeedback from './DepartmentFeedback';
@@ -45,7 +45,7 @@ const Assigning = ({ reportData, onFinish }) => {
     }
     data.Assignees = data?.Assignees?.map(item => ({...item, AssignedBy: user_data?.Data?.Mail}));
 
-    const response = await axios.post('https://salicapi.com/api/Incidents/Assign', data);
+    const response = await axios.post(`${apiUrl}/Incidents/Assign`, data);
     if(response?.status == 200 || response?.status == 201) {
       if(onFinish) onFinish();
       notification.success({message: response?.data?.Message || "DONE !"});
@@ -280,7 +280,7 @@ const IncidentConversation = ({ isAdmin, reportData, conversationConfig, setConv
     }
     try {
       setLoading(true);
-      const response = await axios.post("https://salicapi.com/api/Incidents/AddIncidentTaskDetail", payload);
+      const response = await axios.post(`${apiUrl}/Incidents/AddIncidentTaskDetail`, payload);
       new_comment_form.resetFields();
       setAttachments([]);
       message.success("Message sent successfully!");
@@ -401,7 +401,7 @@ const IncidentConversation = ({ isAdmin, reportData, conversationConfig, setConv
                     <Form.Item style={{ margin: 0 }}>
                       <div style={{ float: 'left', display: "flex", gap: 5 }}>
                         <Upload
-                          action="https://salicapi.com/api/uploader/up"
+                          action={`${apiUrl}/uploader/up`}
                           fileList={attachments}
                           onChange={({ fileList: newFileList }) => setAttachments(newFileList)}
                         >
@@ -448,7 +448,7 @@ const CloseDepartmentAction = ({ IncidentId, TaskId, onFinish }) => {
         "Incident_Id": IncidentId,
         "incident_task_id": TaskId
       };
-      await axios.post('https://salicapi.com/api/Incidents/CloseIncidentById', payload);
+      await axios.post(`${apiUrl}/Incidents/CloseIncidentById`, payload);
       message.success("Department closed successfully!");
       form.resetFields();
       setVisible(false);

@@ -3,7 +3,7 @@ import { Button, message, Modal, Select, Table } from 'antd';
 import { useState } from 'react';
 import { ShareAltOutlined, SyncOutlined, UserAddOutlined } from '@ant-design/icons';
 import axios from 'axios';
-import { AppCtx } from '../../../../App';
+import { AppCtx, apiUrl } from '../../../../App';
 import AntdLoader from '../../../../Global/AntdLoader/AntdLoader';
 
 function removeDuplicates(arr) {
@@ -47,7 +47,7 @@ const ShareWith = (props) => {
     setOpenModal(true)
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/Library/GetDocumentPermissions?DocumentId=${props.Id}`
+      url: `${apiUrl}/Library/GetDocumentPermissions?DocumentId=${props.Id}`
     }).then((res) => {
       const Rows = res.data.Data.map((r, i) => {
         return { 
@@ -69,7 +69,7 @@ const ShareWith = (props) => {
   let deletePermissionFromUser = (data) => {
     axios({
       method: 'Get',
-      url: `https://salicapi.com/api/DeletePermissionFromUser?DocumentId=${data.DocumentId}&Email=${data.Email}`
+      url: `${apiUrl}/DeletePermissionFromUser?DocumentId=${data.DocumentId}&Email=${data.Email}`
     }).then(res => {
       console.log(res)
       message.success('Permission has been removed from the user successfully.')

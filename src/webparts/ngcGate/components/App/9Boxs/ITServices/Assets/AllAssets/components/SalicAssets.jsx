@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Table, Row, Col, Typography, Form, Input, Select, Button, message, Pagination } from 'antd';
 import axios from 'axios';
-import { AppCtx } from '../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../App';
 import moment from 'moment';
 import UserColumnInTable from '../../../../../Global/UserColumnInTable/UserColumnInTable';
 import DropdownSelectUser from '../../../../../Global/DropdownSelectUser/DropdownSelectUser';
@@ -30,7 +30,7 @@ const SalicAssets = () => {
     setLoading(true);
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/Asset/Get?draw=13&order=CreatedAt+desc&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&email=${user_data.Data?.Mail}&Name=${filterData.Name || ''}&Status=${filterData.Status || ''}&Location=${filterData.Location || ''}&CategoryType=${filterData.CategoryType || ''}&Brand=${filterData.Brand || ''}&Model=${filterData.Model || ''}&DeliveredTo=${filterData.DeliveredTo || ''}&Available=${filterData.Available || ''}&Type=${filterData.Type || ''}&Tag=${filterData.Tag || ''}&SN=${filterData.SN || ''}&_=1669266638774`,
+      url: `${apiUrl}/Asset/Get?draw=13&order=CreatedAt+desc&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&email=${user_data.Data?.Mail}&Name=${filterData.Name || ''}&Status=${filterData.Status || ''}&Location=${filterData.Location || ''}&CategoryType=${filterData.CategoryType || ''}&Brand=${filterData.Brand || ''}&Model=${filterData.Model || ''}&DeliveredTo=${filterData.DeliveredTo || ''}&Available=${filterData.Available || ''}&Type=${filterData.Type || ''}&Tag=${filterData.Tag || ''}&SN=${filterData.SN || ''}&_=1669266638774`,
     }).then((response) => {
       setSalicAssetsData(response.data);
     }).catch(() => {
@@ -202,7 +202,7 @@ const SalicAssets = () => {
                   {showFilterPanel && <Button htmlType="reset" danger style={{marginRight: 25}}>
                     Reset
                   </Button>}
-                <Button type='primary' href='https://salicapi.com/api/asset/export' target='_blank'>
+                <Button type='primary' href={`${apiUrl}/asset/export`} target='_blank'>
                   Export Assets
                 </Button>
               </Row>

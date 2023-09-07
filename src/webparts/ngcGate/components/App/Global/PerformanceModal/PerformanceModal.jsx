@@ -4,7 +4,7 @@ import { Bullet } from '@ant-design/plots';
 import { Modal, Table, Tooltip, Typography } from 'antd';
 import kpiColorByRate from '../../Global/kpiColorByRate';
 import axios from 'axios';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 
 
 
@@ -126,7 +126,7 @@ const PerformanceModal = ({ openModal, setOpenModal, year, email }) => {
   ];
   const fetchData = async () => {
     setLoading(true);
-    const res = await axios.get(`https://salicapi.com/api/user/performanceForYear?Email=${email}&Year=${year}`);
+    const res = await axios.get(`${apiUrl}/user/performanceForYear?Email=${email}&Year=${year}`);
     if(Array.isArray(res?.data) && res.status === 200) {
       setData(mappingPerfomanceData(res.data));
       setLoading(false);

@@ -3,7 +3,7 @@ import { Form, Input, Modal, Upload, Radio, message } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import HistoryNavigation from '../../Global/HistoryNavigation/HistoryNavigation';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../App'
+import { AppCtx, apiUrl } from '../../App'
 import FormPage from '../../9Boxs/components/FormPageTemplate/FormPage';
 import AddContentRequest from '../API/AddContentRequest';
 import SubmitCancel from '../../9Boxs/components/SubmitCancel/SubmitCancel';
@@ -137,7 +137,7 @@ function NewContentRequest() {
 
           <Form.Item label="Attachments">
             <Upload   
-              action="https://salicapi.com/api/uploader/up"
+              action={`${apiUrl}/uploader/up`}
               listType="picture-card"
               fileList={fileList}
               onPreview={handlePreview}

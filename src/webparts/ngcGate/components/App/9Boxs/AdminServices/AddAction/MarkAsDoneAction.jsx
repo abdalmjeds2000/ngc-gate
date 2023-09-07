@@ -4,6 +4,7 @@ import { Button, Col, Form, message, Modal, notification, Radio, Row, Space, Upl
 import TextArea from 'antd/lib/input/TextArea';
 import { AppCtx } from '../../../App';
 import MarkAsDoneRequest from './MarkAsDoneRequest';
+import { apiUrl } from "../../../App";
 
 
 function MarkAsDoneAction({ RequestType, ModalTitle, onSuccess, idName, idVal }) {
@@ -102,7 +103,7 @@ function MarkAsDoneAction({ RequestType, ModalTitle, onSuccess, idName, idVal })
           
           <Form.Item label="Attach Files">
             <Upload
-              action="https://salicapi.com/api/uploader/up"
+              action={`${apiUrl}/uploader/up`}
               fileList={fileList}
               onChange={({ fileList: newFileList }) => setFileList(newFileList)}
             >

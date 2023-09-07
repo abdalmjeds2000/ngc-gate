@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../App";
 
 export default async function GetAssignedRequests(email) {
   try {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Processes/Get?Email=${email}&start=0&length=-1`,
+        url: `${apiUrl}/Processes/Get?Email=${email}&start=0&length=-1`,
       }
     )
     let response = request;

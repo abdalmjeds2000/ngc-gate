@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function GetSummaryByStatus(params, signal) {
   try {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Tracking/SummaryByStatus?Email=${params}`,
+        url: `${apiUrl}/Tracking/SummaryByStatus?Email=${params}`,
         signal: signal
       }
     )

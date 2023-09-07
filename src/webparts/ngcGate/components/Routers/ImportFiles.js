@@ -36,8 +36,6 @@ export { default as MeetingCenter } from '../App/MeetingCenter/MeetingCenter';
 export { default as NewMeeting } from '../App/MeetingCenter/NewMeeting/NewMeeting';
 export { default as MyMeetings } from '../App/MeetingCenter/MyMeetings/MyMeetings';
 export { default as RoomsCalender } from '../App/MeetingCenter/RoomsCalender/RoomsCalender';
-export { default as OracleReports } from '../App/OracleReports/OracleReports';
-export { default as ManageOracleReports } from '../App/ManageOracleReports/ManageOracleReports';
 export { default as ESignatureTool } from '../App/9Boxs/ESignatureTool/ESignatureTool';
 export { default as Investment } from '../App/6Boxs/Investment/Investment';
 export { default as Finance } from '../App/6Boxs/Finance/Finance';
@@ -63,40 +61,11 @@ export { default as NewContentRequest } from '../App/ContentRequests/NewRequest/
 export { default as AllContentRequests } from '../App/ContentRequests/AllRequests/AllContentRequests';
 export { default as MyContentRequests } from '../App/ContentRequests/MyRequests/MyContentRequests';
 export { default as PreviewContentRequest } from '../App/ContentRequests/PreviewRequest/PreviewContentRequest';
-export { default as ResearchRequests } from '../App/ResearchCenter/ResearchRequests/ResearchRequests';
-export { default as NewResearchRequest } from '../App/ResearchCenter/ResearchRequests/NewResearchRequest/NewResearchRequest';
-export { default as MyResearchRequests } from '../App/ResearchCenter/ResearchRequests/MyRequests/MyResearchRequests';
-export { default as AllResearchRequests } from '../App/ResearchCenter/ResearchRequests/AllRequests/AllResearchRequests';
-export { default as PreviewResearchRequest } from '../App/ResearchCenter/ResearchRequests/PreviewRequest/PreviewResearchRequest';
-export { default as ArticlePage } from '../App/ResearchCenter/Dashboard/pages/ArticlePage/ArticlePage';
-export { default as ManageDashboardData } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/ManageDashboardData';
-export { default as ResearchArticles } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/Iframes/ResearchArticles';
-export { default as ResearchNews } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/Iframes/ResearchNews';
-export { default as ResearchCountry } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/Iframes/ResearchCountry';
-export { default as ResearchPulse } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/Iframes/ResearchPulse';
-export { default as CommodityPrices } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/Iframes/CommodityPrices';
-export { default as KnowledgeCenter } from '../App/ResearchCenter/Dashboard/pages/ManageDashboardData/Iframes/KnowledgeCenter';
+
 export { default as ManageNewsContent } from '../App/ManageNewsContent/ManageNewsContent';
 export { default as ManageEvents } from '../App/ManageEvents/ManageEvents';
 export { default as SPSearch } from '../App/SearchPage/SPSearch';
 
-export { default as CorporateObjectiveKPIs } from '../App/PerformanceManagement/CorporateObjectiveKPIs/CorporateObjectiveKPIs';
-export { default as InputScreen } from '../App/PerformanceManagement/CorporateObjectiveKPIs/InputScreen';
-export { default as ManageFocalPoints } from '../App/PerformanceManagement/CorporateObjectiveKPIs/ManageFocalPoints';
-export { default as SalicInNumbers } from '../App/PerformanceManagement/SalicInNumbers/SalicInNumbers';
-export { default as ActionPlansAdmin } from '../App/PerformanceManagement/ActionPlans/ActionPlansAdmin';
-export { default as ActionPlansResponsible } from '../App/PerformanceManagement/ActionPlans/ActionPlansResponsible';
-export { default as AchievementsChallengesAdmin } from '../App/PerformanceManagement/AchievementsChallenges/admin/AchievementsChallengesAdmin';
-export { default as AchievementsChallenges } from '../App/PerformanceManagement/AchievementsChallenges/AchievementsChallenges';
-export { default as AchievementsChallengesInvitation } from '../App/PerformanceManagement/AchievementsChallenges/AchievementsChallengesInvitation';
-
-export { default as ResearchDashboard } from '../App/ResearchCenter/Dashboard/ResearchDashboard';
-
-export { default as AllCategories } from '../App/ResearchCenter/Dashboard/pages/CategoryPage/AllCategories';
-export { default as CategoryPage } from '../App/ResearchCenter/Dashboard/pages/CategoryPage/CategoryPage';
-export { default as PulseSection } from '../App/ResearchCenter/Dashboard/pages/PulseCardsPage';
-export { default as CountryCardsPage } from '../App/ResearchCenter/Dashboard/pages/CountryCardsPage';
-export { default as KnowledgeCardsPage } from '../App/ResearchCenter/Dashboard/pages/KnowledgeCardsPage';
 export { default as IncidentsCenter } from '../App/IncidentsCenter/IncidentsCenter';
 export { default as NewIncidentReport } from '../App/IncidentsCenter/components/NewIncidentReport';
 export { default as MyReports } from '../App/IncidentsCenter/components/MyReports';
@@ -109,14 +78,3 @@ export { default as AlmiraVersions} from '../App/SalicProfile/AlmiraVersions/Alm
 export { default as AnnualReports} from '../App/SalicProfile/AnnualReports';
 export { default as SALICPresentation} from '../App/SalicProfile/SALICPresentation';
 export { default as Feedback} from '../App/Feedback/Feedback';
-
-export { default as BoD} from '../App/BoD/BoD';
-export { default as FinanceMaster} from '../App/BoD/FinanceMaster/FinanceMaster';
-export { default as KeyFinanceMetrics} from '../App/BoD/KeyFinancialMetrics/KeyFinancialMetrics';
-export { default as BoDMeetings} from '../App/BoD/Meetings/Meetings';
-export { default as InvestmentPipeline} from '../App/BoD/InvestmentPipeline/InvestmentPipeline';
-export { default as Strategy} from '../App/BoD/Strategy/Strategy';
-export { default as InvestmentLiveTransactions} from '../App/BoD/InvestmentLiveTransactions/InvestmentLiveTransactions';
-export { default as ResolutionByCirculation} from '../App/BoD/ResolutionByCirculation/ResolutionByCirculation';
-export { default as Contribution} from '../App/BoD/Contribution/Contribution';
-export { default as ManageFreeze} from '../App/BoD/ManageFreeze';

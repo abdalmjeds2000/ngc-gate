@@ -5,7 +5,7 @@ export default async function GetVisitorRequestById(email, id) {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Visitor/Get?Email=${email}&Id=${id}`,
+        url: `${apiUrl}/Visitor/Get?Email=${email}&Id=${id}`,
       }
     )
     let response = request;

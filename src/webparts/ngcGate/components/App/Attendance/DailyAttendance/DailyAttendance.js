@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { AppCtx } from '../../App'; 
+import { AppCtx, apiUrl } from '../../App'; 
 import CustomSelect from '../components/CustomSelect';
 import './DailyAttendance.css';
 import AntdLoader from '../../Global/AntdLoader/AntdLoader';
@@ -52,7 +52,7 @@ function DailyAttendance() {
     console.log(employees);
     await axios({
       method: 'GET',
-      url: `https://salicapi.com/api/attendance/GetByEmail?Email=-1,${email.join() || employees.join()}&startDate=${startDate}&EndDate=${endDate}&month=${startDate !== '' || endDate !== '' ? 0 : (new Date().getMonth() + 1)}&year=${startDate !== '' || endDate !== '' ? 0 : (new Date().getFullYear())}`
+      url: `${apiUrl}/attendance/GetByEmail?Email=-1,${email.join() || employees.join()}&startDate=${startDate}&EndDate=${endDate}&month=${startDate !== '' || endDate !== '' ? 0 : (new Date().getMonth() + 1)}&year=${startDate !== '' || endDate !== '' ? 0 : (new Date().getFullYear())}`
     }).then((res) => {
       setTableData(res.data.Data);
     }).catch((err) => {
@@ -109,7 +109,7 @@ function DailyAttendance() {
             </div>
           </div>
           <div className="btns">
-            <a style={{ color: "#fff" }} target='_blank' href={`https://salicapi.com/api/attendance/Export?Email=-1,${employees.join()}&startDate=${startDate}&EndDate=${endDate}&month=${startDate !== '' || endDate !== '' ? 0 : (new Date().getMonth() + 1)}&year=${startDate !== '' || endDate !== '' ? 0 : (new Date().getFullYear())}`}>
+            <a style={{ color: "#fff" }} target='_blank' href={`${apiUrl}/attendance/Export?Email=-1,${employees.join()}&startDate=${startDate}&EndDate=${endDate}&month=${startDate !== '' || endDate !== '' ? 0 : (new Date().getMonth() + 1)}&year=${startDate !== '' || endDate !== '' ? 0 : (new Date().getFullYear())}`}>
               <button className='export' type='button'>Export Data</button>
             </a>
             <button className='filter' onClick={() => filterResultsHandler([])} disabled={loader}>Filter Results</button>

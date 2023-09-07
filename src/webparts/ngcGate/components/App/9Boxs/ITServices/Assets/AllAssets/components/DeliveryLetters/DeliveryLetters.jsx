@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Table, Row, Col, Typography, Form, Input, Select, Button, message, Pagination } from 'antd';
 import axios from 'axios';
-import { AppCtx } from '../../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../../App';
 import moment from 'moment';
 import UserColumnInTable from '../../../../../../Global/UserColumnInTable/UserColumnInTable';
 import DropdownSelectUser from '../../../../../../Global/DropdownSelectUser/DropdownSelectUser';
@@ -29,7 +29,7 @@ const DeliveryLetters = () => {
     setLoading(true);
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/Asset/GetDeliveryNotes?draw=8&order=CreatedAt+desc&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&email=${filterData.email}&Number=${filterData.Number}&Department=${filterData.Department}&Status=${filterData.Status}&AssetName=${filterData.AssetName}&_=1669282863275`,
+      url: `${apiUrl}/Asset/GetDeliveryNotes?draw=8&order=CreatedAt+desc&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&email=${filterData.email}&Number=${filterData.Number}&Department=${filterData.Department}&Status=${filterData.Status}&AssetName=${filterData.AssetName}&_=1669282863275`,
     }).then((response) => {
       setDeliveryLettersData(response.data);
     }).catch((err) => {

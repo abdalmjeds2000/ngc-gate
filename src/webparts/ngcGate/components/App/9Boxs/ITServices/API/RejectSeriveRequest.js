@@ -5,7 +5,7 @@ export default async function RejectSeriveRequest(id) {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/tracking/Reject/${id}`,
+        url: `${apiUrl}/tracking/Reject/${id}`,
       }
     )
     let response = request;

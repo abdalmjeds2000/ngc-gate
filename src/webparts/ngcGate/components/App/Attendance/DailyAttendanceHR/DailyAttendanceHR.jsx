@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { AppCtx } from '../../App'; 
+import { AppCtx, apiUrl } from '../../App'; 
 import CustomSelect from '../components/CustomSelect';
 import '../DailyAttendance/DailyAttendance.css';
 import AntdLoader from '../../Global/AntdLoader/AntdLoader';
@@ -65,8 +65,8 @@ function DailyAttendanceHR() {
         let encodeValue = encodeURIComponent(params[key]);
         return `${key}=${encodeValue}`;
       }).join('&');
-      // const url = `https://salicapi.com/api/attendance/GetByEmail?Department=${departmentName}&Status=${status}&Email=${email || employees}&startDate=${startDate}&EndDate=${endDate}&month=${startDate !== '' || endDate !== '' ? 0 : (new Date().getMonth() + 1)}&year=${startDate !== '' || endDate !== '' ? 0 : (new Date().getFullYear())}`;
-      const url = `https://salicapi.com/api/attendance/GetByEmail?${queryStr}`;
+      // const url = `${apiUrl}/attendance/GetByEmail?Department=${departmentName}&Status=${status}&Email=${email || employees}&startDate=${startDate}&EndDate=${endDate}&month=${startDate !== '' || endDate !== '' ? 0 : (new Date().getMonth() + 1)}&year=${startDate !== '' || endDate !== '' ? 0 : (new Date().getFullYear())}`;
+      const url = `${apiUrl}/attendance/GetByEmail?${queryStr}`;
       const response = await axios.get(url);
       setTableData(response?.data?.Data);
     } catch (error) {
@@ -104,7 +104,7 @@ function DailyAttendanceHR() {
       return `${key}=${encodeValue}`;
     }).join('&');
 
-    return `https://salicapi.com/api/attendance/Export?${queryStr}`;
+    return `${apiUrl}/attendance/Export?${queryStr}`;
   }
   const exportLink = getExportLink();
 

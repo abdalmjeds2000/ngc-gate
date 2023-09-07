@@ -5,7 +5,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation'
 import FormPage from '../../components/FormPageTemplate/FormPage'
 import SubmitCancel from '../../components/SubmitCancel/SubmitCancel';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import moment from 'moment';
 import DropdownSelectUser from '../../../Global/DropdownSelectUser/DropdownSelectUser';
 import MarkAsDoneAction from '../AddAction/MarkAsDoneAction';
@@ -304,7 +304,7 @@ function IssuingVISA() {
               </Form.Item>
               {!id && <Form.Item label="Verification Documents">
                 <Upload
-                  action="https://salicapi.com/api/uploader/up"
+                  action={`${apiUrl}/uploader/up`}
                   listType="picture-card"
                   fileList={fileList}
                   onPreview={handlePreview}

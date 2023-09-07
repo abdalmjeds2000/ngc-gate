@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../../App";
 
 export default async function GetTransportationRequest(email, id) {
   try {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Transportation/Get?Email=${email}&Id=${id}`,
+        url: `${apiUrl}/Transportation/Get?Email=${email}&Id=${id}`,
       }
     )
     let response = request;

@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../../App";
 
 export default async function IssuingVISARequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: 'https://salicapi.com/api/VISA/Add',
+        url: `${apiUrl}/VISA/Add`,
         data: data
       }
     )

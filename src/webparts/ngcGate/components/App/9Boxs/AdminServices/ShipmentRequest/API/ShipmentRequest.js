@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../../App";
 
 export default async function ShipmentRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: 'https://salicapi.com/api/Shipment/Add',
+        url: `${apiUrl}/Shipment/Add`,
         data: data
       }
     )

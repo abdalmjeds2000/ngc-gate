@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Button, Popover, Space, Table, Typography } from 'antd';
 import moment from 'moment';
-import { AppCtx } from '../../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../../App';
 import UserColumnInTable from '../../../../../../Global/UserColumnInTable/UserColumnInTable';
 import { CloseCircleOutlined, FileExcelOutlined, FilterOutlined, InfoCircleOutlined, RedoOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -40,7 +40,7 @@ function ServicesRequests(props) {
     const _emails = (isFilterActive && users) ? users?.join(",") : "";
     try {
       setITRequests(prev => ({ ...prev, loading: true }));
-      await axios.get(`https://salicapi.com/api/tracking/Get?draw=${ITRequests.draw}&order=${orderBy}&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&from=${from || ''}&to=${to || ''}&email=${_emails}&query=${ITRequests.search}&_=1668265007659`, { signal: signal })
+      await axios.get(`${apiUrl}/tracking/Get?draw=${ITRequests.draw}&order=${orderBy}&start=${skipItems}&length=${takeItems}&search[value]=&search[regex]=false&from=${from || ''}&to=${to || ''}&email=${_emails}&query=${ITRequests.search}&_=1668265007659`, { signal: signal })
         .then((res) => {
           setITRequests(prev => ({
             ...prev,
@@ -181,7 +181,7 @@ function ServicesRequests(props) {
       <Button
         size='small' 
         type='primary' 
-        onClick={() => window.open("https://salicapi.com/api/Tracking/ExportData?ServiceRequestId=&ClosedBy=&EmailAddress=&RequestType=&PendingWith=&CreatedFrom=&CreatedTo=", "_blank")}
+        onClick={() => window.open(`${apiUrl}/Tracking/ExportData?ServiceRequestId=&ClosedBy=&EmailAddress=&RequestType=&PendingWith=&CreatedFrom=&CreatedTo=`, "_blank")}
       >
         <FileExcelOutlined /> Export
       </Button>

@@ -10,7 +10,6 @@ function PowerBIInteractiveDashboards() {
   const services = [
     {icon: icons.CreateInvoiceRequest, bgColor: 'rgb(39, 124, 98)', isLink: false, text: 'Human Capital', to: '/power-bi-dashboards/human-capital'},
     {icon: icons.ReceiveOrderItems, bgColor: 'rgb(233, 155, 77)', isLink: false, text: 'Research', to: '/power-bi-dashboards/research'},
-    {icon: icons.bod, bgColor: 'rgb(77, 155, 233)', isLink: false, text: 'BoD', to: '/bod'},
   ];
   
   return (

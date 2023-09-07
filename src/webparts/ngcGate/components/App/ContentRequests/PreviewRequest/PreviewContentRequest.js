@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import './PreviewRequest.css';
 import HistoryNavigation from '../../Global/HistoryNavigation/HistoryNavigation';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppCtx } from '../../App'
+import { AppCtx, apiUrl } from '../../App'
 import { Button, Col, message, Row, Timeline, Upload, Steps, Modal, Alert, Typography, Checkbox } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import { CaretRightOutlined, CheckOutlined, CloseOutlined, UploadOutlined } from '@ant-design/icons';
@@ -182,7 +182,7 @@ function PreviewContentRequest() {
     // Replys Uploader Component
     const ReplyUploader = (
         <Upload 
-            action="https://salicapi.com/api/uploader/up"
+            action={`${apiUrl}/uploader/up`}
             fileList={fileList}
             onChange={handleChange}
         >

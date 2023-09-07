@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function CloseSeriveRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: "https://salicapi.com/api/tracking/CloseServiceRequest",
+        url: `${apiUrl}/tracking/CloseServiceRequest`,
         data: data
       }
     )

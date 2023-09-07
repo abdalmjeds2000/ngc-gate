@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Col, Form, Input, Modal, Row, message, notification } from 'antd';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import axios from 'axios';
 import { IssuesCloseOutlined } from '@ant-design/icons';
 
@@ -17,7 +17,7 @@ const CloseAction = ({ reportData, onSuccess }) => {
     data.Email = user_data?.Data?.Mail;
     data.Incident_Id = `${reportData.Id}`;
 
-    const response = await axios.post(`https://salicapi.com/api/Incidents/CloseIncidentReport`, data);
+    const response = await axios.post(`${apiUrl}/Incidents/CloseIncidentReport`, data);
     if(response?.status == 200 || response?.status == 201) {
       notification.success({message: "Incident report has been closed"});
       form.resetFields();

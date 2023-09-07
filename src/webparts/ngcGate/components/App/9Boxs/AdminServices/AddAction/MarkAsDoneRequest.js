@@ -5,7 +5,7 @@ export default async function MarkAsDoneRequest(type, data) {
     let request = await axios(
       {
         method: "POST",
-        url: `https://salicapi.com/api/${type}/AddAction`,
+        url: `${apiUrl}/${type}/AddAction`,
         data: data
       }
     )

@@ -4,6 +4,7 @@ import { Tooltip, Typography, Calendar, Badge, Modal, message, Col, Row } from '
 import moment from 'moment';
 import './UserCalendar.css';
 import { BsCalendar3 } from 'react-icons/bs';
+import { apiUrl } from '../../../App';
 
 
 let CancelToken = axios.CancelToken;
@@ -19,7 +20,7 @@ const UserCalendar = ({ userData }) => {
       cancel();
     }
     await axios.get(
-      `https://salicapi.com/api/user/calendar?Email=${email}&Start=${sDate}&End=${eDate}`,
+      `${apiUrl}/user/calendar?Email=${email}&Start=${sDate}&End=${eDate}`,
       { cancelToken: new CancelToken(c => cancel = c) }
     )
     .then(({ data }) => setEvents(data.value || []))

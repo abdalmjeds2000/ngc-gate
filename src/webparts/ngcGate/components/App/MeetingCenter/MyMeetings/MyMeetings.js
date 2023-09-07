@@ -24,7 +24,7 @@ function MyMeetings() {
 
   const fetchData = () => {
     setLoading(true);
-    axios({method: 'GET',url: `https://salicapi.com/api/Meeting/GetMyBooking?Email=${user_data?.Data?.Mail}&draw=4&order%5B0%5D%5Bdir%5D=asc&start=${tableParams.pagination.current === 1 ? '0' : (tableParams.pagination.current-1)*tableParams.pagination.pageSize}&length=50`})
+    axios({method: 'GET',url: `${apiUrl}/Meeting/GetMyBooking?Email=${user_data?.Data?.Mail}&draw=4&order%5B0%5D%5Bdir%5D=asc&start=${tableParams.pagination.current === 1 ? '0' : (tableParams.pagination.current-1)*tableParams.pagination.pageSize}&length=50`})
     .then((res) => {
       let dataTable = [];
       const response = res?.data?.data;

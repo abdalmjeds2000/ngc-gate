@@ -1,7 +1,7 @@
 import { Row, Spin, Typography } from 'antd';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import { FcApproval } from 'react-icons/fc';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -35,7 +35,7 @@ const Leaves = (props) => {
 
   const handleReasonChange = async (reason, toUser, signal) => {
     setLoading(true);
-    let url = "https://salicapi.com/api/leave/";
+    let url = `${apiUrl}/leave/`;
     switch(reason) {
       case "1":
         setCurrent("1");

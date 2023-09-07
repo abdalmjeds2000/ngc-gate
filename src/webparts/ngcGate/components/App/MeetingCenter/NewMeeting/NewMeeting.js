@@ -5,7 +5,7 @@ import Timeline from 'react-calendar-timeline'
 import 'react-calendar-timeline/lib/Timeline.css'
 import moment from 'moment'
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 import { Form, Input, DatePicker, Transfer, Select, Slider, Row, Col, Button, Space, InputNumber, Divider, message } from 'antd';
 import axios from 'axios'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
@@ -42,7 +42,7 @@ function NewMeeting() {
         Email: user_data.Data.Mail,
         Resource: meetings.length ? meetings.map(r => r.address) : _meetings.length ? _meetings.map(r => r.address) : [],
       };
-      const response = await axios.post('https://salicapi.com/api/User/GetResourceSchedule', obj);
+      const response = await axios.post(`${apiUrl}/User/GetResourceSchedule`, obj);
       
       let e = response.data.Data.value;
       let len = 1;
@@ -81,7 +81,7 @@ function NewMeeting() {
 
   const fetchMeetings = async () => {
     try {
-      const response = await axios.get(`https://salicapi.com/api/Meeting/GetMeetingRooms?Email=${user_data.Data.Mail}`);
+      const response = await axios.get(`${apiUrl}/Meeting/GetMeetingRooms?Email=${user_data.Data.Mail}`);
       if(response?.status == 200) {
         const data = response.data?.Data;
         const data2 = JSON.parse(data);
@@ -112,7 +112,7 @@ function NewMeeting() {
 
     console.log('obj', obj);
     try {
-      const response = await axios.post('https://salicapi.com/api/User/GetResourceSchedule', obj);
+      const response = await axios.post(`${apiUrl}/User/GetResourceSchedule`, obj);
       let status = response.data.Data.value;
       if (status && status !== '') {
         let _newMeetings = meetings;
@@ -230,7 +230,7 @@ function NewMeeting() {
     console.log(payload);
 
     try {
-      const response = await axios.post('https://salicapi.com/api/Meeting/CreateEvent', payload);
+      const response = await axios.post(`${apiUrl}/Meeting/CreateEvent`, payload);
       if(response?.status == 200) {
         message.success('Meeting created successfully');
         navigate(`${defualt_route}/book-meeting-room/my-meetings`);

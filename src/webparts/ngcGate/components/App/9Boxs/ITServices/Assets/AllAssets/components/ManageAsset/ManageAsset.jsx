@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from 'react';
-import { Button, Descriptions, message, Timeline, Typography } from 'antd';
+import { Descriptions, message, Timeline, Typography } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppCtx } from '../../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../../App';
 import HistoryNavigation from '../../../../../../Global/HistoryNavigation/HistoryNavigation';
 import Reply from '../../../../../../Global/RequestsComponents/Reply';
 import SenderImg from '../../../../../../Global/RequestsComponents/SenderImg';
@@ -16,7 +16,7 @@ import FileIcon from '../../../../../../Global/RequestsComponents/FileIcon';
 import ReturnAsset from './ReturnAsset';
 import Preview from '../DeliveryLetters/Preview';
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 
 
@@ -31,7 +31,7 @@ function ManageAsset() {
   // Get Asset by {id}
   async function GetAssetById() {
     setLoading(true);
-    const { data } = await axios.get(`https://salicapi.com/api/Asset/GetById?Email=${user_data?.Data?.Mail}&Id=${id}`)
+    const { data } = await axios.get(`${apiUrl}/Asset/GetById?Email=${user_data?.Data?.Mail}&Id=${id}`)
     setAssetData(data.Data);
     setLoading(false);
   } 

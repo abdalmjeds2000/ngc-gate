@@ -4,6 +4,7 @@ import Card from "../../../../../../../Global/Card/Card";
 import { Area, Bar, DualAxes, Gauge, Pie, Column } from "@ant-design/plots";
 import { Segmented, Skeleton, message } from "antd";
 import { colors } from '../../../index';
+import { apiUrl } from "../../../../../../../App";
 
 
 
@@ -32,7 +33,7 @@ export const ByPriority = ({ paramsFilter,className }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/dashboards/serviceRequestsByPriority?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsByPriority?${joinedParams}`, { signal });
       setState({ data: response.data?.Data, loading: false });
     } catch (error) {
       // message.error("Failed to load By Priority data");
@@ -105,7 +106,7 @@ export const ByStatus = ({ className }) => {
   const [state, setState] = React.useState({ data: [], loading: true });
   const getData = async () => {
     try {
-      const response = await axios.get("https://salicapi.com/api/dashboards/serviceRequestsByStatus");
+      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsByStatus`);
       const data = response.data?.filter(item => ["CLOSED", "PROCESSING"].includes(item?.key))
       setState({ data: data, loading: false });
     } catch (error) {
@@ -158,7 +159,7 @@ export const ByType = ({ paramsFilter,className }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/dashboards/serviceRequestsByByRequestType?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsByByRequestType?${joinedParams}`, { signal });
       const sortedData = response.data?.sort((a, b) => b?.Count - a?.Count);
       setState({ data: sortedData, loading: false });
     } catch (error) {
@@ -259,7 +260,7 @@ export const DepartmentStats = ({ paramsFilter, className }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/dashboards/serviceRequestsByDepartment?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsByDepartment?${joinedParams}`, { signal });
       setState({ data: response.data, loading: false });
     } catch (error) {
       // message.error("Failed to load Department Stats");
@@ -354,7 +355,7 @@ export const CreatedToClosed = ({ className }) => {
 
   const getData = async (signal) => {
     try {
-      const response = await axios.get("https://salicapi.com/api/dashboards/serviceRequestsTimeline", { signal });
+      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsTimeline`, { signal });
       // const data = mergeOpenClose(response.data, state.duration);
       setState({ data: response.data, loading: false });
     } catch (error) {

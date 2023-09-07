@@ -3,7 +3,7 @@ import { Card, Table, Typography, message } from 'antd';
 import moment from 'moment';
 import UserColumnInTable from '../../../../Global/UserColumnInTable/UserColumnInTable';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../../../App';
+import { AppCtx, apiUrl } from '../../../../App';
 import axios from 'axios';
 
 
@@ -41,7 +41,7 @@ const LatestRequests = ({ dataFor, selectdRequests }) => {
         : selectdRequests.join(",");
     try {
       setAdminDashboardRequests(prev => ({ ...prev, loading: true }));
-      const response = await axios.get(`https://salicapi.com/api/Processes/Get?draw=${adminDashboardRequests.draw}&Email=${user.Mail}&start=${skipItems}&length=${takeItems}&query=${query}`, { signal: signal });
+      const response = await axios.get(`${apiUrl}/Processes/Get?draw=${adminDashboardRequests.draw}&Email=${user.Mail}&start=${skipItems}&length=${takeItems}&query=${query}`, { signal: signal });
       setAdminDashboardRequests(prev => ({
         ...prev,
         draw: prev.draw + 1,

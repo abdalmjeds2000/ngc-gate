@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function ApproveSeriveRequest(id) {
   try {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/tracking/Accept/${id}`,
+        url: `${apiUrl}/tracking/Accept/${id}`,
       }
     )
     let response = request;

@@ -1,11 +1,12 @@
-import axios from "axios"
+import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function AssignAdminRequest(type, data) {
   try {
     let request = await axios(
       {
         method: "POST",
-        url: `https://salicapi.com/api/${type}/Assign`,
+        url: `${apiUrl}/${type}/Assign`,
         data: data
       }
     )

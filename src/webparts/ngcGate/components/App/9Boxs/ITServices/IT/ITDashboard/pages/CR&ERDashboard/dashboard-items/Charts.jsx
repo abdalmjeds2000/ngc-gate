@@ -7,7 +7,7 @@ import { Avatar, Badge, Segmented, Skeleton, Space, Table, Typography } from "an
 import { colors } from '../../../index';
 import UserColumnInTable from "../../../../../../../Global/UserColumnInTable/UserColumnInTable";
 import { CalendarOutlined, InfoCircleOutlined } from "@ant-design/icons";
-import { AppCtx } from "../../../../../../../App";
+import { AppCtx, apiUrl } from "../../../../../../../App";
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import { MdAccessTime } from "react-icons/md";
 import { FiTarget } from "react-icons/fi";
@@ -42,7 +42,7 @@ export const DepartmentStats = ({ paramsFilter, className }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/ChangeRequests/ByDepartment?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/ChangeRequests/ByDepartment?${joinedParams}`, { signal });
       setState({ data: response.data, loading: false });
     } catch (error) {
       // message.error("Failed to load Department Stats");
@@ -96,7 +96,7 @@ export const ByPriority = ({ paramsFilter,className }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/ChangeRequests/ByPriority?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/ChangeRequests/ByPriority?${joinedParams}`, { signal });
       setState({ data: response.data?.Data, loading: false });
     } catch (error) {
       // message.error("Failed to load By Priority data");
@@ -159,7 +159,7 @@ export const ByClassification = ({ paramsFilter,className }) => {
     setState({ data: state.data, loading: true });
     try {
       const joinedParams = Object.entries(paramsFilter).map(([key, value]) => `${key}=${value}`).join('&');
-      const response = await axios.get(`https://salicapi.com/api/ChangeRequests/ByClassification?${joinedParams}`, { signal });
+      const response = await axios.get(`${apiUrl}/ChangeRequests/ByClassification?${joinedParams}`, { signal });
       setState({ data: response.data, loading: false });
     } catch (error) {
       // message.error("Failed to load By Priority data");
@@ -363,7 +363,7 @@ export const RequestsList = ({ paramsFilter, className }) => {
   const getPending = async (signal) => {
     setPendingState({ data: pendingState.data, loading: true });
     try {
-      const response = await axios.get(`https://salicapi.com/api/ChangeRequests/Pending?from=${from || ""}&to=${to || ""}`, { signal });
+      const response = await axios.get(`${apiUrl}/ChangeRequests/Pending?from=${from || ""}&to=${to || ""}`, { signal });
       setPendingState({ data: response.data, loading: false });
     } catch (error) {
       // message.error("Failed to load By Type data");
@@ -376,7 +376,7 @@ export const RequestsList = ({ paramsFilter, className }) => {
     const _emails = users ? users?.join(",") : "";
     try {
       setClosedState(prev => ({ ...prev, loading: true }));
-      await axios.get(`https://salicapi.com/api/ChangeRequests/Get?draw=${closedState.draw}&order=${orderBy}&start=${skipItems}&length=${takeItems}&from=${from || ''}&to=${to || ''}&email=${_emails}&query=status:closed`, { signal: signal })
+      await axios.get(`${apiUrl}/ChangeRequests/Get?draw=${closedState.draw}&order=${orderBy}&start=${skipItems}&length=${takeItems}&from=${from || ''}&to=${to || ''}&email=${_emails}&query=status:closed`, { signal: signal })
         .then((res) => {
           setClosedState(prev => ({
             ...prev,
@@ -404,7 +404,7 @@ export const RequestsList = ({ paramsFilter, className }) => {
     const _emails = users ? users?.join(",") : "";
     try {
       setCancelledState(prev => ({ ...prev, loading: true }));
-      await axios.get(`https://salicapi.com/api/ChangeRequests/Get?draw=${cancelledState.draw}&order=${orderBy}&start=${skipItems}&length=${takeItems}&from=${from || ''}&to=${to || ''}&email=${_emails}&query=status:cancelled`, { signal: signal })
+      await axios.get(`${apiUrl}/ChangeRequests/Get?draw=${cancelledState.draw}&order=${orderBy}&start=${skipItems}&length=${takeItems}&from=${from || ''}&to=${to || ''}&email=${_emails}&query=status:cancelled`, { signal: signal })
         .then((res) => {
           setCancelledState(prev => ({
             ...prev,

@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Alert, DatePicker, Divider, Form, Input, InputNumber, message, notification, Select, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import FormPageTemplate from '../../9Boxs/components/FormPageTemplate/FormPage';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 import HistoryNavigation from "../../Global/HistoryNavigation/HistoryNavigation";
 import moment from "moment";
 import TextArea from 'antd/lib/input/TextArea';
@@ -47,7 +47,7 @@ const NewIncidentReport = () => {
     dataForm.Amount = `${dataForm.Amount ? dataForm.Amount : 0}`;
     dataForm.FileNames = files.join(',');
 
-    const response = await axios.post('https://salicapi.com/api/Incidents/Add', dataForm);
+    const response = await axios.post(`${apiUrl}/Incidents/Add`, dataForm);
     if(response) {
       console.log(response);
       form.resetFields();

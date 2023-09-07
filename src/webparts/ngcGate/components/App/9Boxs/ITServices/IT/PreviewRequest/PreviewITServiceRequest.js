@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppCtx } from '../../../../App';
+import { AppCtx, apiUrl } from '../../../../App';
 import HistoryNavigation from '../../../../Global/HistoryNavigation/HistoryNavigation';
 import useIsAdmin from '../../../../Hooks/useIsAdmin';
 import { PreviewItServiceRequest as TicketViewer } from "salic-react-components";
@@ -16,7 +16,7 @@ function PreviewITServiceRequest({ isAdmin, issueTypes }) {
 
   const fetchCommunications = async () => {
     try {
-      const response = await axios.get('https://salicapi.com/api/User/GetCommunicationList');
+      const response = await axios.get(`${apiUrl}/User/GetCommunicationList`);
       setCommunicationList(response.data?.Data || []);
     } catch (error) {
       console.log(error);

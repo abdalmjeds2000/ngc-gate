@@ -5,7 +5,7 @@ export default async function GetShipmentRequestById(email, id) {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Shipment/Get?Email=${email}&Id=${id}`,
+        url: `${apiUrl}/Shipment/Get?Email=${email}&Id=${id}`,
       }
     )
     let response = request;

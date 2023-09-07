@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation';
 import FormPage from '../../components/FormPageTemplate/FormPage';
 import SubmitCancel from '../../components/SubmitCancel/SubmitCancel';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import { useNavigate, useParams } from 'react-router-dom';
 import moment from 'moment';
 import VisitorRequest from './API/VisitorRequest';
@@ -245,7 +245,7 @@ function Visitor() {
                 !id
                 ? <Form.Item label="Attach">
                     <Upload
-                      action="https://salicapi.com/api/uploader/up"
+                      action={`${apiUrl}/uploader/up`}
                       listType="picture-card"
                       fileList={fileList}
                       onPreview={handlePreview}

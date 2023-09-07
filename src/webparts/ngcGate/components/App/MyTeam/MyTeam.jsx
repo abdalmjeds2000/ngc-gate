@@ -9,6 +9,7 @@ import Tabs from '../Global/CustomTabs/Tabs';
 import { Col, Row } from 'antd';
 import { AreaChartOutlined, CalendarOutlined, CheckSquareOutlined, UserOutlined } from '@ant-design/icons';
 import axios from 'axios';
+import { apiUrl } from '../App';
 
 
 const MyTeam = () => {
@@ -26,7 +27,7 @@ const MyTeam = () => {
     /* fetch attendance of user ( last month ) */
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/attendance/GetByEmail?Email=-1,${user?.Mail}&startDate=&EndDate=&month=${new Date().getMonth() + 1}&year=${new Date().getYear() + 1900}`,
+      url: `${apiUrl}/attendance/GetByEmail?Email=-1,${user?.Mail}&startDate=&EndDate=&month=${new Date().getMonth() + 1}&year=${new Date().getYear() + 1900}`,
       signal: signal
     }).then((res) => {
       setAttendanceData(res.data.Data);
@@ -37,7 +38,7 @@ const MyTeam = () => {
     /* fetch kpi performance of user */
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/Integration/gate_statisiics?PIN=${user?.PIN}`,
+      url: `${apiUrl}/Integration/gate_statisiics?PIN=${user?.PIN}`,
       signal: signal
     }).then((res) => {
       setPerformanceData(res.data);
@@ -47,7 +48,7 @@ const MyTeam = () => {
     /* fetch performance of years */
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/User/performance?Email=${user?.Mail}`,
+      url: `${apiUrl}/User/performance?Email=${user?.Mail}`,
       signal: signal
     }).then((res) => {
       setYearsPerformanceData(res.data);
@@ -58,7 +59,7 @@ const MyTeam = () => {
     /* fetch latest leaves data (always return 5 rows) */
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/User/latest_leaves?Email=${user?.Mail}`,
+      url: `${apiUrl}/User/latest_leaves?Email=${user?.Mail}`,
       signal: signal
     }).then((res) => {
       setLatestLeaves(res.data);

@@ -3,7 +3,7 @@ import './searchStyle.css';
 import { Col, notification, Pagination, Row, Tooltip, Typography } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 import axios from 'axios';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 import Result from './components/Result';
 import { searchLocations } from './searchLocations'
 import FileCardRow from '../../Global/FileCard/FileCardRow';
@@ -12,7 +12,7 @@ import GetMyItServiceRequests from '../../9Boxs/ITServices/API/GetMyItServiceReq
 import GetITRequestsAssignedForMe from '../../9Boxs/ITServices/API/GetITRequestsAssignedForMe';
 
 
-const boxsPagesRoutes = ['/hc-services', '/admin-services', '/services-requests', '/e-invoicing', '/content-requests', '/research-requests', '/book-meeting-room', '/oracle-reports', '/power-bi-dashboards', '/power-bi-dashboards/human-capital', '/power-bi-dashboards/research', '/incidents-center'];
+const boxsPagesRoutes = ['/hc-services', '/admin-services', '/services-requests', '/e-invoicing', '/content-requests', '/book-meeting-room', '/oracle-reports', '/power-bi-dashboards', '/power-bi-dashboards/human-capital', '/power-bi-dashboards/research', '/incidents-center'];
 
 
 const SpSearch = ({ query, setShowSearch }) => {
@@ -26,11 +26,6 @@ const SpSearch = ({ query, setShowSearch }) => {
     showSearchResult, setShowSearchResult,
     setGateNewsData,
     setITRequests,
-    setAllResearchArticlesData,
-    setAllPulseData,
-    setAllCountryData,
-    setAllKnowledgeData,
-    setResearchRequestsData,
     setSalicAssetsData,
     setDeliveryLettersData,
     my_it_requests_data, 
@@ -73,11 +68,7 @@ const SpSearch = ({ query, setShowSearch }) => {
       matchRoute?.fetchData(SearhcTerm)
       .then(async (response) => {
         console.log('newww seaech response =====> ', response);
-        if(matchRoute.route == "/research-library") {
-          setResearchResultData(response);
-          setShowSearchResult(true);
-          setInAllSp(false);
-        } else if(matchRoute.route == "/community-news") {
+        if(matchRoute.route == "/community-news") {
           setGateNewsData(response);
         } else if(matchRoute.route == "/manage-news-content") {
           setNewsList(response);
@@ -87,20 +78,6 @@ const SpSearch = ({ query, setShowSearch }) => {
           setAdminDashboardRequests(prev => 
             ({...prev, tableParams: {...prev.tableParams, pagination: {...prev.tableParams.pagination, current:1}}, search: response})
           );
-        } else if(matchRoute.route == "/research-library/categories/Commodity") {
-          setAllResearchArticlesData(response);
-        } else if(matchRoute.route == "/research-library/categories/AdHoc") {
-          setAllResearchArticlesData(response);
-        } else if(matchRoute.route == "/research-library/pulse") {
-          setAllPulseData(response);
-        } else if(matchRoute.route == "/research-library/country") {
-          setAllCountryData(response);
-        } else if(matchRoute.route == "/research-library/knowledge") {
-          setAllKnowledgeData(response);
-        } else if(matchRoute.route == "/research-requests/my-research-requests") {
-          setResearchRequestsData(response)
-        } else if(matchRoute.route == "/research-requests/all-research-requests") {
-          setResearchRequestsData(response)
         } else if(matchRoute.route == "/content-requests/my-content-requests") {
           setContentRequestsData(response)
         } else if(matchRoute.route == "/content-requests/all-content-requests") {
@@ -167,13 +144,13 @@ const SpSearch = ({ query, setShowSearch }) => {
           })
           setESignRequestsYouSignedIt(filteredData);
         } else if(matchRoute.route == "/incidents-center/my-reports") {
-          const response = await axios.get(`https://salicapi.com/api/Incidents/Get?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=${SearhcTerm}&_=1669561213357`);
+          const response = await axios.get(`${apiUrl}/Incidents/Get?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=${SearhcTerm}&_=1669561213357`);
           setMyIncidentReports(response.data.Data);
         } else if(matchRoute.route == "/incidents-center/assigned-reports") {
-          const response = await axios.get(`https://salicapi.com/api/Incidents/AssignedToMe?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=${SearhcTerm}&_=1669561303011`);
+          const response = await axios.get(`${apiUrl}/Incidents/AssignedToMe?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=${SearhcTerm}&_=1669561303011`);
           setAssignedIncidentReports(response.data.Data);
         } else if(matchRoute.route == "/incidents-center/request-for-review") {
-          const response = await axios.get(`https://salicapi.com/api/Incidents/PendingForReview?draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=${SearhcTerm}&_=1669559950875`);
+          const response = await axios.get(`${apiUrl}/Incidents/PendingForReview?draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=${SearhcTerm}&_=1669559950875`);
           setIncidentReportsForReview(response.data.Data);
         }
       })
@@ -232,10 +209,6 @@ const SpSearch = ({ query, setShowSearch }) => {
     const currentRoute = getRoute();
     const matchRoute = searchLocations.filter(route => currentRoute === route.route)[0];
     if(matchRoute && matchRoute.path?.length === 0 && matchRoute?.fetchOriginalData) {
-      if(matchRoute.route == "/research-library") {
-        setResearchResultData([]);
-        setShowSearchResult(false);
-      } 
       matchRoute?.fetchOriginalData()
       .then(async (response) => {
         console.log('OoOoOOoOoOoOoOoOoOOooOOo =====> ', response);
@@ -244,22 +217,6 @@ const SpSearch = ({ query, setShowSearch }) => {
           setGateNewsData(response);
         } else if(matchRoute.route == "/manage-news-content") {
           setNewsList(response);
-        } /* else if(matchRoute.route == "/research-library/categories/all") {
-          setAllResearchArticlesData(response);
-        } */ else if(matchRoute.route == "/research-library/categories/Commodity") {
-          setAllResearchArticlesData(response);
-        } else if(matchRoute.route == "/research-library/categories/AdHoc") {
-          setAllResearchArticlesData(response);
-        } else if(matchRoute.route == "/research-library/pulse") {
-          setAllPulseData(response);
-        } else if(matchRoute.route == "/research-library/country") {
-          setAllCountryData(response);
-        } else if(matchRoute.route == "/research-library/knowledge") {
-          setAllKnowledgeData(response);
-        } else if(matchRoute.route == "/research-requests/my-research-requests") {
-          setResearchRequestsData(response)
-        } else if(matchRoute.route == "/research-requests/all-research-requests") {
-          setResearchRequestsData(response)
         } else if(matchRoute.route == "/content-requests/my-content-requests") {
           setContentRequestsData(response)
         } else if(matchRoute.route == "/content-requests/all-content-requests") {
@@ -282,19 +239,19 @@ const SpSearch = ({ query, setShowSearch }) => {
             el.style.backgroundColor = 'transparent';
           });
         } else if(matchRoute.route == "/eSignature-document#1" || matchRoute.route == "/eSignature-document") {
-          const response = await axios.get(`https://salicapi.com/api/signaturev2/MyRequests?Email=${user_data?.Data?.Mail}`)
+          const response = await axios.get(`${apiUrl}/signaturev2/MyRequests?Email=${user_data?.Data?.Mail}`)
           setESignRequests(response.data?.Data);
         } else if(matchRoute.route == "/eSignature-document#2") {
-          const response = await axios.get(`https://salicapi.com/api/signaturev2/AllRequests?Email=${user_data?.Data?.Mail}`)
+          const response = await axios.get(`${apiUrl}/signaturev2/AllRequests?Email=${user_data?.Data?.Mail}`)
           setESignRequestsYouSignedIt(response.data?.Data);
         } else if(matchRoute.route == "/incidents-center/my-reports") {
-          const response = await axios.get(`https://salicapi.com/api/Incidents/Get?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669561213357`);
+          const response = await axios.get(`${apiUrl}/Incidents/Get?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669561213357`);
           setMyIncidentReports(response.data.Data);
         } else if(matchRoute.route == "/incidents-center/assigned-reports") {
-          const response = await axios.get(`https://salicapi.com/api/Incidents/AssignedToMe?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669561303011`);
+          const response = await axios.get(`${apiUrl}/Incidents/AssignedToMe?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669561303011`);
           setAssignedIncidentReports(response.data.Data);
         } else if(matchRoute.route == "/incidents-center/request-for-review") {
-          const response = await axios.get(`https://salicapi.com/api/Incidents/PendingForReview?draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669559950875`);
+          const response = await axios.get(`${apiUrl}/Incidents/PendingForReview?draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669559950875`);
           setIncidentReportsForReview(response.data.Data);
         } else if(matchRoute.route == "/services-requests/service-requests-dashboard#service-requests") {
           setITRequests(prev => ({...prev, search: ""}));

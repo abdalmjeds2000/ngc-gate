@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Card, Col, message, Row, Select, Statistic, Typography } from 'antd';
 import LineChart from '../../../../../Global/CustomLineChart/LineChart';
 import axios from 'axios';
-import { AppCtx } from '../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../App';
 import AntdLoader from '../../../../../Global/AntdLoader/AntdLoader';
 import { ApiOutlined, MailOutlined } from '@ant-design/icons';
 
@@ -16,7 +16,7 @@ const Dashboard = () => {
     setLoading(true);
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/Asset/Dashboard?Email=${mail}`,
+      url: `${apiUrl}/Asset/Dashboard?Email=${mail}`,
     }).then((response) => {
       setData(response.data.Data);
     }).catch(() => {

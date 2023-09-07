@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../App";
 
 export default async function fetchUsers(query) {
   try {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/User/AutoComplete?term=${query}&_type=query&q=${query}&_=1667805757891`,
+        url: `${apiUrl}/User/AutoComplete?term=${query}&_type=query&q=${query}&_=1667805757891`,
       }
     )
     let response = request;

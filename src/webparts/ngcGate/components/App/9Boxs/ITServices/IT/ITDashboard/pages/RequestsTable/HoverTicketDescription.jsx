@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { apiUrl } from '../../../../../../App';
 
 function processTextWithLink(text) {
   if (!text) return '';
@@ -38,7 +39,7 @@ const HoverTicketDescription = ({ RequestId }) => {
   const [data, setData] = React.useState({ Description: 'Loading...' });
   React.useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`https://salicapi.com/api/Tracking/GetShort?id=${RequestId}`);
+      const result = await axios(`${apiUrl}/Tracking/GetShort?id=${RequestId}`);
       if(result?.data?.Status === 200) {
         setData(result?.data?.Data);
       }

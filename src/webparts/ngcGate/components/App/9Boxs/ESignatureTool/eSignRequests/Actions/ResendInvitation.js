@@ -5,6 +5,7 @@ import { CheckCircleOutlined, CloseCircleOutlined, MessageOutlined, SyncOutlined
 import axios from 'axios';
 import moment from 'moment';
 import AntdLoader from '../../../../Global/AntdLoader/AntdLoader';
+import { apiUrl } from '../../../../App';
 
 const ResendInvitation = (props) => {
   const [openModal, setOpenModal] = useState(false)
@@ -15,7 +16,7 @@ const ResendInvitation = (props) => {
     setOpenModal(true)
     axios({
       method: 'GET',
-      url: `https://salicapi.com/api/signaturev2/Recipients?eDocumentId=${props.Id}`
+      url: `${apiUrl}/signaturev2/Recipients?eDocumentId=${props.Id}`
     }).then((res) => {
       let data = res?.data?.Data;
       setData(data);
@@ -29,7 +30,7 @@ const ResendInvitation = (props) => {
   let sendInvite = (val) => {
     axios({
       method: "POST",
-      url: "https://salicapi.com/api/signaturev2/Invite",
+      url: `${apiUrl}/signaturev2/Invite`,
       data: val
     }).then((res) => {
       res.data.Status === 200

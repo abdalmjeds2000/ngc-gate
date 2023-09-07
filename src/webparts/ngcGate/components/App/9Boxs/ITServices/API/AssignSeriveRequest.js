@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function RejectSeriveRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: "https://salicapi.com/api/tracking/Assign",
+        url: `${apiUrl}/tracking/Assign`,
         data: data
       }
     )

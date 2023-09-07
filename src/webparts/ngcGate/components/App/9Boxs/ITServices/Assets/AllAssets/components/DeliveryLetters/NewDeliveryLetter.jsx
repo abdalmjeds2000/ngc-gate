@@ -4,7 +4,7 @@ import { FileTextOutlined, PlusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { useEffect } from 'react';
 import AntdLoader from '../../../../../../Global/AntdLoader/AntdLoader';
-import { AppCtx } from '../../../../../../App';
+import { AppCtx, apiUrl } from '../../../../../../App';
 import { AutoCompleteOrgUsers } from 'salic-react-components';
 
 const NewDeliveryLetter = ({ assets }) => {
@@ -79,7 +79,7 @@ const NewDeliveryLetter = ({ assets }) => {
         ToUser: values.assetsTo,
         Assets: JSON.stringify(Assets)
       }
-      const response = await axios.post("https://salicapi.com/api/Asset/NewDeliveryNote", data);
+      const response = await axios.post(`${apiUrl}/Asset/NewDeliveryNote`, data);
       message.success(response?.data?.Message || 'Delivery letter sent successfully');
       setSelectedAssets([]);
       form.resetFields();
@@ -231,7 +231,7 @@ const Index = () => {
   const fetchAssets = () => {
     axios({
       method: 'GET',
-      url: 'https://salicapi.com/api/Asset/GetAssets'
+      url: `${apiUrl}/Asset/GetAssets`
     }).then((response) => {
       setAssets(response.data.Data);
     })

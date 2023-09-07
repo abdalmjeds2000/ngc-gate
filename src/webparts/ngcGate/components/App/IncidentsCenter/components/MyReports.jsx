@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 import HistoryNavigation from "../../Global/HistoryNavigation/HistoryNavigation";
 import RequestsTable from '../../Global/RequestsComponents/RequestsTable';
 import moment from 'moment';
@@ -21,7 +21,7 @@ const MyReports = () => {
   const [incidentsTypes, setIncidentsTypes] = useState([]);
   
   const FetchData = async () => {
-    const response = await axios.get(`https://salicapi.com/api/Incidents/Get?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669561213357`);
+    const response = await axios.get(`${apiUrl}/Incidents/Get?Email=${user_data?.Data?.Mail}&draw=1&order[0][column]=0&order[0][dir]=asc&start=0&length=-1&search[value]=&search[regex]=false&SortBy=CreatedAt&Method=desc&query=&_=1669561213357`);
     setMyIncidentReports(response.data.Data);
     setLoading(false);
   }

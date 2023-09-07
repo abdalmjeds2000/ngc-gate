@@ -38,7 +38,6 @@ import {
   NewMeeting,
   MyMeetings,
   RoomsCalender,
-  OracleReports,
   ESignatureTool,
   Investment,
   Finance,
@@ -63,36 +62,9 @@ import {
   AllContentRequests,
   MyContentRequests,
   PreviewContentRequest,
-  ResearchRequests,
-  NewResearchRequest,
-  MyResearchRequests,
-  AllResearchRequests,
-  PreviewResearchRequest,
-  ArticlePage,
-  ManageDashboardData,
-  ResearchArticles,
-  ResearchNews,
-  ResearchCountry,
-  ResearchPulse,
-  CommodityPrices,
-  KnowledgeCenter,
   ManageNewsContent,
   ManageEvents,
   SPSearch,
-  CorporateObjectiveKPIs,
-  InputScreen,
-  ManageFocalPoints,
-  SalicInNumbers,
-  ActionPlansAdmin,
-  ActionPlansResponsible,
-  AchievementsChallenges,
-  AchievementsChallengesInvitation,
-  AchievementsChallengesAdmin,
-  ResearchDashboard,
-  CategoryPage,
-  PulseSection,
-  CountryCardsPage,
-  KnowledgeCardsPage,
   IncidentsCenter,
   NewIncidentReport,
   MyReports,
@@ -105,20 +77,8 @@ import {
   AlmiraVersions,
   AnnualReports,
   SALICPresentation,
-  ManageOracleReports,
   AdminDashboard,
   Feedback,
-  BoD,
-  FinanceMaster,
-  KeyFinanceMetrics,
-  BoDMeetings,
-  ResolutionByCirculation,
-  Contribution,
-  InvestmentPipeline,
-  Strategy,
-  InvestmentLiveTransactions,
-  ManageFreeze,
-  AllCategories,
   PreviewReport,
 } from './ImportFiles';
 
@@ -126,7 +86,6 @@ import {
 
 const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
   const defualtRoute: string = props.spWebUrl;
-
 
   return (
     <Routes>
@@ -147,9 +106,6 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
           <Route path={`${defualtRoute}/salic-profile/almira-versions/almira-magazine`} element={<AlMiraMagazine />} />
         </Route>
       </Route>
-
-      <Route path={`${defualtRoute}/oracle-reports`} element={<OracleReports />} />
-      <Route path={`${defualtRoute}/manage-oracle-reports`} element={<ManageOracleReports />} />
 
       <Route path={`${defualtRoute}/attendance`} element={<Attendance />} />
 
@@ -226,16 +182,6 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
       </Route>
       <Route path={`${defualtRoute}/eSignature-document`} element={<ESignatureTool />} />
       
-      <Route path={`${defualtRoute}/research-library`}>
-        <Route index element={<ResearchDashboard />} />
-        <Route path={`${defualtRoute}/research-library/country`} element={<CountryCardsPage />} />
-        <Route path={`${defualtRoute}/research-library/pulse`} element={<PulseSection />} />
-        <Route path={`${defualtRoute}/research-library/knowledge`} element={<KnowledgeCardsPage />} />
-        <Route path={`${defualtRoute}/research-library/categories/all`} element={<AllCategories />} />
-        <Route path={`${defualtRoute}/research-library/categories/:byType`} element={<CategoryPage />} />
-        <Route path={`${defualtRoute}/research-library/:id`} element={<ArticlePage />} />
-      </Route>
-
       <Route path={`${defualtRoute}/org-doc-investment`} element={<Investment />} />
       <Route path={`${defualtRoute}/org-doc-finance`} element={<Finance />} />
       <Route path={`${defualtRoute}/org-doc-corporate-services`} element={<CorporateServices />} />
@@ -273,42 +219,14 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
         <Route path={`${defualtRoute}/content-requests/:id`} element={<PreviewContentRequest />} />
       </Route>
 
-      <Route path={`${defualtRoute}/research-requests`}>
-        <Route index element={<ResearchRequests />} />
-        <Route path={`${defualtRoute}/research-requests/new-request`} element={<NewResearchRequest />} />
-        <Route path={`${defualtRoute}/research-requests/all-research-requests`} element={<AllResearchRequests />} />
-        <Route path={`${defualtRoute}/research-requests/my-research-requests`} element={<MyResearchRequests />} />
-        <Route path={`${defualtRoute}/research-requests/:id`} element={<PreviewResearchRequest />} />
-      </Route>
-
-      <Route path={`${defualtRoute}/manage-research-library`}>
-        <Route index element={<ManageDashboardData />} />
-        <Route path={`${defualtRoute}/manage-research-library/research-articles`} element={<ResearchArticles />} />
-        <Route path={`${defualtRoute}/manage-research-library/research-news`} element={<ResearchNews />} />
-        <Route path={`${defualtRoute}/manage-research-library/research-pulse`} element={<ResearchPulse />} />
-        <Route path={`${defualtRoute}/manage-research-library/research-country`} element={<ResearchCountry />} />
-        <Route path={`${defualtRoute}/manage-research-library/commodity-prices`} element={<CommodityPrices />} />
-        <Route path={`${defualtRoute}/manage-research-library/knowledge-center`} element={<KnowledgeCenter />} />
-      </Route>
-      
       <Route path={`${defualtRoute}/manage-news-content`} element={<ManageNewsContent />} />
 
       <Route path={`${defualtRoute}/manage-media-center`} element={<ManageNews />} />
       <Route path={`${defualtRoute}/manage-events`} element={<ManageEvents />} />
       <Route path={`${defualtRoute}/sp-search`} element={<SPSearch />} />
 
-
-      <Route path={`${defualtRoute}/corporate-objective`} element={<CorporateObjectiveKPIs />} />
-      <Route path={`${defualtRoute}/manage-corporate-objective`} element={<InputScreen />} />
-      <Route path={`${defualtRoute}/manage-focal-points`} element={<ManageFocalPoints />} />
       <Route path={`${defualtRoute}/performance-managment`}>
         <Route index element={<Performance />} />
-        <Route path={`${defualtRoute}/performance-managment/salic-in-numbers`} element={<SalicInNumbers />} />
-        <Route path={`${defualtRoute}/performance-managment/action-plans-admin`} element={<ActionPlansAdmin />} />
-        <Route path={`${defualtRoute}/performance-managment/action-plans-responsible`} element={<ActionPlansResponsible />} />
-        <Route path={`${defualtRoute}/performance-managment/achievements-challenges-admin`} element={<AchievementsChallengesAdmin />} />
-        <Route path={`${defualtRoute}/performance-managment/achievements-challenges`} element={<AchievementsChallenges />} />
-        <Route path={`${defualtRoute}/performance-managment/achievements-challenges/:inviteId`} element={<AchievementsChallengesInvitation />} />
       </Route>
 
       <Route path={`${defualtRoute}/incidents-center`}>
@@ -324,62 +242,6 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
 
       <Route path={`${defualtRoute}/feedback`} element={<Feedback />} />
 
-
-
-      <Route path={`${defualtRoute}/bod`}>
-        <Route index element={<BoD />} />
-        <Route path={`${defualtRoute}/bod/finance-master`} element={<FinanceMaster />} />
-        <Route path={`${defualtRoute}/bod/key-financial-metrics`} element={<KeyFinanceMetrics />} />
-        <Route path={`${defualtRoute}/bod/investment-pipeline`}>
-          <Route index element={<InvestmentPipeline />} />
-        </Route>
-        <Route path={`${defualtRoute}/bod/investment-live-transactions`}>
-          <Route index element={<InvestmentLiveTransactions />} />
-        </Route>
-        <Route path={`${defualtRoute}/bod/strategy`}>
-          <Route index element={<Strategy />} />
-        </Route>
-        
-        <Route 
-          path={`${defualtRoute}/bod/meetings/audit-committee`} 
-          element={<BoDMeetings 
-                      meetingType='Audit Committee Update' 
-                      listName='BoD Audit Committee' 
-                      formKey='audit_committee'
-                    />} />
-        <Route 
-          path={`${defualtRoute}/bod/meetings/investment-committee`} 
-          element={<BoDMeetings 
-                      meetingType='Investment Committee Update' 
-                      listName='BoD Investment Committee' 
-                      formKey='investment_committee'
-                    />} />
-        <Route 
-          path={`${defualtRoute}/bod/meetings/risk-and-sustainability-committee`} 
-          element={<BoDMeetings 
-                      meetingType='Risk and Sustainability Committee Update' 
-                      listName='BoD Risk and Sustainability Committee' 
-                      formKey='risk_and_sustainability_committee'
-                    />} />
-        <Route 
-          path={`${defualtRoute}/bod/meetings/nominationand-remuneration-committee`} 
-          element={<BoDMeetings 
-                      meetingType='Nomination and Remuneration Committee Update' 
-                      listName='BoD Nomination and Remuneration Committee' 
-                      formKey='nomination_and_remuneration_committee'
-                    />} />
-        
-        <Route path={`${defualtRoute}/bod/resolution-by-circulation`} element={<ResolutionByCirculation />} />
-        <Route path={`${defualtRoute}/bod/contribution`} element={<Contribution />} />
-        <Route path={`${defualtRoute}/bod/admin`}>
-          <Route index element={<BoD />} />
-          <Route path={`${defualtRoute}/bod/admin/freeze-edit`} element={<ManageFreeze />} />
-        </Route>
-      </Route>
-
-      
-      {/* <Route path={`${defualtRoute}/chatbot`} element={<ReactSimpleChatbot />} /> */}
-      
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

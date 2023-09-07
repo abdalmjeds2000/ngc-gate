@@ -5,7 +5,7 @@ export default async function GetMaintenanceRequestById(email, id) {
     let request = await axios(
       {
         method: 'GET',
-        url: `https://salicapi.com/api/Maintenance/Get?Email=${email}&Id=${id}`,
+        url: `${apiUrl}/Maintenance/Get?Email=${email}&Id=${id}`,
       }
     )
     let response = request;

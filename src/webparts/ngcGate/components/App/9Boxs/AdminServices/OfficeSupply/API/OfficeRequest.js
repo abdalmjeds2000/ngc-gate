@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../../App";
 
 export default async function OfficeRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: 'https://salicapi.com/api/Office/Add',
+        url: `${apiUrl}/Office/Add`,
         data: data
       }
     )

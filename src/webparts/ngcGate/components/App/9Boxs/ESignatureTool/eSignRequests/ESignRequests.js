@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './ESignRequests.css';
-import { AppCtx } from '../../../App';
+import { AppCtx, apiUrl } from '../../../App';
 import { Button, Col, Dropdown, Form, Input, Menu, Popconfirm, Row, Select, Space, Table, Tag, Typography, message } from 'antd';
 import VerifySignatureModal from './Actions/VerifySignatureModal';
 import ResendInvitation from './Actions/ResendInvitation';
@@ -29,7 +29,7 @@ const ESignRequests = () => {
   const fetchData = async (values) => {
     setLoading(true);
     const query = Object.keys(values || {}).map(key => `${key}=${values[key] || ''}`).join('&');
-    const response = await axios.get(`https://salicapi.com/api/signaturev2/MyRequests?Email=${user_data?.Data?.Mail}${(query && query.length > 0) ? '&' + query : ''}`)
+    const response = await axios.get(`${apiUrl}/signaturev2/MyRequests?Email=${user_data?.Data?.Mail}${(query && query.length > 0) ? '&' + query : ''}`)
     setESignRequests(response.data.Data);
     setLoading(false);
   }
@@ -40,7 +40,7 @@ const ESignRequests = () => {
   }, [user_data])
 
   const confirmWithdrawOrEnable = async (Id, IsActive) => {
-    await axios.post('https://salicapi.com/api/signaturev2/Withdraw', {DocumentId: Id, Status: IsActive ? false : true})
+    await axios.post(`${apiUrl}/signaturev2/Withdraw`, {DocumentId: Id, Status: IsActive ? false : true})
       .then((res) => {
         message.success(`Success, Document Is ${IsActive ? 'Withdraw' : 'Enable'} Now!`, 3);
       }).then(() => {
@@ -54,7 +54,7 @@ const ESignRequests = () => {
       }).catch(() => message.error('Failed', 3))
   }
   const confirmDelete = async (Id) => {
-    await axios.get(`https://salicapi.com/api/signaturev2/Delete?DocumentId=${Id}`)
+    await axios.get(`${apiUrl}/signaturev2/Delete?DocumentId=${Id}`)
       .then((res) => {
         message.success(res.data.Message, 3)
       }).then(() => {
@@ -194,7 +194,7 @@ const ESignRequests = () => {
       width: '8%',
       render: (val, record) => (
         val
-          ? <a style={{textAlign: 'center', minWidth: 120, display: 'block'}} href={`https://salicapi.com/api/signaturev2/Download?eDocumentId=${record.Id}`} target='blank'>Download</a>
+          ? <a style={{textAlign: 'center', minWidth: 120, display: 'block'}} href={`${apiUrl}/signaturev2/Download?eDocumentId=${record.Id}`} target='blank'>Download</a>
           : ''
       )
     },{
@@ -205,7 +205,7 @@ const ESignRequests = () => {
         record.Status !== 'Rejected'
         ? (
           !record.SignedDocument 
-          ? <a style={{textAlign: 'center', minWidth: 120, display: 'block'}} href={`https://salicapi.com/api/signaturev2/DownloadCurrentVersion?eDocumentId=${record.Id}`} target='_blank'>Download</a>
+          ? <a style={{textAlign: 'center', minWidth: 120, display: 'block'}} href={`${apiUrl}/signaturev2/DownloadCurrentVersion?eDocumentId=${record.Id}`} target='_blank'>Download</a>
           : ''
         ) : ''
       )
@@ -312,12 +312,12 @@ const ESignRequests = () => {
                     </><br/>
                     <><b>Signed Document: </b>{
                       record.SignedDocument
-                        ? <a href={`https://salicapi.com/api/signaturev2/Download?eDocumentId=${record.Id}`} target='blank'>Download</a>
+                        ? <a href={`${apiUrl}/signaturev2/Download?eDocumentId=${record.Id}`} target='blank'>Download</a>
                         : ''
                     }</><br/>
                     <><b>Preview Version: </b>{
                       !record.SignedDocument 
-                        ? <a href={`https://salicapi.com/api/signaturev2/DownloadCurrentVersion?eDocumentId=${record.Id}`} target='blank'>Download</a>
+                        ? <a href={`${apiUrl}/signaturev2/DownloadCurrentVersion?eDocumentId=${record.Id}`} target='blank'>Download</a>
                         : ''
                     }</><br/>
                   </div>

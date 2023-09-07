@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function AddItServiceRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: 'https://salicapi.com/api/tracking/Add',
+        url: `${apiUrl}/tracking/Add`,
         data: data
       }
     )

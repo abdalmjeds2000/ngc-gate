@@ -1,11 +1,12 @@
 import axios from "axios";
+import { apiUrl } from "../../../App";
 
 export default async function HoldActionRequest(type, data) {
   try {
     let request = await axios(
       {
         method: "POST",
-        url: `https://salicapi.com/api/${type}/Hold`,
+        url: `${apiUrl}/${type}/Hold`,
         data: data
       }
     )

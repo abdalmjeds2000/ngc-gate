@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import HistoryNavigation from '../Global/HistoryNavigation/HistoryNavigation';
-import { AppCtx } from '../App';
+import { AppCtx, apiUrl } from '../App';
 import OrganizationalChart from "./D3OrgChart/orgChart";
 import AntdLoader from '../Global/AntdLoader/AntdLoader';
 import axios from 'axios';
@@ -31,7 +31,7 @@ function Communication() {
 
   const fetchData = async () => {
     setLoading(true);
-    const response = await axios.get('https://salicapi.com/api/User/GetCommunicationList');
+    const response = await axios.get(`${apiUrl}/User/GetCommunicationList`);
     if(response.status == 200) {
       setCommunicationList(response.data.Data);
     }

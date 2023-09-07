@@ -1,11 +1,12 @@
 import axios from "axios"
+import { apiUrl } from "../../../../App";
 
 export default async function BusinessGateRequest(data) {
   try {
     let request = await axios(
       {
         method: 'POST',
-        url: 'https://salicapi.com/api/BusniessGate/Add',
+        url: `${apiUrl}/BusniessGate/Add`,
         data: data
       }
     )
