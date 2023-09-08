@@ -11,7 +11,6 @@ import GetPerformance from './Home/First/NumbersAttendance/API/GetPerformance';
 import { initialStat } from "./9Boxs/ITServices/IT/ITDashboard/pages/RequestsTable/ServicesRequests";
 import { adminTableInitialStat } from "./9Boxs/AdminServices/Dashboard/components/LatestRequests";
 import './index.css';
-
 interface AppContext {
   [key: string]: any;
 }
