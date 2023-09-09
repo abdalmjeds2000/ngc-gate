@@ -37,7 +37,7 @@
 }
 .folder-explorer-container .folders .tabs ul li {
   color: #fff;
-  background-color: rgb(46, 160, 230);
+  background-color: var(--second-color);
   position: relative;
   padding: 7px 3px 7px 14px;
   border-radius: 7px 0 0 7px;

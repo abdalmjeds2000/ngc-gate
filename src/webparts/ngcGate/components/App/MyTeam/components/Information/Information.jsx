@@ -44,7 +44,7 @@ const Information = ({ userData, yearsPerformanceData, latestLeavesData, perform
     return row;
   });
 
-const colors = ["#50220E", "#23cdb2", "#526D82", "#4096c4", "#4F55C2", "#E98EAD", "#D32A2A", "#D59F29", "#99bbdd"];
+const colors = ["#D59F29", "#50220E", "#D32A2A", "#23cdb2", "#526D82", "#4096c4", "#4F55C2", "#E98EAD", "#99bbdd"];
 
   const config = {
     data: mappingChartData,

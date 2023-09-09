@@ -32,6 +32,24 @@
         "id": "621e5b0c-a1bc-4089-aaf3-e1d773fc864f",
         "version": "1.0.0.0"
       }
+    ],
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Calendars.Read,Group.Read.All,Group.ReadWrite.All"
+      },
+      {
+        "resource": "PowerBI",
+        "scope": "Dataset.Read.All"
+      },
+      {
+        "resource": "PowerBI",
+        "scope": "Report.Read.All"
+      },
+      {
+        "resource": "PowerBI",
+        "scope": "Content.Create"
+      }
     ]
   },
   "paths": {
