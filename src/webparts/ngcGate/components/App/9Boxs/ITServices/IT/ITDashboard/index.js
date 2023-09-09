@@ -18,8 +18,7 @@ import './index.styles.css';
 import { ToggleButton } from 'salic-react-components';
 
 
-
-export const colors = ["#1746A2", "#23BB99", "#526D82", "#3a9bcc", "#4A55A2", "#E98EAD", "#C44633", "#FFC26F"];
+export const colors = ["#50220E", "#23cdb2", "#526D82", "#4096c4", "#4F55C2", "#E98EAD", "#D32A2A", "#D59F29"];
 const initDatesFilter = { active: false, from: null, to: null };
 
 const Main = () => {

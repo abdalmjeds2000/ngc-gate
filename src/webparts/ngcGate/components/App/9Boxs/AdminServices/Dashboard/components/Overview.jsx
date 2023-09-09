@@ -45,9 +45,9 @@ const Overview = ({ data, onDateChange }) => {
     isGroup: true,
     color: ({ type }) => {
       if (type === 'Closed') {
-        return "#1bb87e";
+        return "#23cdb2";
       }
-      return "#ffc823";
+      return "#D59F29";
     },
     animation: {
       appear: {

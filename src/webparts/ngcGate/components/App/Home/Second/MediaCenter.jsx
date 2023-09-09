@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppCtx } from '../../App';
-import VideoPoster from '../../../../assets/images/media_center/gallery1.png'
+import VideoPoster from '../../../../assets/images/media_center/gallery1.jpg'
 import ImageViewer from "react-simple-image-viewer";
 import pnp from 'sp-pnp-js';
 

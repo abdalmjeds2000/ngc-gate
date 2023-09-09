@@ -94,11 +94,11 @@ function Statistics() {
     colorField: 'name',
     color: ({ name }) => {
       if (name === 'Working Days') {
-        return '#43A2CC';
+        return '#50220E';
       } else if (name === 'Annual Leave') {
-        return '#FD96A6';
+        return '#D59F29';
       }
-      return '#43A2CC';
+      return '#50220E';
     },
     animation: {
       appear: {
@@ -150,15 +150,15 @@ function Statistics() {
     colorField: 'type',
     color: ({ type }) => {
       if (type === 'Normal') {
-        return '#0C508C';
+        return '#50220E';
       } else if (type === 'Absent') {
-        return 'rgb(255, 39, 43)';
+        return '#D32A2A';
       } else if (type === 'Delay & Early Leave') {
-        return 'rgb(233 155 77)';
+        return '#D59F29';
       } else if (type === 'Leaves & Business Trip') {
-        return 'rgb(39, 124, 98)';
+        return '#23cdb2';
       }
-      return '#0C508C';
+      return '#4096c4';
     },
     animation: {
       appear: {
@@ -267,17 +267,17 @@ function Statistics() {
     },
     color: ({ type }) => {
       if (type === 'Sick Leave') {
-        return '#f9a654';
+        return '#D59F29';
       } else if (type === 'Leave') {
-        return '#fd96a6';
+        return '#E98EAD';
       } else if (type === 'Trips') {
-        return '#43a2cc';
+        return '#4096c4';
       } else if (type === 'Shortage') {
-        return '#66ce9a';
+        return '#23cdb2';
       } else if (type === 'Availabilities') {
-        return '#897ed4';
+        return '#4F55C2';
       }
-      return '#f9a654';
+      return '#D59F29';
     },
     animation: {
       appear: {

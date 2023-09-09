@@ -44,23 +44,15 @@ const Information = ({ userData, yearsPerformanceData, latestLeavesData, perform
     return row;
   });
 
+const colors = ["#50220E", "#23cdb2", "#526D82", "#4096c4", "#4F55C2", "#E98EAD", "#D32A2A", "#D59F29", "#99bbdd"];
+
   const config = {
     data: mappingChartData,
     xField: 'performance',
     yField: 'Year',
     seriesField: 'Year',
     theme: {
-      colors10: [
-        '#ffcc00',
-        '#44aa88',
-        '#4098FF',
-        '#8888FF',
-        '#0C508C',
-        '#99bbdd',
-        '#ff5555',
-        '#44ff88',
-        '#ff77aa',
-      ]
+      colors10: [ ...colors ]
     },
     label: {
       formatter: (obj) => obj.performance != 0 ? obj.performance : '',

@@ -22,7 +22,7 @@ function Organization() {
   return (
     <div>
       <iframe 
-        src='https://salic.sharepoint.com/sites/newsalic/KSA/Forms/Tiles.aspx?id=%2Fsites%2Fnewsalic%2FKSA%2FKSA&viewid=942be927%2Da77a%2D4394%2Dbf20%2D638b393dd868' 
+        src='https://nationalgrain.sharepoint.com/sites/Portal/NGC%20Documents/Forms/AllItems.aspx' 
         width='100%'
         id='spIframe'
         onLoad={editStyle}

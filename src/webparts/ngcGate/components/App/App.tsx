@@ -15,8 +15,8 @@ interface AppContext {
   [key: string]: any;
 }
 export const AppCtx = createContext<AppContext>(null);
-// export const apiUrl = 'https://salicapi.com/api';
-export const apiUrl = 'https://dev.salic.com/api';
+export const apiUrl = 'https://salicapi.com/api';
+// export const apiUrl = 'https://dev.salic.com/api';
 
 const App: React.FunctionComponent<AppProps> = (props: any) => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -93,7 +93,8 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
         axios({
           method: 'GET',
           // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=${user.Email}`,
-          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=a.eldahdouh@devsalic.onmicrosoft.com`,
+          // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=a.eldahdouh@devsalic.onmicrosoft.com`,
+          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=abdulmohsen.alaiban@salic.com`,
         })
           .then((response) => {
             setUserData(response.data)

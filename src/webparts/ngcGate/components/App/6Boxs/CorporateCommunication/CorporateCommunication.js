@@ -17,7 +17,7 @@ function CorporateCommunication() {
       </HistoryNavigation>
       <div className="folder-explorer-container">
         <iframe
-          src="https://salic.sharepoint.com/sites/newsalic/KnowledgeBase/Forms/SALIC%20Document.aspx"
+          src="https://nationalgrain.sharepoint.com/sites/Portal/Organization%20Documents/Forms/AllItems.aspx"
           width="100%"
           id="spIframe"
           onLoad={editStyle}

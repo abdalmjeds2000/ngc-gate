@@ -219,9 +219,8 @@ const ESignRequests = () => {
       <div className='header'>
         <h1>eSign Requests</h1>
         <div className='controls'>
-          {/* <Button type="primary" size='small' onClick={}><RedoOutlined /> Refresh</Button> */}
           <VerifySignatureModal />
-          <Button size='small' href='https://salic.sharepoint.com/sites/newsalic/SitePages/eSign/NewRequest.aspx' target='_blank'><PlusOutlined /> New Request</Button>
+          <Button size='small' href='https://nationalgrain.sharepoint.com/sites/portal/SitePages/eSign/NewRequest.aspx' target='_blank'><PlusOutlined /> New Request</Button>
         </div>
       </div>
 

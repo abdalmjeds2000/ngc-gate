@@ -1,11 +1,10 @@
 import React from "react";
 import axios from "axios";
 import Card from "../../../../../../../Global/Card/Card";
-import { Area, Bar, DualAxes, Gauge, Pie, Column } from "@ant-design/plots";
-import { Segmented, Skeleton, message } from "antd";
+import { Bar, DualAxes, Pie, Column } from "@ant-design/plots";
+import { Segmented, Skeleton } from "antd";
 import { colors } from '../../../index';
 import { apiUrl } from "../../../../../../../App";
-
 
 
 const sceletonLoader = (
@@ -55,26 +54,14 @@ export const ByPriority = ({ paramsFilter,className }) => {
     appendPadding: 0,
     color: ({ Title }) => {
       if (Title === "Critical") {
-        return "#C44633";
+        return "#D32A2A";
       } 
-      return "#1746A2";
+      return "#23cdb2";
     },
     statistic: {
       title: false,
     },
     legend: legendSettings,
-    // label: {
-    //   type: 'inner',
-    //   offset: '-50%',
-    //   style: {
-    //     textAlign: 'center',
-    //     fontSize: 14,
-    //     shadowBlur: 2,
-    //     shadowColor: '#00000077',
-    //     shadowOffsetY: 1,
-    //   },
-    //   autoRotate: false,
-    // },
     label: {
       type: 'outer',
     },
@@ -102,57 +89,6 @@ export const ByPriority = ({ paramsFilter,className }) => {
     </Card>
   )
 }
-export const ByStatus = ({ className }) => {
-  const [state, setState] = React.useState({ data: [], loading: true });
-  const getData = async () => {
-    try {
-      const response = await axios.get(`${apiUrl}/dashboards/serviceRequestsByStatus`);
-      const data = response.data?.filter(item => ["CLOSED", "PROCESSING"].includes(item?.key))
-      setState({ data: data, loading: false });
-    } catch (error) {
-      message.error("Failed to load By Status data");
-    }
-  }
-  React.useEffect(() => {
-    getData();
-  }, []);
-
-  const config = {
-    data: state?.data,
-    angleField: 'Count',
-    colorField: 'Title',
-    radius: 0.9,
-    appendPadding: 40,
-    color: ['#FFC26F', '#1746A2'],
-    legend: legendSettings,
-    label: {
-      type: 'inner',
-      offset: '-50%',
-      content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
-      style: {
-        fontSize: 16,
-        textAlign: 'center',
-      },
-    },
-    interactions: [
-      {
-        type: 'element-selected',
-      },
-      {
-        type: 'element-active',
-      },
-      {
-        type: 'pie-statistic-active',
-      },
-    ],
-  };
-  
-  return (
-    <Card label="Open / Close" className={className}>
-      {state.loading ? sceletonLoader : <Pie {...config} />}
-    </Card>
-  )
-}
 export const ByType = ({ paramsFilter,className }) => {
   const [state, setState] = React.useState({ data: [], loading: true });
   const getData = async (signal) => {
@@ -174,47 +110,6 @@ export const ByType = ({ paramsFilter,className }) => {
 
   }, [JSON.stringify(paramsFilter)]);
 
-  // const config = {
-  //   data: state?.data,
-  //   angleField: 'Count',
-  //   colorField: 'Title',
-  //   radius: 1,
-  //   innerRadius: 0.7,
-  //   appendPadding: 40,
-  //   color: colors,
-  //   legend: legendSettings,
-  //   statistic: {
-  //     title: false,
-  //   },
-  //   label: {
-  //     type: 'inner',
-  //     offset: '-50%',
-  //     style: {
-  //       textAlign: 'center',
-  //       fontSize: 12,
-  //       shadowBlur: 2,
-  //       shadowColor: '#00000077',
-  //       shadowOffsetY: 1,
-  //     },
-  //     autoRotate: false,
-  //   },
-  //   interactions: [
-  //     {
-  //       type: 'element-selected',
-  //     },
-  //     {
-  //       type: 'element-active',
-  //     },
-  //     {
-  //       type: 'pie-statistic-active',
-  //     },
-  //   ],
-  //   animation: {
-  //     appear: {
-  //       animation: 'none',
-  //     },
-  //   },
-  // };
   const config = {
     data: state?.data,
     xField: 'Title',
@@ -379,11 +274,11 @@ export const CreatedToClosed = ({ className }) => {
       {
         geometry: 'column',
         columnWidthRatio: 0.7,
-        color: '#1746A2',
+        color: '#50220E',
       },
       {
         geometry: 'line',
-        color: '#3a9bcc',
+        color: '#D59F29',
       },
     ],
     xAxis: false,
@@ -412,117 +307,6 @@ export const CreatedToClosed = ({ className }) => {
       }
     >
       {state.loading ? sceletonLoader : <DualAxes {...config} />}
-    </Card>
-  )
-}
-export const DepartmentsActivity = ({ className }) => {
-  const data = [
-    {
-      "Date": "2010-01",
-      "Count": 92
-    },{
-      "Date": "2010-02",
-      "Count": 111
-    },{
-      "Date": "2010-03",
-      "Count": 357
-    },{
-      "Date": "2010-04",
-      "Count": 200
-    },{
-      "Date": "2010-05",
-      "Count": 100
-    },{
-      "Date": "2010-06",
-      "Count": 392
-    },{
-      "Date": "2010-07",
-      "Count": 225
-    },{
-      "Date": "2010-08",
-      "Count": 332
-    },{
-      "Date": "2010-09",
-      "Count": 234
-    },{
-      "Date": "2010-10",
-      "Count": 433
-    },{
-      "Date": "2010-11",
-      "Count": 214
-    },{
-      "Date": "2010-12",
-      "Count": 234
-    },{
-      "Date": "2011-01",
-      "Count": 300
-    },{
-      "Date": "2011-02",
-      "Count": 23
-    },
-  ]
-  const config = {
-    data,
-    xField: 'Date',
-    yField: 'Count',
-    smooth: true,
-    areaStyle: () => {
-      return {
-        fill: 'l(270) 0:#ffffff 0.5:#3a9bcc66 1:#3a9bcc',
-      };
-    },
-  };
-  
-  return (
-    <Card label="Departments Activity" className={className}>
-      <Area {...config} />
-    </Card>
-  )
-}
-export const Statisfation = ({ className }) => {
-  const config = {
-    percent: 0.8,
-    range: {
-      color: ['#3a9bcc', '#A6D0DD66'],
-    },
-    radius: 0.8,
-    innerRadius: 0.7,
-    appendPadding: 40,
-    indicator: {
-      pointer: {
-        style: {
-          stroke: '#3a9bcc',
-        },
-      },
-      pin: {
-        style: {
-          stroke: '#A6D0DD',
-        },
-      },
-    },
-    axis: {
-      label: {
-        formatter(v) {
-          return Number(v) * 100;
-        },
-      },
-      subTickLine: {
-        count: 2,
-      },
-    },
-    statistic: {
-      content: {
-        formatter: ({ percent }) => `Score: ${(percent * 100).toFixed(0)}%`,
-        style: {
-          color: 'rgba(0,0,0,1)',
-          fontSize: 18,
-        },
-      },
-    },
-  };
-  return (
-    <Card label="Satisfaction Rate" className={className}>
-      <Gauge {...config} />
     </Card>
   )
 }

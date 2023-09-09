@@ -5,7 +5,6 @@ import './styles.css';
 
 
 const ITDashboard = ({ params }) => {
-  
   return (
     <>
       <div>

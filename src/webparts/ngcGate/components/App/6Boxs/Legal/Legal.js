@@ -18,7 +18,7 @@ function Legal() {
 
       <div className='folder-explorer-container'>  
         <iframe 
-          src='https://salic.sharepoint.com/sites/newsalic/KnowledgeBase/Forms/SALIC%20Document.aspx?id=%2Fsites%2Fnewsalic%2FKnowledgeBase%2FLegal&viewid=0cd60ccf%2D3d6a%2D47a0%2D89b0%2D88d7c90281c0' 
+          src='https://nationalgrain.sharepoint.com/sites/Portal/Organization%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FPortal%2FOrganization%20Documents%2FLegal&viewid=10b77fc5%2D2494%2D4f16%2Dbc95%2D83d8a16a2c16' 
           width='100%' 
           id='spIframe'
           onLoad={editStyle} 

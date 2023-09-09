@@ -31,7 +31,6 @@ export { default as ManageNews } from '../App/CommunityNews/ManageNews/ManageNew
 export { default as FolderExplorerPage } from '../App/9Boxs/DMS/FolderExplorer';
 export { default as EInvoicing } from '../App/9Boxs/EInvoicing/EInvoicing';
 export { default as Performance } from '../App/9Boxs/Performance/Performance';
-export { default as AlMiraMagazine } from '../App/AlMiraMagazine/AlMiraMagazine';
 export { default as MeetingCenter } from '../App/MeetingCenter/MeetingCenter';
 export { default as NewMeeting } from '../App/MeetingCenter/NewMeeting/NewMeeting';
 export { default as MyMeetings } from '../App/MeetingCenter/MyMeetings/MyMeetings';
@@ -73,8 +72,3 @@ export { default as AssignedReports } from '../App/IncidentsCenter/components/As
 export { default as RequestsForReview } from '../App/IncidentsCenter/components/RequestsForReview';
 export { default as PreviewIncidentReport } from '../App/IncidentsCenter/components/PreviewIncidentReport';
 export { default as MyTeam } from '../App/MyTeam/MyTeam';
-export { default as NGCProfile } from '../App/NGCProfile/NGCProfile';
-export { default as AlmiraVersions} from '../App/NGCProfile/AlmiraVersions/AlmiraVersions';
-export { default as AnnualReports} from '../App/NGCProfile/AnnualReports';
-export { default as NGCPresentation} from '../App/NGCProfile/NGCPresentation';
-export { default as Feedback} from '../App/Feedback/Feedback';

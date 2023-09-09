@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import HistoryNavigation from '../../Global/HistoryNavigation/HistoryNavigation';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AppCtx } from '../../App';
+import { AppCtx, apiUrl } from '../../App';
 import { Alert, Steps } from 'antd';
 import { FileDoneOutlined, UsergroupAddOutlined, WarningOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -105,7 +105,7 @@ const PreviewIncidentReport = ({ isRiskAdmin }) => {
 
 const Index = () => {
   const [isRiskAdmin, checkIsAdmin, admins, fetchAdmins, loading] = useIsAdmin('Incident_Admin');
-  
+
   if(loading) return <AntdLoader />;
   return <PreviewIncidentReport isRiskAdmin={isRiskAdmin} />;
 }

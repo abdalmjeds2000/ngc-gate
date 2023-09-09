@@ -17,7 +17,7 @@ export var searchLocations = [
   {
     route: "/dms",
     path: [
-      'path:"https://salic.sharepoint.com/sites/newsalic/KSA"',
+      'path:"https://nationalgrain.sharepoint.com/sites/portal/NGC Documents"',
     ],
     fetchData: null,
   },

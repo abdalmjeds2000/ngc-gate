@@ -3,7 +3,7 @@
   color: var(--text-color);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 5px 15px #6477aa30;
+  box-shadow: 0 5px 15px #00000020;
 }
 .sticky-notes-container .header {
   display: flex;

@@ -21,9 +21,9 @@ const StatCard = ({ color, title, icon, value }) => (
 
 const UserRequests = ({ Closed, Delayed, Pending }) => {
   const cardsInfo = [
-    { title: "Closed", color: "#1bb87e", icon: <FileDoneOutlined />, count: Closed },
-    { title: "Delayed", color: "#379bd1", icon: <FileSyncOutlined />, count: Delayed },
-    { title: "Pending", color: "#ffc823", icon: <SyncOutlined />, count: Pending },
+    { title: "Closed", color: "#23cdb2", icon: <FileDoneOutlined />, count: Closed },
+    { title: "Delayed", color: "#D32A2A", icon: <FileSyncOutlined />, count: Delayed },
+    { title: "Pending", color: "#D59F29", icon: <SyncOutlined />, count: Pending },
   ];
   const cardsRender = cardsInfo.map((item, i) => (
     <Col key={i} xs={24} md={8}>

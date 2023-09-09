@@ -20,12 +20,12 @@ const SocialMedia = () => {
             </div>
             <p>New Content Request</p>
           </a>
-          <a onClick={_ => navigate(defualt_route + '/ngc-profile')} className="oranization-documents">
+          {/* <a onClick={_ => navigate(defualt_route + '/ngc-profile')} className="oranization-documents">
             <div>
               <ReadOutlined style={{fontSize: '1.5rem'}} />
             </div>
             <p>NGC Profile</p>
-          </a>
+          </a> */}
         </div>
       </div>
 

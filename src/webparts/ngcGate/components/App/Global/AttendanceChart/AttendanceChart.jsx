@@ -24,13 +24,13 @@ const AttendanceChart = ({ data, totalBalance, total, width, height }) => {
     },
     color: ({ name }) => {
       if (name === 'Consumed This Year') {
-        return '#F9A654'; 
+        return '#D59F29'; 
       } else if (name === 'Available Balance This Year') {
-        return '#E7F0FE';
+        return '#FEF2E3';
       } else if (name === 'Leave Balance') {
-        return '#43A2CC';
+        return '#50220E';
       }
-      return '#FD96A6';
+      return '#E98EAD';
     },
     isStack: true,
     maxAngle: 270,

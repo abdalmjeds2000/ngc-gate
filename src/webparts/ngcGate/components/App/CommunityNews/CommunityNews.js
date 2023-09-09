@@ -3,7 +3,7 @@ import './CommunityNews.css';
 import ArticleBox from '../Global/ArticleBox/ArticleBox';
 import { AppCtx } from '../App';
 import HistoryNavigation from '../Global/HistoryNavigation/HistoryNavigation';
-import { Pagination, Row } from 'antd';
+import { Empty, Pagination, Row } from 'antd';
 import pnp from 'sp-pnp-js';
 import AntdLoader from '../Global/AntdLoader/AntdLoader';
 
@@ -59,20 +59,27 @@ function CommunityNews() {
         })}
       </div>
 
-
       <Row justify="center" style={{margin: 25}}>
-        <Pagination
-          current={currentPage}
-          total={gateNewsData.length}
-          onChange={(page) => {
-            const skipItems = _pageSize * (page - 1);
-            setCurrentPage(page);
-            setFilteredNewslist(gateNewsData.slice(skipItems, skipItems+_pageSize));
-          }}
-          pageSize={_pageSize}
-          showTitle
-        />
+        {
+          gateNewsData.length > _pageSize &&
+          <Pagination
+            current={currentPage}
+            total={gateNewsData.length}
+            onChange={(page) => {
+              const skipItems = _pageSize * (page - 1);
+              setCurrentPage(page);
+              setFilteredNewslist(gateNewsData.slice(skipItems, skipItems+_pageSize));
+            }}
+            pageSize={_pageSize}
+            showTitle
+          />
+        }
       </Row>
+
+      {
+        !loading && filteredNewslist.length === 0 &&
+          <Empty description="No News" />
+      }
     </div>
   )
 }

@@ -33,7 +33,6 @@ import {
   FolderExplorerPage,
   EInvoicing,
   Performance,
-  AlMiraMagazine,
   MeetingCenter,
   NewMeeting,
   MyMeetings,
@@ -73,12 +72,7 @@ import {
   PreviewIncidentReport,
   ManageNews,
   MyTeam,
-  NGCProfile,
-  AlmiraVersions,
-  AnnualReports,
-  NGCPresentation,
   AdminDashboard,
-  Feedback,
   PreviewReport,
 } from './ImportFiles';
 
@@ -95,17 +89,6 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
       <Route path={`${defualtRoute}/communication`} element={<Communication />} />
       <Route path={`${defualtRoute}/dms`} element={<FolderExplorerPage />} />
       
-
-      <Route path={`${defualtRoute}/ngc-profile`}>
-        <Route index element={<NGCProfile />} />
-        <Route path={`${defualtRoute}/ngc-profile/annual-reports`} element={<AnnualReports />} />
-        <Route path={`${defualtRoute}/ngc-profile/ngc-presentation`} element={<NGCPresentation />} />
-      
-        <Route path={`${defualtRoute}/ngc-profile/almira-versions`}>
-          <Route index element={<AlmiraVersions />} />
-          <Route path={`${defualtRoute}/ngc-profile/almira-versions/almira-magazine`} element={<AlMiraMagazine />} />
-        </Route>
-      </Route>
 
       <Route path={`${defualtRoute}/attendance`} element={<Attendance />} />
 
@@ -240,7 +223,6 @@ const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
 
       <Route path={`${defualtRoute}/my-team`} element={<MyTeam />} />
 
-      <Route path={`${defualtRoute}/feedback`} element={<Feedback />} />
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>

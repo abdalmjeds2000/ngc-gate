@@ -94,19 +94,6 @@ const styles = {
 const { Text, Title } = Typography;
 
 const EmployeeDetailsCard = (props) => {
-  
-  // const colors = [
-  //   '#0c508c',
-  //   '#3a9bcc',
-  //   '#8540b8',
-  //   '#e26565',
-  //   '#75be68',
-  //   '#e99b4d',
-  //   '#6477aa',
-  //   '#e05d2b',
-  // ];
-  // const color = colors[props.employee?.depth % colors.length];
-
 
   return (
     <div style={styles.card}>

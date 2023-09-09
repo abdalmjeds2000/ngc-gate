@@ -18,8 +18,7 @@ const StatsCardV2 = ({ pretitle, title, description, perc, progress, tooltip }: 
     height: 45,
     width: 45,
     autoFit: false,
-    // percent: 0.77,
-    color: ['#3a9bcc', '#EEEEEE'],
+    color: ['#D59F29', '#FEF2E3'],
     innerRadius: 0.75,
     statistic: {
       content: {
@@ -36,7 +35,7 @@ const StatsCardV2 = ({ pretitle, title, description, perc, progress, tooltip }: 
     autoFit: true,
     barWidthRatio: 0.15,
     percent: perc,
-    color: [perc > 0.75 ? '#C44633' : perc > 0.35 ? '#FFC26F' : '#23BB99', '#E8EDF3'],
+    color: [perc > 0.75 ? '#D32A2A' : perc > 0.35 ? '#D59F29' : '#23cdb2', '#FEF2E3'],
   };
   
   return (

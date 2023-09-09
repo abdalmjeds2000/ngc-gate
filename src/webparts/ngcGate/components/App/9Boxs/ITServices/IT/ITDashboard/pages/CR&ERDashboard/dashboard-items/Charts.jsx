@@ -6,7 +6,7 @@ import { Bar, Pie } from "@ant-design/plots";
 import { Avatar, Badge, Segmented, Skeleton, Space, Table, Typography } from "antd";
 import { colors } from '../../../index';
 import UserColumnInTable from "../../../../../../../Global/UserColumnInTable/UserColumnInTable";
-import { CalendarOutlined, InfoCircleOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { AppCtx, apiUrl } from "../../../../../../../App";
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa';
 import { MdAccessTime } from "react-icons/md";

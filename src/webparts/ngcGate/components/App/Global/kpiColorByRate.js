@@ -4,17 +4,17 @@ class kpiColorByRate {
   }
   getColor() {
     let num = +this.number;
-    if(num < 50) return "#ff4477"
-    else if(num >= 50 && num < 70) return "#ffb864"
-    else if(num >= 70 && num <= 100) return "#05d17c"
-    else return "#74c4ff"
+    if(num < 50) return "#D32A2A"
+    else if(num >= 50 && num < 70) return "#D59F29"
+    else if(num >= 70 && num <= 100) return "#23cdb2"
+    else return "#4096c4"
   }
   getDarkColor() {
     let num = +this.number;
-    if(num < 50) return "#c0244f"
-    else if(num >= 50 && num < 70) return "#c5873e"
-    else if(num >= 70 && num <= 100) return "#03a260"
-    else return "#4d91c4"
+    if(num < 50) return "#a32A2A"
+    else if(num >= 50 && num < 70) return "#c58F09"
+    else if(num >= 70 && num <= 100) return "#13ada2"
+    else return "#3086b4"
   }
 }
 
