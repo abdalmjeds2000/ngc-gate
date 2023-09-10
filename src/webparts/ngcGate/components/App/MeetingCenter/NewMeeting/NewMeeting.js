@@ -17,7 +17,7 @@ const layout = { labelCol: { span: 6 }, wrapperCol: { span: 12 } };
 
 
 function NewMeeting() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [meetings, setMeetings] = useState([]);
@@ -233,7 +233,7 @@ function NewMeeting() {
       const response = await axios.post(`${apiUrl}/Meeting/CreateEvent`, payload);
       if(response?.status == 200) {
         message.success('Meeting created successfully');
-        navigate(`${defualt_route}/book-meeting-room/my-meetings`);
+        navigate(`/book-meeting-room/my-meetings`);
       }
     } catch (error) {
       console.log(error);
@@ -246,7 +246,7 @@ function NewMeeting() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/book-meeting-room`)}>Meetings Center</a>
+        <a onClick={() => navigate(`/book-meeting-room`)}>Meetings Center</a>
         <p>Reserve Meeting Room</p>
       </HistoryNavigation>
 

@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { DatabaseOutlined, HomeOutlined, TableOutlined } from '@ant-design/icons';
 import Tabs from '../../../../Global/CustomTabs/Tabs';
 import HistoryNavigation from '../../../../Global/HistoryNavigation/HistoryNavigation';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../../../App';
 import Dashboard from './components/Dashboard';
 import NGCAssets from './components/NGCAssets';
 import DeliveryLetters from './components/DeliveryLetters/DeliveryLetters';
@@ -11,7 +10,6 @@ import ProtectRouteIT from '../../../../../Routers/ProtectRoutes/ProtectRouteIT'
 
 
 const AllAssets = () => {
-  const { defualt_route, } = useContext(AppCtx);
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -21,7 +19,7 @@ const AllAssets = () => {
   return (
     <ProtectRouteIT>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Service Center</a>
+        <a onClick={() => navigate(`/services-requests`)}>IT Service Center</a>
         <p>NGC's Assets</p>
       </HistoryNavigation>
       <div className='standard-page asset-managment-center-container'>

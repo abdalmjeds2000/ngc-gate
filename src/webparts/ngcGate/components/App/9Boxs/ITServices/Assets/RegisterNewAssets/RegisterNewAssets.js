@@ -26,7 +26,7 @@ const getBase64 = (file) =>
 
 
 function RegisterNewAssets() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [form] = Form.useForm();
   const [categoryType, setCategoryType] = useState("Hardware");
@@ -104,7 +104,7 @@ function RegisterNewAssets() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Service Center</a>
+        <a onClick={() => navigate("/services-requests")}>IT Service Center</a>
         <p>Register New Asset</p>
       </HistoryNavigation>
       

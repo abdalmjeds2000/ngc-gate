@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HistoryNavigation from '../../Global/HistoryNavigation/HistoryNavigation'
 import { useNavigate } from 'react-router-dom';
-import { AppCtx, apiUrl } from '../../App';
+import { apiUrl } from '../../App';
 import { Select, Table, Tooltip } from 'antd';
 import axios from 'axios';
 import UserColumnInTable from '../../Global/UserColumnInTable/UserColumnInTable';
 
 
 function RoomsCalender() {
-  const { defualt_route } = useContext(AppCtx);
   const navigate = useNavigate();
 
   const [roomTitle, setRoomTitle] = useState('meeting.room1@salic.com')
@@ -108,7 +107,7 @@ function RoomsCalender() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/book-meeting-room`)}>Meetings Center</a>
+        <a onClick={() => navigate(`/book-meeting-room`)}>Meetings Center</a>
         <p>Rooms Calendar</p>
       </HistoryNavigation>
       

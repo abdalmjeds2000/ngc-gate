@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Card, Table, Typography, message } from 'antd';
+import { Card, Table, Typography } from 'antd';
 import moment from 'moment';
 import UserColumnInTable from '../../../../Global/UserColumnInTable/UserColumnInTable';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ export const adminTableInitialStat = {
 }
 
 const LatestRequests = ({ dataFor, selectdRequests }) => {
-  const { defualt_route, adminDashboardRequests, setAdminDashboardRequests } = useContext(AppCtx);
+  const { adminDashboardRequests, setAdminDashboardRequests } = useContext(AppCtx);
   const navigate = useNavigate();
 
   const fetchLatestRequests = async (user, signal) => {
@@ -74,19 +74,19 @@ const LatestRequests = ({ dataFor, selectdRequests }) => {
   const ToUpdatePage = (RequestType, RequestId) => {
     const Code = RequestType.split("-")[0];
     if(Code === "VISA") {
-      navigate(defualt_route + `/admin-services/issuing-VISA/${RequestId}`);
+      navigate(`/admin-services/issuing-VISA/${RequestId}`);
     } else if(Code === "BG") {
-      navigate(defualt_route + `/admin-services/business-gate/${RequestId}`);
+      navigate(`/admin-services/business-gate/${RequestId}`);
     } else if(Code === "SHP") {
-      navigate(defualt_route + `/admin-services/shipment/${RequestId}`);
+      navigate(`/admin-services/shipment/${RequestId}`);
     } else if(Code === "SUP") {
-      navigate(defualt_route + `/admin-services/office-supply/${RequestId}`);
+      navigate(`/admin-services/office-supply/${RequestId}`);
     } else if(Code === "MAN") {
-      navigate(defualt_route + `/admin-services/maintenance/${RequestId}`);
+      navigate(`/admin-services/maintenance/${RequestId}`);
     } else if(Code === "VIS") {
-      navigate(defualt_route + `/admin-services/visitor/${RequestId}`);
+      navigate(`/admin-services/visitor/${RequestId}`);
     } else if(Code === "TS") {
-      navigate(defualt_route + `/admin-services/transportation/${RequestId}`);
+      navigate(`/admin-services/transportation/${RequestId}`);
     }
     return null
   }

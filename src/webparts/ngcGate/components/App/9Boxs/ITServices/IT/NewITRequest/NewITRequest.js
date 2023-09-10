@@ -8,7 +8,7 @@ import { ITServiceRequestForm } from "salic-react-components";
 
 
 function NewITRequest() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [issueTypes, setIssueTypes] = useState([]);
 
@@ -23,7 +23,7 @@ function NewITRequest() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Service Center</a>
+        <a onClick={() => navigate("/services-requests")}>IT Service Center</a>
         <p>New Service Request</p>
       </HistoryNavigation>
 

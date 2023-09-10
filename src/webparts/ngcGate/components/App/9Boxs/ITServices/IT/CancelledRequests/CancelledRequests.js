@@ -28,7 +28,6 @@ export const initialStat = {
 }
 
 function CancelledRequests() {
-  const { defualt_route } = useContext(AppCtx);
   const navigate = useNavigate();
   const [state, setState] = useState(initialStat);
 
@@ -78,7 +77,7 @@ function CancelledRequests() {
       render: (val, record) => (
         <Space direction='horizontal' style={{minWidth: 200}}>
           <InfoCircleOutlined style={{color: record.Priority === "1" ? "#0c508c" : "#ff272b"}} /> 
-          <Typography.Link href={defualt_route + `/services-requests/${record.Id}`} target='_blank'>{val}</Typography.Link>
+          <Typography.Link href={`/services-requests/${record.Id}`} target='_blank'>{val}</Typography.Link>
         </Space>
       )
     },{
@@ -127,14 +126,14 @@ function CancelledRequests() {
   const ControlPanel = (
     <Space direction='horizontal'>
       <Button size='small' loading={state.loading} onClick={_ => GetRequests(signal)}><RedoOutlined /> Refresh</Button>
-      <Button size='small' disabled={state.loading} type='primary' onClick={() => navigate(defualt_route+'/services-requests/services-request')} icon={<PlusOutlined />}>New Request</Button>
+      <Button size='small' disabled={state.loading} type='primary' onClick={() => navigate('/services-requests/services-request')} icon={<PlusOutlined />}>New Request</Button>
     </Space>
   )
   
   return (
     <ProtectRouteIT>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Services Center</a>
+        <a onClick={() => navigate("/services-requests")}>IT Services Center</a>
         <p>Cancelled Requests</p>
       </HistoryNavigation>
 

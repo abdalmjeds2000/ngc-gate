@@ -6,7 +6,7 @@ import pnp from 'sp-pnp-js';
 
 
 const ProtectRouteIncident = (props) => {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [admins, setAdmins] = useState([]);
 
@@ -31,7 +31,7 @@ const ProtectRouteIncident = (props) => {
 
 
   if(!isAdmin && admins.length > 0) {
-    navigate(defualt_route)
+    navigate("/home")
 
     return <></>
   }

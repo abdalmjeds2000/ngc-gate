@@ -22,7 +22,7 @@ function PersonInfo() {
             <img 
               src={`${sp_site}/_layouts/15/userphoto.aspx?size=l&username=${user_data.Data?.Mail}`} 
               alt="" 
-              onClick={() => navigate(defualt_route + '/my-team', { replace: false, state: user_data.Data })}
+              onClick={() => navigate('/my-team', { replace: false, state: user_data.Data })}
             />
           </Tooltip>
         </div>
@@ -71,7 +71,7 @@ function PersonInfo() {
           <Tooltip title="My Team">
             <a onClick={() => {
               if(mobile) {
-                navigate(`${defualt_route}/my-team`);
+                navigate(`/my-team`);
               } else {
                 window.open(`${defualt_route}/my-team`, '_blank');
               }
@@ -100,7 +100,7 @@ function PersonInfo() {
           <Tooltip title="Notifications">
             <a onClick={() => {
               if(mobile) {
-                navigate(`${defualt_route}/notification-center`);
+                navigate(`/notification-center`);
               } else {
                 window.open(`${defualt_route}/notification-center`, '_blank');
               }
@@ -123,7 +123,7 @@ function PersonInfo() {
           <Tooltip title="Meetings Center">
             <a onClick={() => {
               if(mobile) {
-                navigate(`${defualt_route}/book-meeting-room`);
+                navigate(`/book-meeting-room`);
               } else {
                 window.open(`${defualt_route}/book-meeting-room`, '_blank');
               }

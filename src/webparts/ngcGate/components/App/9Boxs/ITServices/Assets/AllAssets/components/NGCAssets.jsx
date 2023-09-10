@@ -13,7 +13,7 @@ import AddSelectItem from '../../components/AddSelectItem';
 const initialFilter = { Name: '', CategoryType: '', Brand: '', Model: '', DeliveredTo: '', Available: 'All', Type: '', Tag: '', SN: '' };
 
 const NGCAssets = () => {
-  const { defualt_route, user_data, ngcAssetsData, setNgcAssetsData } = useContext(AppCtx);
+  const { user_data, ngcAssetsData, setNgcAssetsData } = useContext(AppCtx);
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -57,7 +57,7 @@ const NGCAssets = () => {
       dataIndex: 'TagNumber',
       width: '7%',
       render: (tagNumber, row) => (
-        <Typography.Link onClick={(e) => {e.preventDefault(); navigate(defualt_route + '/asset/manage/' + row.Id);}} style={{minWidth: 120, display: 'inline-block'}}>
+        <Typography.Link onClick={(e) => {e.preventDefault(); navigate('/asset/manage/' + row.Id);}} style={{minWidth: 120, display: 'inline-block'}}>
           {tagNumber}
         </Typography.Link>
       )

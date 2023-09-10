@@ -13,7 +13,7 @@ const oracleFrom = ['saas', 'paas'];
 const defualt_types = ['Oracle', 'eSign', 'SharedServices'];
 
 function NotificationCenter() {
-  const { user_data, defualt_route, notifications_data, setNotificationsData } = useContext(AppCtx);
+  const { user_data, notifications_data, setNotificationsData } = useContext(AppCtx);
   let navigate = useNavigate();
 
   const [dataCount, setDataCount] = useState({});
@@ -27,25 +27,25 @@ function NotificationCenter() {
   const redirectAction = (from, id) => {
     switch(from) {
       case "VISA":
-        navigate(defualt_route + '/admin-services/issuing-VISA/' + id);
+        navigate('/admin-services/issuing-VISA/' + id);
         break;
       case "Business Gate":
-        navigate(defualt_route + '/admin-services/business-gate/' + id);
+        navigate('/admin-services/business-gate/' + id);
         break;
       case "Shipment":
-        navigate(defualt_route + '/admin-services/shipment/' + id);
+        navigate('/admin-services/shipment/' + id);
         break;
       case "Office Supply":
-        navigate(defualt_route + '/admin-services/office-supply/' + id);
+        navigate('/admin-services/office-supply/' + id);
         break;
       case "Maintenance":
-        navigate(defualt_route + '/admin-services/maintenance/' + id);
+        navigate('/admin-services/maintenance/' + id);
         break;
       case "Transportation":
-        navigate(defualt_route + '/admin-services/transportation/' + id);
+        navigate('/admin-services/transportation/' + id);
         break;
       case "Visitor":
-        navigate(defualt_route + '/admin-services/visitor/' + id);
+        navigate('/admin-services/visitor/' + id);
         break;
       default:
         return null;

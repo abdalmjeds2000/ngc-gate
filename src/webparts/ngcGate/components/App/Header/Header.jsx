@@ -1,16 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import './Header.css';
 import logo from '../../../assets/images/logo.png';
 import VisionLogo from '../../../assets/images/2030-vision-logo-dark.svg';
 import { useNavigate } from "react-router-dom";
-import { AppCtx } from "../App";
 import SpSearch from "./Search/SpSearch";
 import { Button, Input, Tooltip } from "antd";
 import { CloseCircleOutlined, SearchOutlined } from "@ant-design/icons";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
-  const { defualt_route } = useContext(AppCtx)
   const [showSearch, setShowSearch] = useState(true);
   const [value, setValue] = useState('');
   const [toggleSearch, setToggleSearch] = useState(false);
@@ -45,7 +43,7 @@ const Navbar = (props) => {
       <SpSearch query={value} setShowSearch={(v) => setShowSearch(v)} />
       
       {/* NGC Logo */}
-      <img src={logo} alt="NGC Logo" className="company-logo" onClick={() => navigate(defualt_route+'/home')} />
+      <img src={logo} alt="NGC Logo" className="company-logo" onClick={() => navigate('/home')} />
 
       {/* 2030 Logo */}
       <img src={VisionLogo} alt='2030 Vision Logo' className="logo_2030" />

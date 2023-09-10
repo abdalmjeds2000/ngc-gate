@@ -2,15 +2,14 @@ import { FileTextOutlined } from "@ant-design/icons";
 import { Col, Modal, Row, Table, Typography } from "antd";
 import axios from "axios";
 import moment from "moment-hijri";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import logo from "../../../../../../../../assets/images/logo.png";
-import { AppCtx, apiUrl } from "../../../../../../App";
+import { apiUrl } from "../../../../../../App";
 
 const Preview = ({ id, btnLabel }) => {
   const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState({});
-  const { defualt_route } = useContext(AppCtx);
 
   const FetchData = async (id) => {
     axios({
@@ -136,7 +135,7 @@ const Preview = ({ id, btnLabel }) => {
                       dataIndex: "Asset",
                       render: (val) => (
                         <Typography.Link
-                          href={`${defualt_route}/asset/manage/${val?.Id}`}
+                          href={`/asset/manage/${val?.Id}`}
                           target="_blank"
                         >
                           {val?.Name}

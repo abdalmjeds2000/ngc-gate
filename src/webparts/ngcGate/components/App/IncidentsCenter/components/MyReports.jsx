@@ -51,7 +51,7 @@ const MyReports = () => {
     <Button 
       type='primary'
       size='small'
-      onClick={() => navigate(defualt_route + '/incidents-center/new-report')}
+      onClick={() => navigate('/incidents-center/new-report')}
     >
       <PlusCircleOutlined /> Add Incident Report
     </Button>
@@ -103,7 +103,7 @@ const MyReports = () => {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/incidents-center`)}>Risk Center</a>
+        <a onClick={() => navigate(`/incidents-center`)}>Risk Center</a>
         <p>My Requests</p>
       </HistoryNavigation>
 

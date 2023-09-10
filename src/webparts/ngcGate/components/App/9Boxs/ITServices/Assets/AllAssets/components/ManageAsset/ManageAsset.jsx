@@ -22,7 +22,7 @@ const { Text } = Typography;
 
 function ManageAsset() {
   let { id } = useParams();
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const navigate = useNavigate();
   const [loading, setLoading] = React.useState(true);
   const [assetData, setAssetData] = React.useState({});
@@ -41,7 +41,7 @@ function ManageAsset() {
       if(id) {
         GetAssetById();
       } else {
-        navigate(defualt_route + '/asset/all');
+        navigate('/asset/all');
         message.info("Error ::: Not Found Asset")
       }
     }
@@ -70,7 +70,7 @@ function ManageAsset() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/asset/all`)}>SALIC's Assets</a>
+        <a onClick={() => navigate("/asset/all")}>SALIC's Assets</a>
         <p>{assetData.Name}</p>
       </HistoryNavigation>
       

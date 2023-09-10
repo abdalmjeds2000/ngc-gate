@@ -11,7 +11,7 @@ import moment from 'moment';
 
 
 function MyRequests() {
-  const { admin_my_requests, setAdminMyRequests, defualt_route, user_data } = useContext(AppCtx);
+  const { admin_my_requests, setAdminMyRequests, user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -40,19 +40,19 @@ function MyRequests() {
   const ToUpdatePage = (RequestType, RequestId) => {
     const Code = RequestType.split("-")[0];
     if(Code === "VISA") {
-      navigate(defualt_route + `/admin-services/issuing-VISA/${RequestId}`);
+      navigate(`/admin-services/issuing-VISA/${RequestId}`);
     } else if(Code === "BG") {
-      navigate(defualt_route + `/admin-services/business-gate/${RequestId}`);
+      navigate(`/admin-services/business-gate/${RequestId}`);
     } else if(Code === "SHP") {
-      navigate(defualt_route + `/admin-services/shipment/${RequestId}`);
+      navigate(`/admin-services/shipment/${RequestId}`);
     } else if(Code === "SUP") {
-      navigate(defualt_route + `/admin-services/office-supply/${RequestId}`);
+      navigate(`/admin-services/office-supply/${RequestId}`);
     } else if(Code === "MAN") {
-      navigate(defualt_route + `/admin-services/maintenance/${RequestId}`);
+      navigate(`/admin-services/maintenance/${RequestId}`);
     } else if(Code === "VIS") {
-      navigate(defualt_route + `/admin-services/visitor/${RequestId}`);
+      navigate(`/admin-services/visitor/${RequestId}`);
     } else if(Code === "TS") {
-      navigate(defualt_route + `/admin-services/transportation/${RequestId}`);
+      navigate(`/admin-services/transportation/${RequestId}`);
     }
     return null
   }
@@ -100,7 +100,7 @@ function MyRequests() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/admin-services`)}>Admin Service</a>
+        <a onClick={() => navigate(`/admin-services`)}>Admin Service</a>
         <p>My Requests</p>
       </HistoryNavigation>
 

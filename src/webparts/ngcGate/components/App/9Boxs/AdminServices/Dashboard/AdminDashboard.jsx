@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./AdminDashboard.css";
 import { Col, Row, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx, apiUrl } from '../../../App';
+import { apiUrl } from '../../../App';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation';
 import Employees from './components/Employees/Employees';
 import Overview from './components/Overview';
@@ -25,7 +25,6 @@ last30Days.setDate(today.getDate() - 30);
 
 
 const AdminDashboard = () => {
-  const { defualt_route } = useContext(AppCtx);
   const navigate = useNavigate();
   const [dataFor, setDataFor] = useState({});
 
@@ -101,7 +100,7 @@ const AdminDashboard = () => {
   return (
     <ProtectAdminDashboard>
       <HistoryNavigation>
-        <a onClick={() => navigate(defualt_route + "/admin-services")}>Admin Services Center</a>
+        <a onClick={() => navigate("/admin-services")}>Admin Services Center</a>
         <p>Admin Dashboard</p>
       </HistoryNavigation>
 

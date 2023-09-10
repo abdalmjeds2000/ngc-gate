@@ -17,15 +17,14 @@ const UserPanel = (props) => {
       <div className='icons'>
         
         <Tooltip title="Meetings Services Center" placement='bottom'>
-          {/* <a onClick={() => navigate(`${defualt_route}/book-meeting-room`)}> */}
           <a onClick={() => {
-            if(mobile) {
-              navigate(`${defualt_route}/book-meeting-room`);
-            } else {
-              window.open(`${defualt_route}/book-meeting-room`, '_blank');
-            }
-          }}>
-            {/* <img src={BookingIcon} alt="" /> */}
+              if(mobile) {
+                navigate(`/book-meeting-room`);
+              } else {
+                window.open(`${defualt_route}/book-meeting-room`, '_blank');
+              }
+            }}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 31.518 31.518" style={{fontSize: '17px'}}>
               <g id="svgexport-10" transform="translate(-2 -2)">
                 <g id="Layer_2" data-name="Layer 2" transform="translate(2 2)">
@@ -57,7 +56,7 @@ const UserPanel = (props) => {
         <Tooltip title="Notification Center" placement='bottom'>
           <a onClick={() => {
             if(mobile) {
-              navigate(`${defualt_route}/notification-center`);
+              navigate("/notification-center");
             } else {
               window.open(`${defualt_route}/notification-center`, '_blank');
             }

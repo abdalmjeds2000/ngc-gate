@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { MdOpenInNew } from 'react-icons/md';
-import { AppCtx } from '../../../App';
 import './NineBoxs.css';
 
 
@@ -82,7 +81,6 @@ const services = [
 
 
 function NineBoxs() {
-  const { defualt_route } = useContext(AppCtx);
   let navigate = useNavigate();
 
   return (
@@ -90,10 +88,9 @@ function NineBoxs() {
       {services.map((service, i) => {
         return (
 
-          <a onClick={() => service.link ? window.open(service.to, "_blank") : navigate(defualt_route + service.to)} target='_blank' key={i}>
+          <a onClick={() => service.link ? window.open(service.to, "_blank") : navigate(service.to)} target='_blank' key={i}>
             <div className="service-box">
               <div>
-                {/* <img src= alt='' /> */}
                 {service.icon}
               </div>
               <h3>{service.header} {service.link ? <span className='open-in-new'><MdOpenInNew /></span> : ''}</h3>

@@ -6,7 +6,7 @@ import { AppCtx } from "../../App";
 import pnp from 'sp-pnp-js';
 
 function ITServices() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
 
 
 

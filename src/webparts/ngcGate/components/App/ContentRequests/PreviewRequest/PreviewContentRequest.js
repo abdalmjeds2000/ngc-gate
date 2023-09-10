@@ -23,7 +23,7 @@ import { CgMoreO } from 'react-icons/cg';
 
 function PreviewContentRequest() {
     let { id } = useParams();
-    const { user_data, defualt_route } = useContext(AppCtx);
+    const { user_data } = useContext(AppCtx);
     const navigate = useNavigate();
     const [fileList, setFileList] = useState([]);
     const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
@@ -172,7 +172,7 @@ function PreviewContentRequest() {
             })
             .then(() => setLoading(false));
         } else {
-            navigate(defualt_route + '/content-requests/new-request');
+            navigate('/content-requests/new-request');
             message.info("Not Found Item")
         }
     }, []);
@@ -356,7 +356,7 @@ function PreviewContentRequest() {
     return (
     <>
         <HistoryNavigation>
-            <a onClick={() => navigate(`${defualt_route}/content-requests`)}>Content Requests</a>
+            <a onClick={() => navigate("/content-requests")}>Content Requests</a>
             <p>Preview Request</p>
         </HistoryNavigation>
         
@@ -547,7 +547,7 @@ function PreviewContentRequest() {
                             description="Please wait a few moments, then try again."
                             type="info"
                             showIcon
-                            action={<Button size="small" type="primary" onClick={() => navigate(defualt_route+'/content-requests')}>Back</Button>}
+                            action={<Button size="small" type="primary" onClick={() => navigate("/content-requests")}>Back</Button>}
                         />
                 )
             :   <AntdLoader />

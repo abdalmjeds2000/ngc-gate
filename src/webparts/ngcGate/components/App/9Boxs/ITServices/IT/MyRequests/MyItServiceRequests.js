@@ -10,7 +10,7 @@ import RequestsTable from '../../../../Global/RequestsComponents/RequestsTable';
 import moment from 'moment';
 
 function MyItServiceRequests() {
-  const { my_it_requests_data, setMyItRequestsData, user_data, defualt_route } = useContext(AppCtx);
+  const { my_it_requests_data, setMyItRequestsData, user_data } = useContext(AppCtx);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -49,7 +49,7 @@ function MyItServiceRequests() {
         <div style={{minWidth: 250}}>
           <Space direction='horizontal'>
             <InfoCircleOutlined style={{color: record.Priority === "1" ? "var(--main-color)" : "--brand-red-color"}} /> 
-            <Typography.Link onClick={() => navigate(defualt_route + `/services-requests/${record.Id}`)}>{val}</Typography.Link>
+            <Typography.Link onClick={() => navigate(`/services-requests/${record.Id}`)}>{val}</Typography.Link>
           </Space>
         </div>
       )
@@ -80,14 +80,14 @@ function MyItServiceRequests() {
   const ControlPanel = (
     <Space direction='horizontal'>
       <Button type='primary' size='small' onClick={GetRequests}><RedoOutlined /> Refresh</Button>
-      <Button size='small' onClick={() => navigate(defualt_route+'/services-requests/services-request')}><PlusOutlined /> New Request</Button>
+      <Button size='small' onClick={() => navigate('/services-requests/services-request')}><PlusOutlined /> New Request</Button>
     </Space>
   )
   
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Services Center</a>
+        <a onClick={() => navigate("/services-requests")}>IT Services Center</a>
         <p>My IT Sevices Requests</p>
       </HistoryNavigation>
 

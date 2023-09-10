@@ -1,20 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import ProtectRoutePowerBI from '../../../../Routers/ProtectRoutes/ProtectRoutePowerBI';
-import { AppCtx } from '../../../App';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation';
 
 
 
 function CountryOutlook() {
   const navigate = useNavigate();
-  const { defualt_route } = useContext(AppCtx);
   
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards/research`)}>Research</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards/research`)}>Research</a>
         <p>Country Outlook</p>
       </HistoryNavigation>
       

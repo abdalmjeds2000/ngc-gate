@@ -6,7 +6,7 @@ import pnp from 'sp-pnp-js';
 
 
 const ProtectRouteCommunication = (props) => {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [communicationAdmins, setCommunicationAdmins] = useState([]);
 
@@ -30,7 +30,7 @@ const ProtectRouteCommunication = (props) => {
 
 
   if(!isAdmin && communicationAdmins.length > 0) {
-    navigate(defualt_route + '/home')
+    navigate('/home')
 
     return <></>
   }

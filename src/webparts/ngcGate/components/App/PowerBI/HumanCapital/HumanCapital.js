@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ProtectRoutePowerBI from '../../../Routers/ProtectRoutes/ProtectRoutePowerBI';
-import { AppCtx } from '../../App';
 import HistoryNavigation from '../../Global/HistoryNavigation/HistoryNavigation';
 import ServicesSection from '../../Global/ServicesSection/ServicesSection';
 import pnp from 'sp-pnp-js';
@@ -19,7 +18,6 @@ const services = [
 
 function HumanCapital() {
   const navigate = useNavigate();
-  const { defualt_route } = useContext(AppCtx);
   // const [services, setServices] = useState([]);
 
   // const getServices = async () => {
@@ -46,7 +44,7 @@ function HumanCapital() {
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
         <p>Human Capital</p>
       </HistoryNavigation>
       

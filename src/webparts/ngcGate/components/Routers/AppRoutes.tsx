@@ -79,149 +79,148 @@ import {
 
 
 const AppRoutes: React.FunctionComponent<RoutersProps> = (props) => {
-  const defualtRoute: string = props.spWebUrl;
 
   return (
     <Routes>
-      <Route path={`${defualtRoute}/home`} element={<Home />} />
-      <Route path={`${defualtRoute}`} element={<Navigate replace to={`${defualtRoute}/home`}/>} />
+      <Route path={"/home"} element={<Home />} />
+      <Route path={""} element={<Navigate replace to={"/home"}/>} />
       
-      <Route path={`${defualtRoute}/communication`} element={<Communication />} />
-      <Route path={`${defualtRoute}/dms`} element={<FolderExplorerPage />} />
+      <Route path={"/communication"} element={<Communication />} />
+      <Route path={"/dms"} element={<FolderExplorerPage />} />
       
 
-      <Route path={`${defualtRoute}/attendance`} element={<Attendance />} />
+      <Route path={"/attendance"} element={<Attendance />} />
 
-      <Route path={`${defualtRoute}/community-news`}>
+      <Route path={"/community-news"}>
         <Route index element={<CommunityNews />} />
-        <Route path={`${defualtRoute}/community-news/:id`} element={<NewsDetails />} />
+        <Route path={"/community-news/:id"} element={<NewsDetails />} />
       </Route>
 
-      <Route path={`${defualtRoute}/admin-services`}>
+      <Route path={"/admin-services"}>
         <Route index element={<AdminServices />} />
-        <Route path={`${defualtRoute}/admin-services/issuing-VISA`}>
+        <Route path={"/admin-services/issuing-VISA"}>
           <Route index element={<IssuingVISA />} />
-          <Route path={`${defualtRoute}/admin-services/issuing-VISA/:id`} element={<IssuingVISA />} />
+          <Route path={"/admin-services/issuing-VISA/:id"} element={<IssuingVISA />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/shipment`}>
+        <Route path={"/admin-services/shipment"}>
           <Route index element={<ShipmentRequest />} />
-          <Route path={`${defualtRoute}/admin-services/shipment/:id`} element={<ShipmentRequest />} />
+          <Route path={"/admin-services/shipment/:id"} element={<ShipmentRequest />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/maintenance`}>
+        <Route path={"/admin-services/maintenance"}>
           <Route index element={<Maintenance />} />
-          <Route path={`${defualtRoute}/admin-services/maintenance/:id`} element={<Maintenance />} />
+          <Route path={"/admin-services/maintenance/:id"} element={<Maintenance />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/visitor`}>
+        <Route path={"/admin-services/visitor"}>
           <Route index element={<Visitor />} />
-          <Route path={`${defualtRoute}/admin-services/visitor/:id`} element={<Visitor />} />
+          <Route path={"/admin-services/visitor/:id"} element={<Visitor />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/transportation`}>
+        <Route path={"/admin-services/transportation"}>
           <Route index element={<Transportation />} />
-          <Route path={`${defualtRoute}/admin-services/transportation/:id`} element={<Transportation />} />
+          <Route path={"/admin-services/transportation/:id"} element={<Transportation />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/business-gate`}>
+        <Route path={"/admin-services/business-gate"}>
           <Route index element={<BusinessGate />} />
-          <Route path={`${defualtRoute}/admin-services/business-gate/:id`} element={<BusinessGate />} />
+          <Route path={"/admin-services/business-gate/:id"} element={<BusinessGate />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/office-supply`}>
+        <Route path={"/admin-services/office-supply"}>
           <Route index element={<OfficeSupply />} />
-          <Route path={`${defualtRoute}/admin-services/office-supply/:id`} element={<OfficeSupply />} />
+          <Route path={"/admin-services/office-supply/:id"} element={<OfficeSupply />} />
         </Route>
-        <Route path={`${defualtRoute}/admin-services/assigned-requests`} element={<AssignedRequests />} />
-        <Route path={`${defualtRoute}/admin-services/my-requests`} element={<MyRequests />} />
-        <Route path={`${defualtRoute}/admin-services/dashboard`} element={<AdminDashboard />} />
+        <Route path={"/admin-services/assigned-requests"} element={<AssignedRequests />} />
+        <Route path={"/admin-services/my-requests"} element={<MyRequests />} />
+        <Route path={"/admin-services/dashboard"} element={<AdminDashboard />} />
       </Route>
       
-      <Route path={`${defualtRoute}/services-requests`}>
+      <Route path={"/services-requests"}>
         <Route index element={<ITServices />} />
-        <Route path={`${defualtRoute}/services-requests/services-request`} element={<NewITRequest />} />
-        <Route path={`${defualtRoute}/services-requests/my-requests`} element={<MyItServiceRequests />} />
-        <Route path={`${defualtRoute}/services-requests/requests-assigned-for-me`}>
+        <Route path={"/services-requests/services-request"} element={<NewITRequest />} />
+        <Route path={"/services-requests/my-requests"} element={<MyItServiceRequests />} />
+        <Route path={"/services-requests/requests-assigned-for-me"}>
           <Route index element={<ITRequestsAssignedForMe />} />
-          <Route path={`${defualtRoute}/services-requests/requests-assigned-for-me/:query`} element={<ITRequestsAssignedForMe />} />
+          <Route path={"/services-requests/requests-assigned-for-me/:query"} element={<ITRequestsAssignedForMe />} />
         </Route>
         
-        <Route path={`${defualtRoute}/services-requests/service-requests-dashboard`} element={<ServiceRequestsDashboard />} />
-        <Route path={`${defualtRoute}/services-requests/cancelled`} element={<CancelledRequests />} />
-        <Route path={`${defualtRoute}/services-requests/:id`} element={<PreviewITServiceRequest />} />
+        <Route path={"/services-requests/service-requests-dashboard"} element={<ServiceRequestsDashboard />} />
+        <Route path={"/services-requests/cancelled"} element={<CancelledRequests />} />
+        <Route path={"/services-requests/:id"} element={<PreviewITServiceRequest />} />
       </Route>
-      <Route path={`${defualtRoute}/asset`}>
-        <Route path={`${defualtRoute}/asset/new-asset`} element={<RegisterNewAssets />} />
-        <Route path={`${defualtRoute}/asset/all`} element={<AllAssets />} />
-        <Route path={`${defualtRoute}/asset/manage`} element={<Navigate replace to={`${defualtRoute}/asset/all`}/>} />
-        <Route path={`${defualtRoute}/asset/manage/:id`} element={<ManageAsset />} />
+      <Route path={"/asset"}>
+        <Route path={"/asset/new-asset"} element={<RegisterNewAssets />} />
+        <Route path={"/asset/all"} element={<AllAssets />} />
+        <Route path={"/asset/manage"} element={<Navigate replace to={"/asset/all"}/>} />
+        <Route path={"/asset/manage/:id"} element={<ManageAsset />} />
       </Route>
-      <Route path={`${defualtRoute}/e-invoicing`}>
+      <Route path={"/e-invoicing"}>
         <Route index element={<EInvoicing />} />
       </Route>
       
-      <Route path={`${defualtRoute}/hc-services`} element={<HRSelf />} />
-      <Route path={`${defualtRoute}/notification-center`} element={<NotificationCenter />} />
-      <Route path={`${defualtRoute}/book-meeting-room`}>
+      <Route path={"/hc-services"} element={<HRSelf />} />
+      <Route path={"/notification-center"} element={<NotificationCenter />} />
+      <Route path={"/book-meeting-room"}>
         <Route index element={<MeetingCenter />} />
-        <Route path={`${defualtRoute}/book-meeting-room/new-meeting`} element={<NewMeeting />} />
-        <Route path={`${defualtRoute}/book-meeting-room/my-meetings`} element={<MyMeetings />} />
-        <Route path={`${defualtRoute}/book-meeting-room/rooms-calender`} element={<RoomsCalender />} />
+        <Route path={"/book-meeting-room/new-meeting"} element={<NewMeeting />} />
+        <Route path={"/book-meeting-room/my-meetings"} element={<MyMeetings />} />
+        <Route path={"/book-meeting-room/rooms-calender"} element={<RoomsCalender />} />
       </Route>
-      <Route path={`${defualtRoute}/eSignature-document`} element={<ESignatureTool />} />
+      <Route path={"/eSignature-document"} element={<ESignatureTool />} />
       
-      <Route path={`${defualtRoute}/org-doc-investment`} element={<Investment />} />
-      <Route path={`${defualtRoute}/org-doc-finance`} element={<Finance />} />
-      <Route path={`${defualtRoute}/org-doc-corporate-services`} element={<CorporateServices />} />
-      <Route path={`${defualtRoute}/org-doc-legal`} element={<Legal />} />
-      <Route path={`${defualtRoute}/org-doc-risk-strategy`} element={<RiskStrategy />} />
-      <Route path={`${defualtRoute}/org-doc-corporate-communication`} element={<CorporateCommunication />} />
+      <Route path={"/org-doc-investment"} element={<Investment />} />
+      <Route path={"/org-doc-finance"} element={<Finance />} />
+      <Route path={"/org-doc-corporate-services"} element={<CorporateServices />} />
+      <Route path={"/org-doc-legal"} element={<Legal />} />
+      <Route path={"/org-doc-risk-strategy"} element={<RiskStrategy />} />
+      <Route path={"/org-doc-corporate-communication"} element={<CorporateCommunication />} />
 
 
-      <Route path={`${defualtRoute}/power-bi-dashboards`}>
+      <Route path={"/power-bi-dashboards"}>
         <Route index element={<PowerBIInteractiveDashboards />} />
 
-        <Route path={`${defualtRoute}/power-bi-dashboards/human-capital`}>
+        <Route path={"/power-bi-dashboards/human-capital"}>
           <Route index element={<HumanCapital />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/human-capital/hr-dashboard`} element={<HRDashboard />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/human-capital/employee-analytics-dashboard`} element={<EmployeeAnalyticsDashboard />} />
+          <Route path={"/power-bi-dashboards/human-capital/hr-dashboard"} element={<HRDashboard />} />
+          <Route path={"/power-bi-dashboards/human-capital/employee-analytics-dashboard"} element={<EmployeeAnalyticsDashboard />} />
         </Route>
-        <Route path={`${defualtRoute}/power-bi-dashboards/research`}>
+        <Route path={"/power-bi-dashboards/research"}>
           <Route index element={<Research />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/country-outlook`} element={<CountryOutlook />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/delegation-visit`} element={<DelegationVisit />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/crisis-plan`} element={<CrisisPlan />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/demand-forecast`} element={<DemandForecast />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/domestic-prices`} element={<DomesticPrices />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/international-prices`} element={<InternationalPrices />} />
-          <Route path={`${defualtRoute}/power-bi-dashboards/research/daily-dashboard`} element={<DailyDashboard />} />
+          <Route path={"/power-bi-dashboards/research/country-outlook"} element={<CountryOutlook />} />
+          <Route path={"/power-bi-dashboards/research/delegation-visit"} element={<DelegationVisit />} />
+          <Route path={"/power-bi-dashboards/research/crisis-plan"} element={<CrisisPlan />} />
+          <Route path={"/power-bi-dashboards/research/demand-forecast"} element={<DemandForecast />} />
+          <Route path={"/power-bi-dashboards/research/domestic-prices"} element={<DomesticPrices />} />
+          <Route path={"/power-bi-dashboards/research/international-prices"} element={<InternationalPrices />} />
+          <Route path={"/power-bi-dashboards/research/daily-dashboard"} element={<DailyDashboard />} />
         </Route>
-        <Route path={`${defualtRoute}/power-bi-dashboards/preview/:id`} element={<PreviewReport />} />
+        <Route path={"/power-bi-dashboards/preview/:id"} element={<PreviewReport />} />
       </Route>
 
-      <Route path={`${defualtRoute}/content-requests`}>
+      <Route path={"/content-requests"}>
         <Route index element={<ContentRequests />} />
-        <Route path={`${defualtRoute}/content-requests/new-request`} element={<NewContentRequest />} />
-        <Route path={`${defualtRoute}/content-requests/all-content-requests`} element={<AllContentRequests />} />
-        <Route path={`${defualtRoute}/content-requests/my-content-requests`} element={<MyContentRequests />} />
-        <Route path={`${defualtRoute}/content-requests/:id`} element={<PreviewContentRequest />} />
+        <Route path={"/content-requests/new-request"} element={<NewContentRequest />} />
+        <Route path={"/content-requests/all-content-requests"} element={<AllContentRequests />} />
+        <Route path={"/content-requests/my-content-requests"} element={<MyContentRequests />} />
+        <Route path={"/content-requests/:id"} element={<PreviewContentRequest />} />
       </Route>
 
-      <Route path={`${defualtRoute}/manage-news-content`} element={<ManageNewsContent />} />
+      <Route path={"/manage-news-content"} element={<ManageNewsContent />} />
 
-      <Route path={`${defualtRoute}/manage-media-center`} element={<ManageNews />} />
-      <Route path={`${defualtRoute}/manage-events`} element={<ManageEvents />} />
-      <Route path={`${defualtRoute}/sp-search`} element={<SPSearch />} />
+      <Route path={"/manage-media-center"} element={<ManageNews />} />
+      <Route path={"/manage-events"} element={<ManageEvents />} />
+      <Route path={"/sp-search"} element={<SPSearch />} />
 
-      <Route path={`${defualtRoute}/performance-managment`}>
+      <Route path={"/performance-managment"}>
         <Route index element={<Performance />} />
       </Route>
 
-      <Route path={`${defualtRoute}/incidents-center`}>
+      <Route path={"/incidents-center"}>
         <Route index element={<IncidentsCenter />} />
-        <Route path={`${defualtRoute}/incidents-center/new-report`} element={<NewIncidentReport />} />
-        <Route path={`${defualtRoute}/incidents-center/my-reports`} element={<MyReports />} />
-        <Route path={`${defualtRoute}/incidents-center/assigned-reports`} element={<AssignedReports />} />
-        <Route path={`${defualtRoute}/incidents-center/request-for-review`} element={<RequestsForReview />} />
-        <Route path={`${defualtRoute}/incidents-center/report/:id`} element={<PreviewIncidentReport />} />
+        <Route path={"/incidents-center/new-report"} element={<NewIncidentReport />} />
+        <Route path={"/incidents-center/my-reports"} element={<MyReports />} />
+        <Route path={"/incidents-center/assigned-reports"} element={<AssignedReports />} />
+        <Route path={"/incidents-center/request-for-review"} element={<RequestsForReview />} />
+        <Route path={"/incidents-center/report/:id"} element={<PreviewIncidentReport />} />
       </Route>
 
-      <Route path={`${defualtRoute}/my-team`} element={<MyTeam />} />
+      <Route path={"/my-team"} element={<MyTeam />} />
 
 
       <Route path="*" element={<PageNotFound />} />

@@ -23,7 +23,6 @@ const services = [
 
 
 function Research() {
-  const { defualt_route } = useContext(AppCtx);
   const navigate = useNavigate();
   // const [services, setServices] = useState([]);
 
@@ -52,7 +51,7 @@ function Research() {
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
         <p>Research</p>
       </HistoryNavigation>
       

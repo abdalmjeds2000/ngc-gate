@@ -9,7 +9,7 @@ import UserColumnInTable from '../../Global/UserColumnInTable/UserColumnInTable'
 
 
 function MyMeetings() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const navigate = useNavigate();
 
   const [data, setData] = useState([]);
@@ -113,7 +113,7 @@ function MyMeetings() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/book-meeting-room`)}>Meetings Center</a>
+        <a onClick={() => navigate(`/book-meeting-room`)}>Meetings Center</a>
         <p>My Meetings</p>
       </HistoryNavigation>
       <div className='table-page-container'>

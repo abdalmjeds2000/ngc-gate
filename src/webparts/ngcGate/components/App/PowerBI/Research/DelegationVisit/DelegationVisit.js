@@ -1,25 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import ProtectRoutePowerBI from '../../../../Routers/ProtectRoutes/ProtectRoutePowerBI';
-import { AppCtx } from '../../../App';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation';
 
 
 
 function DelegationVisit() {
   const navigate = useNavigate();
-  const { defualt_route } = useContext(AppCtx);
   
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards/research`)}>Research</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards/research`)}>Research</a>
         <p>Delegation Visit</p>
       </HistoryNavigation>
       
       <div className='folder-explorer-container'>
-
         <div className='power-bi-iframe-container'>
           <iframe 
             title="Delegation Visit" 

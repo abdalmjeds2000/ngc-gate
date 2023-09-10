@@ -8,7 +8,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 const Tabs = ({items, loading, bodyStyle, rightOfTabs}) => {
   let navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(items[0]?.key || 1);
-  const goNav = (key) => navigate(document.location.pathname + document.location.search + "#" + key, { replace: true });
+  const goNav = (key) => navigate(document.location.search + "#" + key, { replace: true });
 
   useEffect(() => {
     const hash = document.location.hash.split("#").filter(a => a && a !== "")[0];

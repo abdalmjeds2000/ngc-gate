@@ -8,13 +8,12 @@ import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigati
 
 function EmployeeAnalyticsDashboard() {
   const navigate = useNavigate();
-  const { defualt_route } = useContext(AppCtx);
   
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards/human-capital`)}>Human Capital</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards/human-capital`)}>Human Capital</a>
         <p>Employee Analytics Dashboard</p>
       </HistoryNavigation>
       

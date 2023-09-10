@@ -25,7 +25,7 @@ function SimpleUserPanel() {
           <Tooltip title="Notification Center" placement='bottom'>
             <a onClick={() => {
               if(mobile) {
-                navigate(`${defualt_route}/notification-center`);
+                navigate(`/notification-center`);
               } else {
                 window.open(`${defualt_route}/notification-center`, '_blank');
               }

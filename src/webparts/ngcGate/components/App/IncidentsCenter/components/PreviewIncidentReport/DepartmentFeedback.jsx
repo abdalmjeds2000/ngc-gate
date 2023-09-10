@@ -8,7 +8,7 @@ import { Section } from 'salic-react-components';
 import { BarsOutlined } from '@ant-design/icons';
 
 const DepartmentFeedback = ({ reportData, formData, onFinish, customLayout }) => {
-  const { user_data, defualt_route, ngc_departments } = useContext(AppCtx);
+  const { user_data, ngc_departments } = useContext(AppCtx);
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [showOperationalLossForm, setShowOperationalLossForm] = React.useState(false);
@@ -174,7 +174,7 @@ const DepartmentFeedback = ({ reportData, formData, onFinish, customLayout }) =>
                     <Button htmlType='submit' size='large' type='primary' loading={loading}>Submit</Button>
                   </Col>
                   <Col>
-                    <Button type='primary' size='large' danger onClick={() => navigate(defualt_route + "/incidents-center")}>Cancel</Button>
+                    <Button type='primary' size='large' danger onClick={() => navigate("/incidents-center")}>Cancel</Button>
                   </Col>
                 </Row>
               </Col>

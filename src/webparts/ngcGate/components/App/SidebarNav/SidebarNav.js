@@ -28,7 +28,7 @@ const capitalize = (s) => s[0]?.toUpperCase() + s.slice(1);
 
 
 const SidebarNav = ({spWebUrl}) => {
-  const { defualt_route, sp_site } = useContext(AppCtx);
+  const { sp_site } = useContext(AppCtx);
   const navigate = useNavigate();
   const [isNavBarLarge, setIsNavBarLarge] = useState(false);
   const [isCommAdmin] = useIsAdmin('Communication_Admin');
@@ -158,7 +158,7 @@ const SidebarNav = ({spWebUrl}) => {
                 <li key={i}>
                   <Tooltip placement="right" title={item?.link ? <>{item?.text} <MdOpenInNew /></> : item?.text}>
                     <a
-                      style={activeRoute.includes(defualt_route + item?.to) && item?.to !== "" ? activeStyle : { opacity: "0.3" } }
+                      style={activeRoute.includes(item?.to) && item?.to !== "" ? activeStyle : { opacity: "0.3" } }
                       className={ !isNavBarLarge ? "centered-icons-mobile" : "centered-icons-disktop" }
                       onClick={() => {
                         isNavBarLarge ? setIsNavBarLarge(false) : null;
@@ -166,8 +166,8 @@ const SidebarNav = ({spWebUrl}) => {
                           window.open(item?.to, "_blank");
                         } else {
                           if(item?.to && item?.to !== "") {
-                            setActiveRoute(defualt_route + item?.to);
-                            navigate(defualt_route + item?.to);
+                            setActiveRoute(item?.to);
+                            navigate(item?.to);
                           }
                         }
                       }}
@@ -188,7 +188,7 @@ const SidebarNav = ({spWebUrl}) => {
                   <li key={i}>
                     <Tooltip placement="right" title={<>{item?.text} <MdOpenInNew /></>}>
                       <a
-                        style={ activeRoute.includes(defualt_route + item?.to) ? activeStyle : { opacity: "0.3" } }
+                        style={ activeRoute.includes(item?.to) ? activeStyle : { opacity: "0.3" } }
                         className={ !isNavBarLarge ? "centered-icons-mobile" : "centered-icons-disktop" }
                         onClick={() => {
                           setIsNavBarLarge(false)

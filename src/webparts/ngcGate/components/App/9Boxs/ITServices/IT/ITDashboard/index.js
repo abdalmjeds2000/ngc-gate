@@ -22,7 +22,7 @@ export const colors = ["#50220E", "#23cdb2", "#526D82", "#4096c4", "#4F55C2", "#
 const initDatesFilter = { active: false, from: null, to: null };
 
 const Main = () => {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const navigate = useNavigate();
 
   function allChildren(treeData, flatData = []) {
@@ -53,7 +53,7 @@ const Main = () => {
   return (
     <ProtectRouteIT>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Service Center</a>
+        <a onClick={() => navigate("/services-requests")}>IT Service Center</a>
         <p>Service Requests Dashboard</p>
       </HistoryNavigation>
 

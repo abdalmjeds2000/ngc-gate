@@ -18,7 +18,7 @@ import CloseAction from './PreviewIncidentReport/CloseAction';
 
 const PreviewIncidentReport = ({ isRiskAdmin }) => {
   const { id } = useParams();
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -42,7 +42,7 @@ const PreviewIncidentReport = ({ isRiskAdmin }) => {
       .then(() => setLoading(false))
       
     } else {
-      navigate(defualt_route + "/incidents-center");
+      navigate("/incidents-center");
     }
   }, []);
 
@@ -71,7 +71,7 @@ const PreviewIncidentReport = ({ isRiskAdmin }) => {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/incidents-center`)}>Risk Center</a>
+        <a onClick={() => navigate(`/incidents-center`)}>Risk Center</a>
         <p>New Incident Report :: #{reportData?.Number || '???'}</p>
       </HistoryNavigation>
 

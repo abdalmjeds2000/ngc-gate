@@ -31,7 +31,7 @@ const getBase64 = (file) =>
 
 
 function IssuingVISA() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(true);
@@ -92,8 +92,8 @@ function IssuingVISA() {
         form.resetFields();
         notification.success({message: response?.data?.Message || "Your Application has been submitted successfully."})
         if(response?.data?.Data) {
-          navigate(defualt_route + "/admin-services/my-requests");
-          window.open(defualt_route + '/admin-services/issuing-VISA/' + response?.data?.Data);
+          navigate("/admin-services/my-requests");
+          window.open('/admin-services/issuing-VISA/' + response?.data?.Data);
         }
       } else {
         message.error("Failed to send request.")
@@ -147,7 +147,7 @@ function IssuingVISA() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/admin-services`)}>Admin Service</a>
+        <a onClick={() => navigate(`/admin-services`)}>Admin Service</a>
         <p>Issuing VISA</p>
       </HistoryNavigation>
       

@@ -11,7 +11,7 @@ import RequestsTable from '../../Global/RequestsComponents/RequestsTable';
 import ProtectRouteContent from '../../../Routers/ProtectRoutes/ProtectRouteContent';
 
 function AllContentRequests() {
-  const { content_requests_data, setContentRequestsData, user_data, defualt_route } = useContext(AppCtx);
+  const { content_requests_data, setContentRequestsData, user_data } = useContext(AppCtx);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -47,7 +47,7 @@ function AllContentRequests() {
       title: 'Subject',
       dataIndex: 'Title',
       width: '30%',
-      render: (val, record) => <a onClick={() => navigate(defualt_route + `/content-requests/${record.Id}`)}>{val}</a>
+      render: (val, record) => <a onClick={() => navigate(`/content-requests/${record.Id}`)}>{val}</a>
     },{
       title: 'Requester',
       dataIndex: 'Author',
@@ -69,7 +69,7 @@ function AllContentRequests() {
   const ControlPanel = (
     <Space direction='horizontal'>
       <Button type='primary' size='small' onClick={GetRequests}><RedoOutlined /> Refresh</Button>
-      <Button size='small' onClick={() => navigate(defualt_route+'/content-requests/new-request')}><PlusOutlined /> New Request</Button>
+      <Button size='small' onClick={() => navigate('/content-requests/new-request')}><PlusOutlined /> New Request</Button>
     </Space>
   )
 
@@ -79,7 +79,7 @@ function AllContentRequests() {
   return (
     <ProtectRouteContent>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/content-requests`)}>Content Requests</a>
+        <a onClick={() => navigate("/content-requests")}>Content Requests</a>
         <p>Content Requests</p>
       </HistoryNavigation>
 

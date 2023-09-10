@@ -258,7 +258,7 @@ const RequestCard = ({
   classification,
   uniqueCode
 }) => {
-  const { defualt_route, sp_site } = useContext(AppCtx);
+  const { sp_site } = useContext(AppCtx);
   const userAvatarURL = `${sp_site}/_layouts/15/userphoto.aspx?size=M&username=`;
 
 
@@ -285,7 +285,7 @@ const RequestCard = ({
             </span>
             {/* <span className={`meta_status ${perc < 60 ? "bg-info" : perc < 80 ? "bg-warning" : "bg-danger"}`}>{perc < 60 ? "On Time" : perc < 80 ? "Late" : "Too Late"}</span> */}
           </div>
-          <Typography.Link title={`Subject: ${subject}`} className="title" target="_blank" href={defualt_route + `/services-requests/${id}`}>
+          <Typography.Link title={`Subject: ${subject}`} className="title" target="_blank" href={`/services-requests/${id}`}>
             {uniqueCode ? `${uniqueCode} :: ` : null}{subject}
           </Typography.Link>
           <div className="progress" title={`Progress: ${Math.floor(progress)}%`}>
@@ -337,7 +337,6 @@ const RequestCard = ({
   )
 }
 export const RequestsList = ({ paramsFilter, className }) => {
-  const { defualt_route } = useContext(AppCtx);
   const { users, from, to } = paramsFilter;
   const [pendingState, setPendingState] = React.useState({ data: [], loading: true });
   const [closedState, setClosedState] = React.useState(initialStat);
@@ -455,7 +454,7 @@ export const RequestsList = ({ paramsFilter, className }) => {
       width: '5%',
       sorter: true,
       render: (val, record) => (
-        <Typography.Link href={defualt_route + `/services-requests/${record.Id}`} target="_blank">
+        <Typography.Link href={`/services-requests/${record.Id}`} target="_blank">
           {`#${val}`}
         </Typography.Link>
       )
@@ -468,7 +467,7 @@ export const RequestsList = ({ paramsFilter, className }) => {
         <Space direction='horizontal' style={{minWidth: 220}}>
           <InfoCircleOutlined style={{color: record.Priority === "1" ? "var(--main-color)" : "--brand-red-color"}} /> 
           <div>
-            <Typography.Link href={defualt_route + `/services-requests/${record.Id}`} target="_blank">
+            <Typography.Link href={`/services-requests/${record.Id}`} target="_blank">
               {val}
             </Typography.Link>
             {

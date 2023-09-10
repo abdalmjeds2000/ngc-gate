@@ -30,7 +30,7 @@ function ServicesRequests(props) {
   const { params } = props;
   const { users, from, to } = params;
 
-  const { ITRequests, setITRequests, defualt_route } = useContext(AppCtx);
+  const { ITRequests, setITRequests } = useContext(AppCtx);
   const [isFilterActive, setIsFilterActive] = useState(true);
 
   const fetchData = async (signal) => {
@@ -110,7 +110,7 @@ function ServicesRequests(props) {
       sorter: true,
       // render: (val) => <b>{`SR[#${val}]`}</b>
       render: (val, record) => (
-        <Typography.Link href={defualt_route + `/services-requests/${record.Id}`} target={!mobile ? "_blank" : ""}>
+        <Typography.Link href={`/services-requests/${record.Id}`} target={!mobile ? "_blank" : ""}>
           {`SR[#${val}]`}
         </Typography.Link>
       )
@@ -131,7 +131,7 @@ function ServicesRequests(props) {
             <InfoCircleOutlined style={{color: record.Priority === "1" ? "#0c508c" : "#ff272b"}} /> 
           </Popover>
           <div>
-            <Typography.Link href={defualt_route + `/services-requests/${record.Id}`} target={!mobile ? "_blank" : ""}>
+            <Typography.Link href={`/services-requests/${record.Id}`} target={!mobile ? "_blank" : ""}>
               {val}
             </Typography.Link>
             {

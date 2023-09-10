@@ -21,7 +21,7 @@ const layout = { labelCol: { span: 6 }, wrapperCol: { span: 12 } };
 
 
 function BusinessGate() {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   let navigate = useNavigate();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(true);
@@ -73,8 +73,8 @@ function BusinessGate() {
         setDataSource([]);
         notification.success({message: response?.data?.Message || "Your Application has been submitted successfully."})
         if(response?.data?.Data) {
-          navigate(defualt_route + "/admin-services/my-requests");
-          window.open(defualt_route + '/admin-services/business-gate/' + response?.data?.Data);
+          navigate("/admin-services/my-requests");
+          window.open('/admin-services/business-gate/' + response?.data?.Data);
         }
       } else {
         message.error("Failed to send request.")
@@ -122,7 +122,7 @@ function BusinessGate() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/admin-services`)}>Admin Service</a>
+        <a onClick={() => navigate(`/admin-services`)}>Admin Service</a>
         <p>{!id && 'New '}Business Gate Request</p>
       </HistoryNavigation>
       

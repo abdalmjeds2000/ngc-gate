@@ -8,7 +8,7 @@ import pnp from 'sp-pnp-js';
 
 
 const MediaCenter = () => {
-  const { media_center, setMediaCenter, defualt_route } = useContext(AppCtx);
+  const { media_center, setMediaCenter } = useContext(AppCtx);
   let navigate = useNavigate();
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -44,7 +44,7 @@ const MediaCenter = () => {
     <div className="media-center">
       <div className="header">
         <h3>Media Center</h3>
-        <a onClick={_ => navigate(`${defualt_route}/manage-media-center`)}>See All</a>
+        <a onClick={_ => navigate(`/manage-media-center`)}>See All</a>
       </div>
       <div className="gallerys">
         <div className="gallery gallery1">

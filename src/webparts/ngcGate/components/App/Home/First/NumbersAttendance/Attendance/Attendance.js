@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Attendance.css';
 import { useNavigate } from 'react-router-dom';
 import { Empty, Spin } from 'antd';
-import { AppCtx } from '../../../../App';
-import AntdLoader from '../../../../Global/AntdLoader/AntdLoader';
 import { LoadingOutlined } from '@ant-design/icons';
 import { BiChevronRight } from 'react-icons/bi';
 import moment from 'moment';
 
 
 function Attendance(props) {
-  const { defualt_route } = useContext(AppCtx);
   const [isNoData, setIsNoData] = useState(false);
   let navigate = useNavigate();
 
@@ -29,7 +26,7 @@ function Attendance(props) {
         <tbody className='desktop-body'>
           <tr>
             <td colSpan={4}><h2>Latest Attendance</h2></td>
-            <td colSpan={1}><a onClick={() => navigate(`${defualt_route}/attendance`)} style={{ whiteSpace: "nowrap" }}>See All</a></td>
+            <td colSpan={1}><a onClick={() => navigate("/attendance")} style={{ whiteSpace: "nowrap" }}>See All</a></td>
           </tr>  
           <tr>
             <th>Day</th>
@@ -72,7 +69,7 @@ function Attendance(props) {
         <tbody className='mobile-body'>
           <tr>
             <td colSpan={2}><h2>Latest Attendance</h2></td>
-            <td colSpan={1} style={{ textAlign: 'right' }}><a onClick={() => navigate(`${defualt_route}/attendance`)} style={{ whiteSpace: "nowrap" }}>See All</a></td>
+            <td colSpan={1} style={{ textAlign: 'right' }}><a onClick={() => navigate("/attendance")} style={{ whiteSpace: "nowrap" }}>See All</a></td>
           </tr>  
           <tr>
             <th style={{ textAlign: "left", paddingLeft: 10 }}>Day</th>

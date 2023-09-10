@@ -1,6 +1,6 @@
+import React, { useContext, useEffect, useState } from 'react';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AppCtx } from '../../App';
 import AntdLoader from '../../Global/AntdLoader/AntdLoader';
@@ -13,7 +13,7 @@ import moment from 'moment';
 
 function NewsDetails() {
   let { id } = useParams();
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const [newsData, setNewsData] = useState([]);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ function NewsDetails() {
   }
   useEffect(() => {
     if(!id || id == "null" || id == "undefined") {
-      navigate(defualt_route);
+      navigate("/home");
     }
     if(Object.keys(user_data).length > 0) {
       fetchItem();
@@ -40,7 +40,7 @@ function NewsDetails() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/community-news`)}>Community News</a>
+        <a onClick={() => navigate("/community-news")}>Community News</a>
         <p>News Details</p>
       </HistoryNavigation>
 

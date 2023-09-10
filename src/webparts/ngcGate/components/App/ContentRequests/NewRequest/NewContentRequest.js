@@ -31,7 +31,7 @@ const getBase64 = (file) =>
 
 
 function NewContentRequest() {
-  const { defualt_route, user_data, setContentRequestsData } = useContext(AppCtx);
+  const { user_data, setContentRequestsData } = useContext(AppCtx);
   const [requestType, setRequestType] = useState("");
   const [form] = Form.useForm();
   const [btnLoader, setBtnLoader] = useState(false)
@@ -70,7 +70,7 @@ function NewContentRequest() {
       try {
         const response = await AddContentRequest(values);
         message.success("The request has been sent successfully.");
-        navigate(`${defualt_route}/content-requests/${response.data.Id}`);
+        navigate(`/content-requests/${response.data.Id}`);
         response.data.Author = { Title: user_data?.Data?.DisplayName, EMail: user_data?.Data?.Mail }
         setContentRequestsData(prev => [response.data, ...prev])
       } catch (error) {
@@ -86,7 +86,7 @@ function NewContentRequest() {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/content-requests`)}>Content Requests</a>
+        <a onClick={() => navigate("/content-requests")}>Content Requests</a>
         <p>New Request</p>
       </HistoryNavigation>
 

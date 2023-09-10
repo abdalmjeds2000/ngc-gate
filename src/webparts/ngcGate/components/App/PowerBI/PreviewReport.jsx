@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import ProtectRoutePowerBI from '../../Routers/ProtectRoutes/ProtectRoutePowerBI';
 import HistoryNavigation from '../Global/HistoryNavigation/HistoryNavigation';
-import { AppCtx } from '../App';
 import pnp from 'sp-pnp-js';
 import AntdLoader from '../Global/AntdLoader/AntdLoader';
 import { Alert } from 'antd';
@@ -10,7 +9,6 @@ import PowerBIEmbed from '../Global/PowerBiEmbed/PowerBiEmbed';
 
 const PreviewReport = () => {
   const { id } = useParams();
-  const { defualt_route } = useContext(AppCtx);
   const navigate = useNavigate();
   const [item, setItem] = useState({});
 
@@ -30,7 +28,7 @@ const PreviewReport = () => {
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
         <p>{item?.Title}</p>
       </HistoryNavigation>
 

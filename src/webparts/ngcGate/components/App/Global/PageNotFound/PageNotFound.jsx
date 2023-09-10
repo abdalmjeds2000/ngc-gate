@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../App';
 import HistoryNavigation from '../../Global/HistoryNavigation/HistoryNavigation';
 
 
 const PageNotFound = () => {
-  const { defualt_route } = useContext(AppCtx);
   let navigate = useNavigate();
 
   return (
@@ -19,7 +17,7 @@ const PageNotFound = () => {
           status="404"
           title="404"
           subTitle="Sorry, the page you visited does not exist."
-          extra={<Button type="primary" onClick={() => navigate(defualt_route)}>Back Home</Button>}
+          extra={<Button type="primary" onClick={() => navigate("/home")}>Back Home</Button>}
         />
       </div>
     </>

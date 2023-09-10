@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AppCtx } from '../../../App';
 import HistoryNavigation from '../../../Global/HistoryNavigation/HistoryNavigation';
 
 // import { PowerBIEmbed } from 'powerbi-client-react';
@@ -14,7 +13,6 @@ import ProtectRoutePowerBI from '../../../../Routers/ProtectRoutes/ProtectRouteP
 
 function HRDashboard() {
   const navigate = useNavigate();
-  const { defualt_route, sp_context } = useContext(AppCtx);
   
 
   // useEffect(async () => {
@@ -52,8 +50,8 @@ function HRDashboard() {
   return (
     <ProtectRoutePowerBI>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
-        <a onClick={() => navigate(`${defualt_route}/power-bi-dashboards/human-capital`)}>Human Capital</a>
+        <a onClick={() => navigate(`/power-bi-dashboards`)}>Power BI Interactive Dashboards</a>
+        <a onClick={() => navigate(`/power-bi-dashboards/human-capital`)}>Human Capital</a>
         <p>HR Dashboard</p>
       </HistoryNavigation>
 

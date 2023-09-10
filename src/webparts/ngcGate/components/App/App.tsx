@@ -257,7 +257,7 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
   return (
     <AppCtx.Provider value={AppContextProviderSample}>
       <div style={{display: isLoading ? 'none' : '', background: 'linear-gradient(0deg,var(--third-color),#fff)'}}>
-        <Router /* basename={props.spWebUrl} */>
+        <Router basename={props.spWebUrl}>
           <div className="app-container">
             <SidebarNav spWebUrl={props.spWebUrl} />
             <div className="content-container">

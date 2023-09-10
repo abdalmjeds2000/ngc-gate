@@ -6,7 +6,7 @@ import pnp from 'sp-pnp-js';
 
 
 const CommunityNews = () => {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const [newsList, setNewsList] = useState([]);
   let navigate = useNavigate();
 
@@ -39,7 +39,7 @@ const CommunityNews = () => {
             <div className='last-news-container'>
               <div className="header">
                 <h3>Community News</h3>
-                <a onClick={_ => navigate(`${defualt_route}/community-news`)}>See All</a>
+                <a onClick={_ => navigate(`/community-news`)}>See All</a>
               </div>
               <div className='news-list' id='home-news-list'>
                 {
@@ -50,7 +50,7 @@ const CommunityNews = () => {
                         <div className='img' style={{backgroundImage: `url("${row.AttachmentFiles.length > 0 ? row.AttachmentFiles[0]?.ServerRelativeUrl : row.Photos}")`, backgroundColor: 'var(--third-color)'}}></div>
                         <div className='text'>
                           <h3 className="title">
-                            <a onClick={() => navigate(`${defualt_route}/community-news/${row.Id}`)}>{row.Subject}</a>
+                            <a onClick={() => navigate(`/community-news/${row.Id}`)}>{row.Subject}</a>
                           </h3>
                           <p className="description">{description}</p>
                         </div>
@@ -68,7 +68,7 @@ const CommunityNews = () => {
               </div>
               <div className="boxs">
                 {communityNewsBoxs.map(box => {
-                  return <a onClick={_ => navigate(defualt_route + box.to)} key={box.id} className="oranization-documents">
+                  return <a onClick={_ => navigate(box.to)} key={box.id} className="oranization-documents">
                     <div>
                       {box.icon}
                     </div>

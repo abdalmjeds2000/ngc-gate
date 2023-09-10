@@ -10,7 +10,7 @@ import axios from 'axios';
 
 function PreviewITServiceRequest({ isAdmin, issueTypes }) {
   let { id } = useParams();
-  const { user_data, defualt_route, communicationList, setCommunicationList } = useContext(AppCtx);
+  const { user_data, communicationList, setCommunicationList } = useContext(AppCtx);
   const navigate = useNavigate();
 
 
@@ -32,8 +32,8 @@ function PreviewITServiceRequest({ isAdmin, issueTypes }) {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/services-requests`)}>IT Service Center</a>
-        {isAdmin && <a onClick={() => navigate(`${defualt_route}/services-requests/service-requests-dashboard#service-requests`)}>Service Requests Dashboard</a>}
+        <a onClick={() => navigate("/services-requests")}>IT Service Center</a>
+        {isAdmin && <a onClick={() => navigate("/services-requests/service-requests-dashboard#service-requests")}>Service Requests Dashboard</a>}
         <p>Preview IT Service Request</p>
       </HistoryNavigation>
       
@@ -44,7 +44,7 @@ function PreviewITServiceRequest({ isAdmin, issueTypes }) {
           IsAdmin={isAdmin}
           IssueTypes={issueTypes || []}
           organizationUsers={communicationList?.map(user => ({ email: user.email, displayname: user.name }))}
-          handleAfterDeleteRequest={() => navigate(`${defualt_route}/services-requests/service-requests-dashboard#service-requests`)}
+          handleAfterDeleteRequest={() => navigate("/services-requests/service-requests-dashboard#service-requests")}
         />
       </div>
     </>

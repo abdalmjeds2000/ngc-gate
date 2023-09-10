@@ -19,7 +19,7 @@ function PersonInfoMobile() {
         <div className="person-control-buttons">
           <a onClick={() => {
             if(mobile) {
-              navigate(`${defualt_route}/my-team`);
+              navigate(`/my-team`);
             } else {
               window.open(`${defualt_route}/my-team`, '_blank')
             }
@@ -42,12 +42,12 @@ function PersonInfoMobile() {
           </a>
           
           <div className="person-img">
-            <img onClick={() => navigate(defualt_route + '/my-team')} src={`${sp_site}/_layouts/15/userphoto.aspx?size=M&username=${user_data.Data?.Mail}`} alt="Person" />
+            <img onClick={() => navigate('/my-team')} src={`${sp_site}/_layouts/15/userphoto.aspx?size=M&username=${user_data.Data?.Mail}`} alt="Person" />
           </div>
 
           <a onClick={() => {
             if(mobile) {
-              navigate(`${defualt_route}/notification-center`);
+              navigate(`/notification-center`);
             } else {
               window.open(`${defualt_route}/notification-center`, '_blank')
             }
@@ -67,7 +67,7 @@ function PersonInfoMobile() {
           </a>
           <a onClick={() => {
             if(mobile) {
-              navigate(`${defualt_route}/book-meeting-room`);
+              navigate(`/book-meeting-room`);
             } else {
               window.open(`${defualt_route}/book-meeting-room`, '_blank')
             }

@@ -14,7 +14,7 @@ import ProtectRouteCommunication from '../../Routers/ProtectRoutes/ProtectRouteC
 
 
 function ManageNewsContent() {
-  const { user_data, news_list, setNewsList, defualt_route } = useContext(AppCtx);
+  const { user_data, news_list, setNewsList } = useContext(AppCtx);
   const navigate = useNavigate();
   const [openModal, setOpenModal] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -70,7 +70,7 @@ function ManageNewsContent() {
 
   const menu = (id) => (
     <Menu items={[
-        { key: '1', label: <a onClick={() => navigate(defualt_route + `/community-news/${id}`)}>Open</a>  , icon: <FileTextOutlined /> },
+        { key: '1', label: <a onClick={() => navigate(`/community-news/${id}`)}>Open</a>  , icon: <FileTextOutlined /> },
         { key: '2', label: ( <a onClick={async  () => {
             await pnp.sp.web.lists.getByTitle('News').items.getById(id).select('AttachmentFiles,Author/Title,Author/EMail,*').expand('AttachmentFiles,Author').get()
             .then((response) => {
@@ -127,7 +127,7 @@ function ManageNewsContent() {
   return (
     <ProtectRouteCommunication>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/community-news`)}>NGC Community News</a>
+        <a onClick={() => navigate(`/community-news`)}>NGC Community News</a>
         <p>Manage NGC News</p>
       </HistoryNavigation>
 

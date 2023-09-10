@@ -20,7 +20,7 @@ const FinancialImpactOptions = [
 
 
 const NewIncidentReport = () => {
-  const { user_data, defualt_route } = useContext(AppCtx);
+  const { user_data } = useContext(AppCtx);
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [formData, setFormData] = useState({});
@@ -53,7 +53,7 @@ const NewIncidentReport = () => {
       form.resetFields();
       setFileList([]);
       notification.success({message: response?.data?.Message || 'Success'});
-      navigate(`${defualt_route}/incidents-center/report/${response?.data?.Data}`);
+      navigate(`/incidents-center/report/${response?.data?.Data}`);
     } else {
       notification.error({message: 'Failed'});
     }
@@ -86,7 +86,7 @@ const disabledDate = (current) => {
   return (
     <>
       <HistoryNavigation>
-        <a onClick={() => navigate(`${defualt_route}/incidents-center`)}>Risk Center</a>
+        <a onClick={() => navigate(`/incidents-center`)}>Risk Center</a>
         <p>New Incident Report</p>
       </HistoryNavigation>
 
