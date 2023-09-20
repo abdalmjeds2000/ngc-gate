@@ -8,7 +8,7 @@
   background-color: #fff;
   border-radius: 999px;
   border: 2px solid #e7f0fe;
-  color: #3a9bcc;
+  color: var(--second-color);
   border-spacing: 3px;
   overflow: hidden;
   position: relative;
@@ -21,7 +21,7 @@
   background-color: #f3f7ff;
 }
 .user-label.active {
-  border-color: #3a9bcc;
+  border-color: var(--second-color);
   background-color: #f3f7ff;
 }
 .user-label .user-label__image {

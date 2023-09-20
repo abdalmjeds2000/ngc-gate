@@ -19,7 +19,8 @@ const TeamTree = ({ showNames=true, allKeys, treeData, setSelectedUsers }) => {
       defaultExpandedKeys={allKeys}
       fieldNames={{ title: 'DisplayName', key: 'Id', children: 'DirectUsers' }}
       className={`it-teamtree ${!showNames ? 'minimize' : ''}`}
-      defaultSelectedKeys={allKeys}
+      // defaultSelectedKeys={allKeys}
+      defaultSelectedKeys={[treeData[0]?.Id]}
       titleRender={(nodeData) => {
         return (
           <div style={{display:"flex", alignItems:"center"}}>

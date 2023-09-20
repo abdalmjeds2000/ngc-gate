@@ -10,6 +10,7 @@ import axios from 'axios';
 import GetPerformance from './Home/First/NumbersAttendance/API/GetPerformance';
 import { initialStat } from "./9Boxs/ITServices/IT/ITDashboard/pages/RequestsTable/ServicesRequests";
 import { adminTableInitialStat } from "./9Boxs/AdminServices/Dashboard/components/LatestRequests";
+import { AppConfigProvider } from "salic-react-components";
 import './index.css';
 interface AppContext {
   [key: string]: any;
@@ -93,7 +94,8 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
         axios({
           method: 'GET',
           // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=${user.Email}`,
-          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=a.eldahdouh@devsalic.onmicrosoft.com`,
+          url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=${user.UserPrincipalName}`,
+          // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=a.eldahdouh@devsalic.onmicrosoft.com`,
           // url: `${apiUrl}/User/GetUserByEmail?Expand=manager&Email=abdulmohsen.alaiban@salic.com`,
         })
           .then((response) => {
@@ -242,7 +244,12 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
     powerBiToken: powerBiAccessToken,
     adminDashboardRequests, setAdminDashboardRequests
   };
-
+  const appConfigValue = { 
+    apiUrl: apiUrl,
+    filesUrl: "https://dev.salic.com/File",
+    tenantUrl: "https://nationalgrain.sharepoint.com",
+    uploaderUrl: "https://dev.salic.com/api/uploader/up"
+  };
 
 
   // change favicon
@@ -256,21 +263,23 @@ const App: React.FunctionComponent<AppProps> = (props: any) => {
 
   return (
     <AppCtx.Provider value={AppContextProviderSample}>
-      <div style={{display: isLoading ? 'none' : '', background: 'linear-gradient(0deg,var(--third-color),#fff)'}}>
-        <Router basename={props.spWebUrl}>
-          <div className="app-container">
-            <SidebarNav spWebUrl={props.spWebUrl} />
-            <div className="content-container">
-              <Header />
-              <AppRoutes {...props} />
+      <AppConfigProvider config={appConfigValue}>
+        <div style={{display: isLoading ? 'none' : '', background: 'linear-gradient(0deg,var(--third-color),#fff)'}}>
+          <Router basename={props.spWebUrl}>
+            <div className="app-container">
+              <SidebarNav spWebUrl={props.spWebUrl} />
+              <div className="content-container">
+                <Header />
+                <AppRoutes {...props} />
+              </div>
             </div>
-          </div>
-        </Router>
-      </div>
-      <div className="loader" style={{height: !isLoading ? 0 : null}}>
-        <img src={require('../../assets/images/logo.png')} alt="ngc logo" style={{ maxWidth: '250px', textAlign: 'center' }} />
-        <div></div>
-      </div>
+          </Router>
+        </div>
+        <div className="loader" style={{height: !isLoading ? 0 : null}}>
+          <img src={require('../../assets/images/logo.png')} alt="ngc logo" style={{ maxWidth: '250px', textAlign: 'center' }} />
+          <div></div>
+        </div>
+      </AppConfigProvider>
     </AppCtx.Provider>
   )
 }

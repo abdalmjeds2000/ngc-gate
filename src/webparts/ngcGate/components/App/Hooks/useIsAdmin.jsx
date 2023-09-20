@@ -26,7 +26,8 @@ const useIsAdmin = (groupname) => {
       setLoading(true);
       const users = await fetchAdmins(gName);
       users.map(user => {
-        if(user?.Email?.toLowerCase() === user_data?.Data?.Mail?.toLowerCase()) {
+        // if(user?.Email?.toLowerCase() === user_data?.Data?.Mail?.toLowerCase()) {
+        if(user?.UserPrincipalName?.toLowerCase() === user_data?.Data?.Mail?.toLowerCase()) {
           setIsAdmin(true);
         }
       });

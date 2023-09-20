@@ -36,23 +36,23 @@ const Numbers = ({ paramsFilter }) => {
     <div style={{ marginBottom: 25, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gridGap: "25px" }}>
       <StatsCardDivided
         label="Change Requests"
-        values={[{label: "Pending", value: CR_PENDING_COUNT, color: "#FFC26F"}, {label: "Closed", value: CR_CLOSED_COUNT, color: "#3a9bcc"}]}
-        color="#3a9bcc"
+        values={[{label: "Pending", value: CR_PENDING_COUNT, color: "var(--second-color)"}, {label: "Closed", value: CR_CLOSED_COUNT, color: "var(--text-color)"}]}
+        color="var(--second-color)"
       />
       <StatsCardDivided
         label="Enhancement Requests"
-        values={[{label: "Pending", value: ER_PENDING_COUNT, color: "#FFC26F"}, {label: "Closed", value: ER_CLOSED_COUNT, color: "#3a9bcc"}]}
-        color="#3a9bcc"
+        values={[{label: "Pending", value: ER_PENDING_COUNT, color: "var(--second-color)"}, {label: "Closed", value: ER_CLOSED_COUNT, color: "var(--text-color)"}]}
+        color="var(--second-color)"
       />
       <StatsCard
         label="Waiting Approval"
         value={WAITING_APPROVAL_COUNT}
-        color="#3a9bcc"
+        color="var(--second-color)"
       />
       <StatsCard
         label="Total"
         value={TOTAL_COUNT}
-        color="#3a9bcc"
+        color="var(--second-color)"
       />
     </div>
   )

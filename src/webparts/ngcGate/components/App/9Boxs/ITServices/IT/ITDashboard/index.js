@@ -35,7 +35,8 @@ const Main = () => {
     return flatData;
   }
   const allUsers = allChildren([user_data?.Data]);
-  const [selectedUsers, setSelectedUsers] = useState(allUsers);
+  // const [selectedUsers, setSelectedUsers] = useState(allUsers);
+  const [selectedUsers, setSelectedUsers] = useState([user_data?.Data]);
   const [datesFilter, setDatesFilter] = useState(initDatesFilter);
   const [showTreeNames, setShowTreeNames] = useState(true);
 
