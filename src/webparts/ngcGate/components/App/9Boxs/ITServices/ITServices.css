@@ -30,6 +30,15 @@
 .ant-table-row.Waiting_For_Approval {
   background: linear-gradient(90deg, #fff0db 0%, rgba(255,255,255,1) 100%) !important;
 }
+.preview-request-container .content .timeline .extra-card .ant-timeline-item-content {
+  margin: 0 0 0 70px !important;
+  background: #f8f8f8 !important;
+  border: 1px solid #d0d0d0;
+}
+.preview-request-container .content .timeline .extra-card .ant-timeline-item-content::before {
+  display: none !important;
+}
+
 
 
 .it-service-requests-table-container .ant-table-cell {
